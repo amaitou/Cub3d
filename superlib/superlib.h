@@ -6,18 +6,18 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 11:12:45 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/01/24 00:18:46 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/08/19 15:25:55 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 
-  You might see some of additional functions (static functions particularly) 
-  within some of my c files and those functions are defined as static to not 
-  be read by any external files as well as they were made to help have my code
-  done.
+	You might see some of additional functions (static functions particularly) 
+	within some of my c files and those functions are defined as static to not 
+	be read by any external files as well as they were made to help have my code
+	done.
 
-  Note: I hate using the keyword NULL so you might see (void *)0 alot in my codes
+	Note: I hate using the keyword NULL so you might see (void *)0 alot in my codes
 
  */
 
@@ -108,5 +108,8 @@ int		ft_putstr(char *s);
 int		ft_printhex(t_ul address, char *s);
 int		ft_putsigned(int nb);
 int		ft_putunsigned(t_ui nb);
+
+// more helpful functions
+int		ft_array_len(char **array);
 
 #endif
