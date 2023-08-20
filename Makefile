@@ -6,7 +6,9 @@ CFILES = sources/cub3d.c \
 		 sources/displayer.c \
 		 sources/parser_utils.c \
 		 sources/parser.c \
-		 sources/leaks.c
+		 sources/leaks.c \
+		 sources/errors.c \
+		 sources/checker.c
 
 SUPERLIB_DIR = ./superlib
 SUPERLIB = ./superlib/superlib.a

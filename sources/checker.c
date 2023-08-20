@@ -1,37 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.c                                            :+:      :+:    :+:   */
+/*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/20 15:06:11 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/08/20 19:16:29 by amait-ou         ###   ########.fr       */
+/*   Created: 2023/08/20 18:38:31 by amait-ou          #+#    #+#             */
+/*   Updated: 2023/08/20 19:17:02 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-int	main(int ac, char **ag)
+int	__checker(t_game *game)
 {
-	t_game	*game;
+	int	error_for_elements;
 
-	if (ac == 2)
+	error_for_elements = check_elements(game);
+	if (error_for_elements == 1)
 	{
-		game = (t_game *)malloc(sizeof(t_game));
-		game->path = ag[1];
-		if (!game)
-		{
-			ft_putendl_fd("Error: Failed To Run The Game", 2);
-			return (0);
-		}
-		__reader(game);
-		__parser(game);
-		if (__checker(game))
-			return (0);
-		__display_elements(game);
-		__display_map(game);
-		system("leaks cub3D");
+		ft_putendl_fd("Error: Invalid Color", 2);
+		return (1);
+	}
+	if (error_for_elements == 2)
+	{
+		ft_putendl_fd("Error: Invalid Directions", 2);
+		return (2);
 	}
 	return (0);
 }

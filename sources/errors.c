@@ -1,37 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.c                                            :+:      :+:    :+:   */
+/*   errors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/20 15:06:11 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/08/20 19:16:29 by amait-ou         ###   ########.fr       */
+/*   Created: 2023/08/20 18:31:27 by amait-ou          #+#    #+#             */
+/*   Updated: 2023/08/20 19:18:15 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-int	main(int ac, char **ag)
+int	check_elements(t_game *game)
 {
-	t_game	*game;
+	t_elements	*elements;
 
-	if (ac == 2)
-	{
-		game = (t_game *)malloc(sizeof(t_game));
-		game->path = ag[1];
-		if (!game)
-		{
-			ft_putendl_fd("Error: Failed To Run The Game", 2);
-			return (0);
-		}
-		__reader(game);
-		__parser(game);
-		if (__checker(game))
-			return (0);
-		__display_elements(game);
-		__display_map(game);
-		system("leaks cub3D");
-	}
+	elements = game->elements;
+	if (elements->ceiling_c.type == _NONE || elements->floor_c.type == _NONE)
+		return (1);
+	if (!elements->east.texture || !elements->north.texture
+		|| !elements->west.texture || !elements->south.texture)
+		return (2);
 	return (0);
 }
