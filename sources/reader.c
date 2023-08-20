@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 15:00:09 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/08/20 16:53:24 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/08/20 20:05:28 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ int	__reader(t_game *game)
 	if (game->fd < 0)
 		return (1);
 	line = get_next_line(game->fd);
-	game->lines = NULL;
 	if (!line)
 		return (2);
+	game->lines = NULL;
 	while (line)
 	{
 		game->lines = ft_strjoin(game->lines, line);

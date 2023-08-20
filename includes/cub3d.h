@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 12:55:08 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/08/20 19:16:39 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/08/20 20:51:24 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,7 +115,8 @@ void	__display_map(t_game *game);
 void	free_array(char **arr);
 
 // error
-
+int		check_reader(t_game *game);
+int		check_parser(t_game *game);
 int		check_elements(t_game *game);
 int		__checker(t_game *game);
 #endif

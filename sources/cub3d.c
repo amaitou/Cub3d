@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 15:06:11 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/08/20 19:24:27 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/08/20 19:53:52 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@ int	main(int ac, char **ag)
 			ft_putendl_fd("Error: Failed To Run The Game", 2);
 			return (0);
 		}
-		__reader(game);
-		__parser(game);
 		if (__checker(game))
 		{
 			system("leaks cub3D");
@@ -36,5 +34,7 @@ int	main(int ac, char **ag)
 		__display_map(game);
 		system("leaks cub3D");
 	}
+	else
+		ft_putendl_fd("Error: Invalid Arguments", 2);
 	return (0);
 }

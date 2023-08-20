@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 17:26:28 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/08/20 17:00:51 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/08/20 20:53:03 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,10 @@ int	parse_elements(t_game *game)
 			game->elements->counter++;
 		}
 		else
+		{
+			free_array(element);
 			return (1);
+		}
 		free_array(element);
 		++i;
 	}
@@ -43,6 +46,8 @@ int	parse_map(t_game *game)
 	j = 0;
 	i = game->elements->counter;
 	game->map = (char **)malloc(sizeof(char *) * lines_count(game) + 1);
+	if (!game->map)
+		return (1);
 	while (game->all_items[i])
 	{
 		game->map[j] = ft_strdup(game->all_items[i]);
@@ -59,16 +64,11 @@ int	__parser(t_game *game)
 	game->elements = (t_elements *)malloc(sizeof(t_elements));
 	init_elements(game);
 	if (!game->elements)
-	{
-		ft_putendl_fd("Error: Failed to run the game", 2);
 		return (1);
-	}
 	if (parse_elements(game))
-	{
-		ft_putendl_fd("Error: Failed Parse Map Elements", 2);
-		return (1);
-	}
-	parse_map(game);
+		return (2);
+	if (parse_map(game))
+		return (3);
 	free(game->all_items);
 	return (0);
 }
