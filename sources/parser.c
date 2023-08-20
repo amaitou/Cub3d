@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 17:26:28 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/08/20 20:53:03 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/08/20 21:03:29 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,10 @@ int	parse_elements(t_game *game)
 	{
 		element = ft_split(game->all_items[i], ' ');
 		free(game->all_items[i]);
-		if (ft_array_len(element) > 1)
+		if (ft_array_len(element) > 1 && (!ft_strcmp(element[0], "NO") 
+				|| !ft_strcmp(element[0], "SO") || !ft_strcmp(element[0], "EA")
+				|| !ft_strcmp(element[0], "WE") || !ft_strcmp(element[0], "F")
+				|| !ft_strcmp(element[0], "C")))
 		{
 			assign_directions(game, element);
 			game->elements->counter++;
