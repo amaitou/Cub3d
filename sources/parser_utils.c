@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 15:17:02 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/08/20 16:59:04 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/08/20 19:26:05 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,22 +52,22 @@ void	assign_directions(t_game *game, char **element)
 	if (!ft_strcmp("NO", element[0]))
 	{
 		game->elements->north.direction = _NORTH;
-		game->elements->north.texture = ft_strdup(element[0]);
+		game->elements->north.texture = ft_strdup(element[1]);
 	}
 	else if (!ft_strcmp("SO", element[0]))
 	{
 		game->elements->south.direction = _SOUTH;
-		game->elements->south.texture = ft_strdup(element[0]);
+		game->elements->south.texture = ft_strdup(element[1]);
 	}
 	else if (!ft_strcmp("EA", element[0]))
 	{
 		game->elements->east.direction = _EAST;
-		game->elements->east.texture = ft_strdup(element[0]);
+		game->elements->east.texture = ft_strdup(element[1]);
 	}
 	else if (!ft_strcmp("WE", element[0]))
 	{
 		game->elements->west.direction = _WEST;
-		game->elements->west.texture = ft_strdup(element[0]);
+		game->elements->west.texture = ft_strdup(element[1]);
 	}
 	else
 		assign_color(game, element);
