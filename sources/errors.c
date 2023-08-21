@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 20:50:39 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/08/21 19:53:00 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/08/21 19:58:52 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int	check_elements(t_game *game)
 {
 	t_elements	*elements;
 
-	elements = game->elements;
+	elements = &game->elements;
 	if (elements->ceiling_c.type == _NONE || elements->floor_c.type == _NONE)
 	{
 		ft_putendl_fd("Error: Invalid Colors", 2);

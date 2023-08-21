@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 12:55:08 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/08/21 19:42:21 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/08/21 19:55:34 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ typedef struct s_game
 	char			**map;
 	char			*path;
 	int				fd;
-	t_elements		*elements;
+	t_elements		elements;
 	t_player		player;
 }	t_game;
 

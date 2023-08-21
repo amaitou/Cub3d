@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 15:08:45 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/08/20 16:11:29 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/08/21 19:58:32 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,20 +44,20 @@ void	display_directions(t_enums direction)
 
 void	__display_elements(t_game *game)
 {
-	ft_printf("north -> %s, ", game->elements->north.texture);
-	display_directions(game->elements->north.direction);
-	ft_printf("south -> %s, ", game->elements->south.texture);
-	display_directions(game->elements->south.direction);
-	ft_printf("west -> %s, ", game->elements->west.texture);
-	display_directions(game->elements->west.direction);
-	ft_printf("east -> %s, ", game->elements->east.texture);
-	display_directions(game->elements->east.direction);
-	ft_printf("floor -> %s, %s, ", game->elements->floor_c.surface,
-		game->elements->floor_c.rgb);
-	display_directions(game->elements->floor_c.type);
-	ft_printf("ceiling -> %s, %s, ", game->elements->ceiling_c.surface,
-		game->elements->ceiling_c.rgb);
-	display_directions(game->elements->ceiling_c.type);
+	ft_printf("north -> %s, ", game->elements.north.texture);
+	display_directions(game->elements.north.direction);
+	ft_printf("south -> %s, ", game->elements.south.texture);
+	display_directions(game->elements.south.direction);
+	ft_printf("west -> %s, ", game->elements.west.texture);
+	display_directions(game->elements.west.direction);
+	ft_printf("east -> %s, ", game->elements.east.texture);
+	display_directions(game->elements.east.direction);
+	ft_printf("floor -> %s, %s, ", game->elements.floor_c.surface,
+		game->elements.floor_c.rgb);
+	display_directions(game->elements.floor_c.type);
+	ft_printf("ceiling -> %s, %s, ", game->elements.ceiling_c.surface,
+		game->elements.ceiling_c.rgb);
+	display_directions(game->elements.ceiling_c.type);
 }
 
 void	__display_map(t_game *game)

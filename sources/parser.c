@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 17:26:28 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/08/21 19:13:55 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/08/21 19:56:34 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@ int	parse_elements(t_game *game)
 	int		i;
 
 	i = 0;
-	while (game->elements->counter < 6)
+	while (game->elements.counter < 6)
 	{
 		element = ft_split(game->all_items[i], ' ');
 		free(game->all_items[i]);
 		if (ft_array_len(element) > 1)
 		{
 			assign_directions(game, element);
-			game->elements->counter++;
+			game->elements.counter++;
 		}
 		else
 		{
@@ -44,7 +44,7 @@ int	parse_map(t_game *game)
 	int	i;
 
 	j = 0;
-	i = game->elements->counter;
+	i = game->elements.counter;
 	game->map = (char **)malloc(sizeof(char *) * lines_count(game) + 1);
 	if (!game->map)
 		return (1);
@@ -61,10 +61,7 @@ int	parse_map(t_game *game)
 
 int	__parser(t_game *game)
 {
-	game->elements = (t_elements *)malloc(sizeof(t_elements));
 	init_elements(game);
-	if (!game->elements)
-		return (1);
 	if (parse_elements(game))
 		return (2);
 	if (parse_map(game))
