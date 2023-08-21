@@ -1,26 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.c                                          :+:      :+:    :+:   */
+/*   errors_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/20 18:38:31 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/08/21 19:47:34 by amait-ou         ###   ########.fr       */
+/*   Created: 2023/08/21 19:27:18 by amait-ou          #+#    #+#             */
+/*   Updated: 2023/08/21 19:43:59 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-int	__checker(t_game *game)
+void	error_helper(t_game *game, char d, int x, int y)
 {
-	if (check_reader(game))
-		return (1);
-	if (check_parser(game))
-		return (2);
-	if (check_elements(game))
-		return (3);
-	if (check_map(game))
-		return (4);
-	return (0);
+	if (d == 'N')
+	{
+		game->north++;
+		game->player.x = x;
+		game->player.y = y;
+	}
+	if (d == 'E')
+	{
+		game->east++;
+		game->player.x = x;
+		game->player.y = y;
+	}
+	if (d == 'W')
+	{
+		game->west++;
+		game->player.x = x;
+		game->player.y = y;
+	}
+	if (d == 'S')
+	{
+		game->south++;
+		game->player.x = x;
+		game->player.y = y;
+	}
 }

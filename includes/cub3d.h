@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 12:55:08 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/08/20 20:51:24 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/08/21 19:42:21 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,12 @@ typedef struct s_elements
 	t_color_c	ceiling_c;
 }	t_elements;
 
+typedef struct s_player
+{
+	int	x;
+	int	y;
+}	t_player;
+
 typedef struct s_mlx
 {
 	void	*mlx;
@@ -86,12 +92,17 @@ typedef struct s_mlx
 
 typedef struct s_game
 {
+	int				west;
+	int				east;
+	int				south;
+	int				north;
 	char			**all_items;
 	char			*lines;
 	char			**map;
 	char			*path;
 	int				fd;
 	t_elements		*elements;
+	t_player		player;
 }	t_game;
 
 // reader
@@ -118,5 +129,7 @@ void	free_array(char **arr);
 int		check_reader(t_game *game);
 int		check_parser(t_game *game);
 int		check_elements(t_game *game);
+int		check_map(t_game *game);
 int		__checker(t_game *game);
+void	error_helper(t_game *game, char d, int x, int y);
 #endif

@@ -8,7 +8,8 @@ CFILES = sources/cub3d.c \
 		 sources/parser.c \
 		 sources/leaks.c \
 		 sources/errors.c \
-		 sources/checker.c
+		 sources/checker.c \
+		 sources/errors_utils.c
 
 SUPERLIB_DIR = ./superlib
 SUPERLIB = ./superlib/superlib.a

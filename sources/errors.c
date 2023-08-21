@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 20:50:39 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/08/20 20:54:18 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/08/21 19:53:00 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,35 @@ int	check_elements(t_game *game)
 	{
 		ft_putendl_fd("Error: Invalid Directions", 2);
 		return (2);
+	}
+	return (0);
+}
+
+int	check_map(t_game *game)
+{
+	int	i;
+	int	j;
+
+	game->player.x = 0;
+	game->player.y = 0;
+	i = -1;
+	while (game->map[++i])
+	{
+		j = 0;
+		while (game->map[i][j] == ' ' || game->map[i][j] == '\t')
+			++j;
+		while (game->map[i][j])
+		{
+			if (game->map[i][j] == 'N' || game->map[i][j] == 'W' 
+					|| game->map[i][j] == 'S' || game->map[i][j] == 'E')
+				error_helper(game, game->map[i][j], j, i);
+			++j;
+		}
+	}
+	if (!(game->east + game->north + game->west + game->south == 1))
+	{
+		ft_putendl_fd("Error: There Is No Only One Position For The Player", 2);
+		return (1);
 	}
 	return (0);
 }
