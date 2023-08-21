@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 18:38:31 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/08/21 19:47:34 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/08/21 22:28:28 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,7 @@ int	__checker(t_game *game)
 		return (3);
 	if (check_map(game))
 		return (4);
+	// if (check_walls(game))
+	// 	return (5);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 20:50:39 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/08/21 20:32:44 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/08/21 22:28:33 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,16 +72,6 @@ int	check_elements(t_game *game)
 	return (0);
 }
 
-static int	check_map_helper(t_game *game, int i, int j)
-{
-	if (game->map[i][j] == 'N' || game->map[i][j] == 'W' 
-			|| game->map[i][j] == 'S' || game->map[i][j] == 'E')
-		error_helper(game, game->map[i][j], j, i);
-	else if (!(ft_strchr("\t 01", game->map[i][j])))
-		return (1);
-	return (0);
-}
-
 int	check_map(t_game *game)
 {
 	int	i;
@@ -109,3 +99,17 @@ int	check_map(t_game *game)
 	}
 	return (0);
 }
+
+// int	check_walls(t_game *game)
+// {
+// 	int	i;
+
+// 	i = 0;
+// 	while (game->map[0][i] && game->map[game->len - 1][i])
+// 	{
+// 		if (!(game->map[0][i] == '1' && game->map[game->len - 1][i] == '1'))
+// 			return (1);
+// 		++i;
+// 	}
+// 	return (0);
+// }

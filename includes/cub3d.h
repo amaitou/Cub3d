@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 12:55:08 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/08/21 19:55:34 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/08/21 22:28:48 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,7 @@ typedef struct s_game
 	char			**all_items;
 	char			*lines;
 	char			**map;
+	int				len;
 	char			*path;
 	int				fd;
 	t_elements		elements;
@@ -130,6 +131,8 @@ int		check_reader(t_game *game);
 int		check_parser(t_game *game);
 int		check_elements(t_game *game);
 int		check_map(t_game *game);
+int		check_map_helper(t_game *game, int i, int j);
+// int		check_walls(t_game *game);
 int		__checker(t_game *game);
 void	error_helper(t_game *game, char d, int x, int y);
 #endif

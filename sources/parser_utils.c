@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 15:17:02 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/08/21 19:57:55 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/08/21 22:19:30 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,5 +80,6 @@ int	lines_count(t_game *game)
 	i = game->elements.counter;
 	while (game->all_items[i])
 		++i;
+	game->len = i;
 	return (i);
 }
