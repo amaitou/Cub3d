@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   errors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 20:50:39 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/08/21 22:28:33 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/08/22 23:52:53 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,8 @@ int	check_map(t_game *game)
 	while (game->map[++i])
 	{
 		j = 0;
-		while (game->map[i][j] == ' ' || game->map[i][j] == '\t')
+		while ((game->map[i][j] == ' ' || game->map[i][j] == '\t')
+			&& game->map[i][j])
 			++j;
 		while (game->map[i][j])
 		{
@@ -100,16 +101,20 @@ int	check_map(t_game *game)
 	return (0);
 }
 
-// int	check_walls(t_game *game)
-// {
-// 	int	i;
+int	check_walls(t_game *game)
+{
+	int	i;
 
-// 	i = 0;
-// 	while (game->map[0][i] && game->map[game->len - 1][i])
-// 	{
-// 		if (!(game->map[0][i] == '1' && game->map[game->len - 1][i] == '1'))
-// 			return (1);
-// 		++i;
-// 	}
-// 	return (0);
-// }
+	i = 0;
+	while (game->map[i])
+	{
+		if (starts_with_one(game->map[i])
+			|| ends_with_one(game->map[i]))
+		{
+			ft_putendl_fd("Error: Map Is Not Surrounded By Walls", 2);
+			return (1);
+		}
+		++i;
+	}
+	return (0);
+}

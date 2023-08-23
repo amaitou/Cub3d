@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 12:55:08 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/08/21 22:28:48 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/08/22 23:52:14 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "../superlib/superlib.h"
 # include <math.h>
 # include <fcntl.h>
-# include "../mlx/include/MLX42/MLX42.h"
+// # include "../mlx/include/MLX42/MLX42.h"
 
 typedef enum e_enums
 {
@@ -132,7 +132,9 @@ int		check_parser(t_game *game);
 int		check_elements(t_game *game);
 int		check_map(t_game *game);
 int		check_map_helper(t_game *game, int i, int j);
-// int		check_walls(t_game *game);
+int		starts_with_one(char *s);
+int		ends_with_one(char *s);
+int		check_walls(t_game *game);
 int		__checker(t_game *game);
 void	error_helper(t_game *game, char d, int x, int y);
 #endif

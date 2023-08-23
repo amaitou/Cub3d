@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   errors_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 19:27:18 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/08/21 22:14:44 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/08/22 23:52:08 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,31 @@ int	check_map_helper(t_game *game, int i, int j)
 	else if (!(ft_strchr("\t 01", game->map[i][j])))
 		return (1);
 	return (0);
+}
+
+int	starts_with_one(char *s)
+{
+	while ((*s == ' ' || *s == '\t') && *s)
+		++s;
+	if (*s && *s == '1')
+		return (0);
+	return (1);
+}
+
+int	ends_with_one(char *s)
+{
+	int	b;
+
+	b = 0;
+	while (*s)
+	{
+		if (*s == '0')
+			b = 0;
+		else if (*s == '1')
+			b = 1;
+		++s;
+	}
+	if (b)
+		return (0);
+	return (1);
 }
