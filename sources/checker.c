@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 18:38:31 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/08/22 23:53:48 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/08/23 16:23:25 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,7 @@ int	__checker(t_game *game)
 		return (4);
 	if (check_walls(game))
 		return (5);
+	if (map_closed(game))
+		return (6);
 	return (0);
 }
