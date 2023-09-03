@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 15:08:45 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/08/21 19:58:32 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/03 20:21:08 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	__display_items(t_game *game)
 	}
 }
 
-void	display_directions(t_enums direction)
+static void	display_directions(t_enums direction)
 {
 	if (direction == _NORTH)
 		ft_putendl_fd("north", 2);

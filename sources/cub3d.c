@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 15:06:11 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/08/22 23:52:23 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/03 20:20:23 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-void	init_directions(t_game *game)
+static void	init_directions(t_game *game)
 {
 	game->east = 0;
 	game->north = 0;

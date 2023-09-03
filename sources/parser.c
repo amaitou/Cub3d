@@ -6,13 +6,13 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 17:26:28 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/08/23 17:46:06 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/03 20:22:25 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-int	parse_elements(t_game *game)
+static int	parse_elements(t_game *game)
 {
 	char	**element;
 	int		i;
@@ -38,7 +38,7 @@ int	parse_elements(t_game *game)
 	return (0);
 }
 
-int	parse_map(t_game *game)
+static int	parse_map(t_game *game)
 {
 	int	j;
 	int	i;

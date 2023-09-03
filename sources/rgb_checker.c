@@ -6,13 +6,13 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 15:28:15 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/03 16:08:49 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/03 20:19:41 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-int	check_for_weird_chars(char *s)
+static int	check_for_weird_chars(char *s)
 {
 	int	i;
 	int	c;
@@ -32,7 +32,7 @@ int	check_for_weird_chars(char *s)
 	return (0);
 }
 
-int	check_rgb_range(char *s)
+static int	check_rgb_range(char *s)
 {
 	int		return_value;
 	char	**p;
@@ -60,7 +60,7 @@ int	check_rgb_range(char *s)
 	return (0);
 }
 
-int	print_error(char *s)
+static int	print_error(char *s)
 {
 	int	return_value;
 
