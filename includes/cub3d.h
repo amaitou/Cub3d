@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 12:55:08 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/08/23 16:22:44 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/03 15:53:19 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,6 +136,10 @@ int		starts_with_one(char *s);
 int		ends_with_one(char *s);
 int		check_walls(t_game *game);
 int		map_closed(t_game *game);
+int		check_for_weird_chars(char *s);
+int		check_rgb_range(char *s);
+int		print_error(char *s);
+int		check_rgb(t_game *game);
 int		__checker(t_game *game);
 void	error_helper(t_game *game, char d, int x, int y);
 #endif

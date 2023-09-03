@@ -10,7 +10,8 @@ CFILES = sources/cub3d.c \
 		 sources/errors.c \
 		 sources/checker.c \
 		 sources/errors_utils.c \
-		 sources/map_closed.c
+		 sources/map_closed.c \
+		 sources/rgb_checker.c
 
 SUPERLIB_DIR = ./superlib
 SUPERLIB = ./superlib/superlib.a
