@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   errors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 20:50:39 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/08/22 23:52:53 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/03 20:00:36 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,11 @@ int	check_reader(t_game *game)
 	{
 		ft_putendl_fd("Error: File is Empty", 2);
 		return (2);
+	}
+	if (error_for_reader == 3)
+	{
+		ft_putendl_fd("Error: The Map Contains Consecutive New Lines", 2);
+		return (3);
 	}
 	return (0);
 }

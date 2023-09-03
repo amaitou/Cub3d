@@ -3,6 +3,7 @@ CC = cc
 CFLAGS = -Wextra -Wall -Werror
 CFILES = sources/cub3d.c \
 		 sources/reader.c \
+		 sources/check_reader.c \
 		 sources/displayer.c \
 		 sources/parser_utils.c \
 		 sources/parser.c \

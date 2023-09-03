@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 15:00:09 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/08/20 20:05:28 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/03 20:00:02 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ int	__reader(t_game *game)
 		game->lines = ft_strjoin(game->lines, line);
 		line = get_next_line(game->fd);
 	}
+	if (check_consecutive_new_lines(game->lines))
+		return (3);
 	game->all_items = ft_split(game->lines, '\n');
 	free(line);
 	return (0);
