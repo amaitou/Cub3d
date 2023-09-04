@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 19:40:27 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/03 20:18:41 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/04 14:39:23 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,13 @@ static int	skip_chars(char *s, int *i)
 	return (*i);
 }
 
-static int	consecutive_new_lines(char *s, int i, char *str)
+static int	consecutive_new_lines(char *s, int i)
 {
 	while (s[i])
 	{
 		if (s[i] == '\n' && s[i + 1] && s[i + 1] == '\n')
 		{
-			free(str);
+			free(s);
 			return (1);
 		}
 		++i;
@@ -60,7 +60,7 @@ int	check_consecutive_new_lines(char *s)
 		if (counter == 6)
 			break ;
 	}
-	if (consecutive_new_lines(s, i, str))
+	if (consecutive_new_lines(str, i))
 		return (1);
 	free(str);
 	return (0);
