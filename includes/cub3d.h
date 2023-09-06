@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 12:55:08 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/03 20:22:36 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/06 17:35:42 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,12 @@
 # define CUB3D_H
 
 # include "../superlib/superlib.h"
+# include "../mlx/include/MLX42/MLX42.h"
 # include <math.h>
 # include <fcntl.h>
-// # include "../mlx/include/MLX42/MLX42.h"
+# include <stdbool.h>
+
+# define SIZE 50
 
 typedef enum e_enums
 {
@@ -84,27 +87,40 @@ typedef struct s_player
 	int	y;
 }	t_player;
 
+typedef struct s_map
+{
+	char	**map;
+	size_t	width;
+	size_t	height;
+	int		map_len;
+}	t_map;
+
 typedef struct s_mlx
 {
-	void	*mlx;
-	void	*win;
+	mlx_t		*mlx;
+	mlx_image_t	*window;
 }	t_mlx;
 
 typedef struct s_game
 {
+	t_elements		elements;
+	t_player		player;
+	t_mlx			mlx;
+	t_map			map;
 	int				west;
 	int				east;
 	int				south;
 	int				north;
 	char			**all_items;
 	char			*lines;
-	char			**map;
-	int				len;
 	char			*path;
 	int				fd;
-	t_elements		elements;
-	t_player		player;
 }	t_game;
+
+// cub3d
+void	init_members(t_game *game);
+int		get_rgba(int r, int g, int b, int a);
+void	mlx(t_game *game);
 
 // reader
 int		__reader(t_game *game);
@@ -138,4 +154,8 @@ int		map_closed(t_game *game);
 int		check_rgb(t_game *game);
 int		__checker(t_game *game);
 void	error_helper(t_game *game, char d, int x, int y);
+
+// mini map
+void	draw_mini_map(t_game *game);
+
 #endif

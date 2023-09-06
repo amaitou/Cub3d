@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 15:17:02 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/08/23 15:33:01 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/06 19:52:22 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,10 +76,12 @@ void	assign_directions(t_game *game, char **element)
 int	lines_count(t_game *game)
 {
 	int	i;
+	int	j;
 
 	i = game->elements.counter;
+	j = i;
 	while (game->all_items[i])
 		++i;
-	game->len = i;
+	game->map.map_len = i - j;
 	return (i);
 }

@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 17:26:28 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/03 20:22:25 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/06 16:40:00 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,17 +45,20 @@ static int	parse_map(t_game *game)
 
 	j = 0;
 	i = game->elements.counter;
-	game->map = (char **)malloc(sizeof(char *) * lines_count(game) + 1);
-	if (!game->map)
+	game->map.map = (char **)malloc(sizeof(char *) * lines_count(game) + 1);
+	if (!game->map.map)
 		return (1);
 	while (game->all_items[i])
 	{
-		game->map[j] = ft_strdup(game->all_items[i]);
+		game->map.map[j] = ft_strdup(game->all_items[i]);
+		if (ft_strlen(game->all_items[i]) > game->map.width)
+			game->map.width = ft_strlen(game->all_items[i]);
 		free(game->all_items[i]);
 		++i;
 		++j;
 	}
-	game->map[j] = NULL;
+	game->map.map[j] = NULL;
+	game->map.height = j;
 	return (0);
 }
 

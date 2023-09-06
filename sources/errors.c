@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 20:50:39 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/03 20:00:36 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/06 16:40:57 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,13 +85,13 @@ int	check_map(t_game *game)
 	game->player.x = 0;
 	game->player.y = 0;
 	i = -1;
-	while (game->map[++i])
+	while (game->map.map[++i])
 	{
 		j = 0;
-		while ((game->map[i][j] == ' ' || game->map[i][j] == '\t')
-			&& game->map[i][j])
+		while ((game->map.map[i][j] == ' ' || game->map.map[i][j] == '\t')
+			&& game->map.map[i][j])
 			++j;
-		while (game->map[i][j])
+		while (game->map.map[i][j])
 		{
 			if (check_map_helper(game, i, j))
 				return (1);
@@ -111,10 +111,10 @@ int	check_walls(t_game *game)
 	int	i;
 
 	i = 0;
-	while (game->map[i])
+	while (game->map.map[i])
 	{
-		if (starts_with_one(game->map[i])
-			|| ends_with_one(game->map[i]))
+		if (starts_with_one(game->map.map[i])
+			|| ends_with_one(game->map.map[i]))
 		{
 			ft_putendl_fd("Error: Map Is Not Surrounded By Walls", 2);
 			return (1);

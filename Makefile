@@ -12,10 +12,15 @@ CFILES = sources/cub3d.c \
 		 sources/checker.c \
 		 sources/errors_utils.c \
 		 sources/map_closed.c \
-		 sources/rgb_checker.c
+		 sources/rgb_checker.c \
+		 sources/cub3d_utils.c \
+		 sources/draw_mini_map.c
 
 SUPERLIB_DIR = ./superlib
 SUPERLIB = ./superlib/superlib.a
+LIBS = ./mlx/build/libmlx42.a
+GLFW = $(shell brew --prefix glfw)
+MLX = $(LIBS) -lmlx -framework Cocoa -framework OpenGL -framework IOKit -lglfw -L"$(GLFW)/lib"
 
 all: $(SUPERLIB) $(NAME)
 
@@ -27,7 +32,7 @@ $(SUPERLIB):
 # generate the executable file "cub3D" (Mandatory part)
 $(NAME): $(CFILES)
 	@echo "\033[95m[.] output *.c to cub3D\033[0m"
-	@$(CC) $(CFLAGS) $(CFILES) -lmlx -framework OpenGL -framework AppKit $(SUPERLIB) -o $@
+	@$(CC) $(CFLAGS) $(CFILES) $(SUPERLIB) $(MLX) -o $@
 
 bonus: all $(NAME_2)
 

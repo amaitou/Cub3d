@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 19:27:18 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/03 15:28:07 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/06 16:41:13 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,10 @@ void	error_helper(t_game *game, char d, int x, int y)
 
 int	check_map_helper(t_game *game, int i, int j)
 {
-	if (game->map[i][j] == 'N' || game->map[i][j] == 'W' 
-			|| game->map[i][j] == 'S' || game->map[i][j] == 'E')
-		error_helper(game, game->map[i][j], j, i);
-	else if (!(ft_strchr("\t 01", game->map[i][j])))
+	if (game->map.map[i][j] == 'N' || game->map.map[i][j] == 'W' 
+			|| game->map.map[i][j] == 'S' || game->map.map[i][j] == 'E')
+		error_helper(game, game->map.map[i][j], j, i);
+	else if (!(ft_strchr("\t 01", game->map.map[i][j])))
 		return (1);
 	return (0);
 }

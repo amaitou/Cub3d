@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 15:34:53 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/08/23 17:36:16 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/06 16:40:32 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,14 +47,14 @@ int	map_closed(t_game *game)
 	size_t		index;
 
 	i = 0;
-	while (game->map[i])
+	while (game->map.map[i])
 	{
-		current = game->map[i];
+		current = game->map.map[i];
 		if (check_zero_with_space(current, &index))
 		{
-			if (game->map[i + 1])
+			if (game->map.map[i + 1])
 			{
-				next = game->map[i + 1];
+				next = game->map.map[i + 1];
 				if (check_index_with_space(next, index)
 					|| index >= ft_strlen(next))
 				{
