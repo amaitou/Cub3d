@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mini_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 17:06:00 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/07 16:10:55 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/07 16:43:59 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,24 @@
 
 static void	draw_player(int color, int y, int x, t_game *game)
 {
+	int	r;
 	int	_x;
 	int	_y;
 
-	_y = 0;
-	while (_y < 8)
+	r = SIZE / 8;
+
+	_y = -r;
+	while (_y <= r)
 	{
-		_x = 0;
-		while (_x < 8)
+		_x = -r;
+		while (_x <= r)
 		{
-			mlx_put_pixel(game->mlx.window,
-				_x + (x + (SIZE / 2.25)), _y + (y + SIZE / 2.25), color);
+			if (_x * _x + _y * _y <= r * r)
+			{
+				mlx_put_pixel(game->mlx.window,
+					_x + (x + SIZE / 2),
+					_y + (y + SIZE / 2), color);
+			}
 			++_x;
 		}
 		++_y;
