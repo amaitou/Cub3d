@@ -14,7 +14,7 @@ CFILES = sources/cub3d.c \
 		 sources/map_closed.c \
 		 sources/rgb_checker.c \
 		 sources/cub3d_utils.c \
-		 sources/draw_mini_map.c
+		 sources/mini_map.c
 
 SUPERLIB_DIR = ./superlib
 SUPERLIB = ./superlib/superlib.a

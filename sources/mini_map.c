@@ -1,16 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_mini_map.c                                    :+:      :+:    :+:   */
+/*   mini_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 17:06:00 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/06 21:37:24 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/07 16:10:55 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
+
+static void	draw_player(int color, int y, int x, t_game *game)
+{
+	int	_x;
+	int	_y;
+
+	_y = 0;
+	while (_y < 8)
+	{
+		_x = 0;
+		while (_x < 8)
+		{
+			mlx_put_pixel(game->mlx.window,
+				_x + (x + (SIZE / 2.25)), _y + (y + SIZE / 2.25), color);
+			++_x;
+		}
+		++_y;
+	}
+}
 
 static void	draw_rectangle(int color, int y, int x, t_game *game)
 {
@@ -59,5 +78,6 @@ void	draw_mini_map(t_game *game)
 		}
 		++y;
 	}
-	ft_printf("[%d]\n", game->map.map_len);
+	draw_player(get_rgba(255, 0, 0, 255),
+		game->player.y * SIZE, game->player.x * SIZE, game);
 }
