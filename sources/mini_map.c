@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mini_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 17:06:00 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/07 16:51:37 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/07 17:11:28 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,6 @@ void	draw_mini_map(t_game *game)
 	{
 		x = 0;
 		line = game->map.map[y];
-		ft_printf("[%d] -> [%s] -> [%d]\n", y, line, ft_strlen(line));
 		while (line[x])
 		{
 			if (line[x] == '1')

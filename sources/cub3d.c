@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 15:06:11 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/06 16:51:15 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/07 17:11:11 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ int	main(int ac, char **ag)
 			return (0);
 		mlx(game);
 		mlx_loop(game->mlx.mlx);
-		system("leaks cub3D");
 	}
 	else
 		ft_putendl_fd("Error: Invalid Arguments", 2);
