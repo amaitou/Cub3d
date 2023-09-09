@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   errors_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 19:27:18 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/07 16:52:09 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/09 19:40:23 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,10 @@ int	check_map_helper(t_game *game, int i, int j)
 			|| game->map.map[i][j] == 'S' || game->map.map[i][j] == 'E')
 		error_helper(game, game->map.map[i][j], j, i);
 	else if (!(ft_strchr("\t 01", game->map.map[i][j])))
+	{
+		ft_putendl_fd("Error: Invalid Character Within The Map", 2);
 		return (1);
+	}
 	return (0);
 }
 

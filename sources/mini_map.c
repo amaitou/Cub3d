@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 17:06:00 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/07 17:11:28 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/09 17:56:26 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	draw_player(int color, int y, int x, t_game *game)
 	int	_x;
 	int	_y;
 
-	r = SIZE / 8;
+	r = SIZE / 10;
 	_y = -r;
 	while (_y <= r)
 	{
