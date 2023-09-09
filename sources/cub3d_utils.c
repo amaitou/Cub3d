@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 16:42:25 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/07 17:13:27 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/09 20:27:08 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	mlx(t_game *game)
 
 	height = game->map.height * SIZE;
 	width = game->map.width * SIZE;
-	game->mlx.mlx = mlx_init(width, height, "GFW9", true);
+	game->mlx.mlx = mlx_init(width, height, "Cub3d", true);
 	game->mlx.window = mlx_new_image(game->mlx.mlx,
 			game->map.width * SIZE, game->map.height * SIZE);
 	mlx_image_to_window(game->mlx.mlx, game->mlx.window, 0, 0);
