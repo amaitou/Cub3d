@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 17:26:12 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/12 16:14:42 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/12 17:21:11 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	init_player(t_game *game)
 	game->player.rotation_angle = M_PI / 2;
 	game->player.turn_direction = 0;
 	game->player.walk_direction = 0;
-	game->player.move_speed = 1;
+	game->player.move_speed = 1.5;
 	game->player.rotation_speed = 3 * (M_PI / 180);
 }
 
