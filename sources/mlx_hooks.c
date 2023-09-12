@@ -1,37 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.c                                            :+:      :+:    :+:   */
+/*   mlx_hooks.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/20 15:06:11 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/10 19:25:49 by amait-ou         ###   ########.fr       */
+/*   Created: 2023/09/10 18:49:49 by amait-ou          #+#    #+#             */
+/*   Updated: 2023/09/10 19:43:56 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-int	main(int ac, char **ag)
+void	check_keys(void *game)
 {
-	t_game	*game;
+	t_game	*g;
 
-	if (ac == 2)
-	{
-		game = (t_game *)malloc(sizeof(t_game));
-		if (!game)
-		{
-			ft_putendl_fd("Error: Failed To Run The Game", 2);
-			return (0);
-		}
-		game->path = ag[1];
-		init_all(game);
-		if (__checker(game))
-			return (0);
-		mlx(game);
-		mlx_loop(game->mlx.mlx);
-	}
-	else
-		ft_putendl_fd("Error: Invalid Arguments", 2);
-	return (0);
+	g = (t_game *)game;
+	if (mlx_is_key_down(g->mlx.mlx, MLX_KEY_W))
+		move_up(g);
+	else if (mlx_is_key_down(g->mlx.mlx, MLX_KEY_S))
+		move_down(g);
+	else if (mlx_is_key_down(g->mlx.mlx, MLX_KEY_A))
+		move_left(g);
+	else if (mlx_is_key_down(g->mlx.mlx, MLX_KEY_D))
+		move_right(g);
+	draw_mini_map(g);
+	return ;
 }

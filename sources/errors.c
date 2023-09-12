@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 20:50:39 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/09 19:40:12 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/10 17:39:05 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,8 +82,6 @@ int	check_map(t_game *game)
 	int	i;
 	int	j;
 
-	game->player.x = 0;
-	game->player.y = 0;
 	i = -1;
 	while (game->map.map[++i])
 	{

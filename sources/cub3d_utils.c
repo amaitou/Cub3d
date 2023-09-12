@@ -6,21 +6,11 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 16:42:25 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/09 20:27:08 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/10 19:08:55 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
-
-void	init_members(t_game *game)
-{
-	game->east = 0;
-	game->north = 0;
-	game->west = 0;
-	game->south = 0;
-	game->map.height = 0;
-	game->map.width = 0;
-}
 
 int	get_rgba(int r, int g, int b, int a)
 {
@@ -32,11 +22,11 @@ void	mlx(t_game *game)
 	size_t	height;
 	size_t	width;
 
-	height = game->map.height * SIZE;
-	width = game->map.width * SIZE;
+	height = game->map.height * TILE;
+	width = game->map.width * TILE;
 	game->mlx.mlx = mlx_init(width, height, "Cub3d", true);
 	game->mlx.window = mlx_new_image(game->mlx.mlx,
-			game->map.width * SIZE, game->map.height * SIZE);
+			game->map.width * TILE, game->map.height * TILE);
 	mlx_image_to_window(game->mlx.mlx, game->mlx.window, 0, 0);
-	draw_mini_map(game);
+	mlx_loop_hook(game->mlx.mlx, check_keys, game);
 }

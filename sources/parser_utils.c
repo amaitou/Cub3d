@@ -6,30 +6,11 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 15:17:02 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/06 19:52:22 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/10 17:27:51 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
-
-void	init_elements(t_game *game)
-{
-	game->elements.ceiling_c.type = _NONE;
-	game->elements.ceiling_c.surface = NULL;
-	game->elements.ceiling_c.rgb = NULL;
-	game->elements.floor_c.type = _NONE;
-	game->elements.floor_c.surface = NULL;
-	game->elements.floor_c.rgb = NULL;
-	game->elements.north.direction = _NONE;
-	game->elements.north.texture = NULL;
-	game->elements.south.direction = _NONE;
-	game->elements.south.texture = NULL;
-	game->elements.east.direction = _NONE;
-	game->elements.east.texture = NULL;
-	game->elements.west.direction = _NONE;
-	game->elements.west.texture = NULL;
-	game->elements.counter = 0;
-}
 
 void	assign_color(t_game *game, char **element)
 {

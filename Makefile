@@ -14,7 +14,10 @@ CFILES = sources/cub3d.c \
 		 sources/map_closed.c \
 		 sources/rgb_checker.c \
 		 sources/cub3d_utils.c \
-		 sources/mini_map.c
+		 sources/mini_map.c \
+		 sources/init_members.c \
+		 sources/mlx_hooks.c \
+		 sources/player_movements.c
 
 SUPERLIB_DIR = ./superlib
 SUPERLIB = ./superlib/superlib.a

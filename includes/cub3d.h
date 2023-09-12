@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 12:55:08 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/09 17:57:00 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/10 19:44:25 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,9 @@
 # include <math.h>
 # include <fcntl.h>
 # include <stdbool.h>
+# include <stdio.h>
 
-# define SIZE 30
+# define TILE 30
 
 typedef enum e_enums
 {
@@ -83,8 +84,14 @@ typedef struct s_elements
 
 typedef struct s_player
 {
-	int	x;
-	int	y;
+	float	x;
+	float	y;
+	float	radius;
+	int		turn_direction;
+	int		walk_direction;
+	float	rotation_angle;
+	float	move_speed;
+	float	rotation_speed;
 }	t_player;
 
 typedef struct s_map
@@ -117,8 +124,14 @@ typedef struct s_game
 	int				fd;
 }	t_game;
 
+// init members
+void	init_directions(t_game *game);
+void	init_map(t_game *game);
+void	init_elements(t_game *game);
+void	init_player(t_game *game);
+void	init_all(t_game *game);
+
 // cub3d
-void	init_members(t_game *game);
 int		get_rgba(int r, int g, int b, int a);
 void	mlx(t_game *game);
 
@@ -126,7 +139,6 @@ void	mlx(t_game *game);
 int		__reader(t_game *game);
 
 // parser
-void	init_elements(t_game *game);
 void	assign_color(t_game *game, char **element);
 void	assign_directions(t_game *game, char **element);
 int		lines_count(t_game *game);
@@ -157,5 +169,14 @@ void	error_helper(t_game *game, char d, int x, int y);
 
 // mini map
 void	draw_mini_map(t_game *game);
+
+// player mouvements
+void	move_up(t_game *game);
+void	move_down(t_game *game);
+void	move_right(t_game *game);
+void	move_left(t_game *game);
+
+// mlx hooks
+void	check_keys(void *game);
 
 #endif

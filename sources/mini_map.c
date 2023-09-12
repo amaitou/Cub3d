@@ -6,31 +6,51 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 17:06:00 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/09 17:56:26 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/12 16:14:10 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
+// static void	draw_player(int color, int y, int x, t_game *game)
+// {
+// 	int	r;
+// 	int	_x;
+// 	int	_y;
+
+// 	r = TILE / game->player.radius;
+// 	_y = -r;
+// 	while (_y <= r)
+// 	{
+// 		_x = -r;
+// 		while (_x <= r)
+// 		{
+// 			if (_x * _x + _y * _y <= r * r)
+// 			{
+// 				mlx_put_pixel(game->mlx.window,
+// 					_x + (x + TILE / 2),
+// 					_y + (y + TILE / 2), color);
+// 			}
+// 			++_x;
+// 		}
+// 		++_y;
+// 	}
+// }
+
 static void	draw_player(int color, int y, int x, t_game *game)
 {
-	int	r;
 	int	_x;
 	int	_y;
 
-	r = SIZE / 10;
-	_y = -r;
-	while (_y <= r)
+	_y = -game->player.radius;
+	while (_y <= game->player.radius)
 	{
-		_x = -r;
-		while (_x <= r)
+		_x = -game->player.radius;
+		while (_x <= game->player.radius)
 		{
-			if (_x * _x + _y * _y <= r * r)
-			{
+			if (_x * _x + _y * _y <= game->player.radius * game->player.radius)
 				mlx_put_pixel(game->mlx.window,
-					_x + (x + SIZE / 2),
-					_y + (y + SIZE / 2), color);
-			}
+					_x + x, _y + y, color);
 			++_x;
 		}
 		++_y;
@@ -43,10 +63,10 @@ static void	draw_rectangle(int color, int y, int x, t_game *game)
 	int	_y;
 
 	_y = 0;
-	while (_y < SIZE)
+	while (_y < TILE)
 	{
 		_x = 0;
-		while (_x < SIZE)
+		while (_x < TILE)
 		{
 			mlx_put_pixel(game->mlx.window, _x + x,
 				_y + y, color);
@@ -75,14 +95,14 @@ void	draw_mini_map(t_game *game)
 		{
 			if (line[x] == '1')
 				draw_rectangle(get_rgba(255, 248, 220, 255),
-					y * SIZE, x * SIZE, game);
+					y * TILE, x * TILE, game);
 			else if (line[x] == '0' || ft_strchr("NEWS", line[x]))
 				draw_rectangle(get_rgba(0, 118, 107, 255),
-					y * SIZE, x * SIZE, game);
+					y * TILE, x * TILE, game);
 			++x;
 		}
 		++y;
 	}
 	draw_player(get_rgba(255, 0, 0, 255),
-		game->player.y * SIZE, game->player.x * SIZE, game);
+		game->player.y, game->player.x, game);
 }
