@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 17:06:00 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/12 16:14:10 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/12 17:07:31 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,5 +104,5 @@ void	draw_mini_map(t_game *game)
 		++y;
 	}
 	draw_player(get_rgba(255, 0, 0, 255),
-		game->player.y, game->player.x, game);
+		game->player.y + TILE / 2, game->player.x + TILE / 2, game);
 }
