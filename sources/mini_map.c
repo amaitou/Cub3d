@@ -3,39 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   mini_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: ykhalil- <ykhalil-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 17:06:00 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/12 17:20:27 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/13 15:10:12 by ykhalil-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
-
-// static void	draw_player(int color, int y, int x, t_game *game)
-// {
-// 	int	r;
-// 	int	_x;
-// 	int	_y;
-
-// 	r = TILE / game->player.radius;
-// 	_y = -r;
-// 	while (_y <= r)
-// 	{
-// 		_x = -r;
-// 		while (_x <= r)
-// 		{
-// 			if (_x * _x + _y * _y <= r * r)
-// 			{
-// 				mlx_put_pixel(game->mlx.window,
-// 					_x + (x + TILE / 2),
-// 					_y + (y + TILE / 2), color);
-// 			}
-// 			++_x;
-// 		}
-// 		++_y;
-// 	}
-// }
 
 static void	draw_player(int color, int y, int x, t_game *game)
 {
