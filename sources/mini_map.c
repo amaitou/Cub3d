@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mini_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ykhalil- <ykhalil-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 17:06:00 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/13 15:10:12 by ykhalil-         ###   ########.fr       */
+/*   Updated: 2023/09/13 17:07:36 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,6 @@ void	draw_mini_map(t_game *game)
 		}
 		++y;
 	}
-	draw_player(get_rgba(219, 92, 132, 255),
+	draw_player(get_rgba(235, 52, 70, 255),
 		game->player.y + TILE / 2, game->player.x + TILE / 2, game);
 }
