@@ -6,21 +6,19 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 18:45:11 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/13 22:24:36 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/13 23:45:30 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-void	dda(t_game *game, int x, int y)
+void	dda(t_game *game)
 {
 	int		i;
 	float	_x;
 	float	_y;
 
 	i = 0;
-	(void)x;
-	(void)y;
 	game->dda.dx = cos(game->player.rotation_angle);
 	game->dda.dy = sin(game->player.rotation_angle);
 	_x = game->player.x;
