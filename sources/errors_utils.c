@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 19:27:18 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/10 19:37:39 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/13 19:09:53 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,26 +17,26 @@ void	error_helper(t_game *game, char d, int x, int y)
 	if (d == 'N')
 	{
 		game->north++;
-		game->player.x = x * TILE;
-		game->player.y = y * TILE;
+		game->player.x = x * TILE + (TILE / 2);
+		game->player.y = y * TILE + (TILE / 2);
 	}
 	if (d == 'E')
 	{
 		game->east++;
-		game->player.x = x * TILE;
-		game->player.y = y * TILE;
+		game->player.x = x * TILE + (TILE / 2);
+		game->player.y = y * TILE + (TILE / 2);
 	}
 	if (d == 'W')
 	{
 		game->west++;
-		game->player.x = x * TILE;
-		game->player.y = y * TILE;
+		game->player.x = x * TILE + (TILE / 2);
+		game->player.y = y * TILE + (TILE / 2);
 	}
 	if (d == 'S')
 	{
 		game->south++;
-		game->player.x = x * TILE;
-		game->player.y = y * TILE;
+		game->player.x = x * TILE + (TILE / 2);
+		game->player.y = y * TILE + (TILE / 2);
 	}
 }
 
