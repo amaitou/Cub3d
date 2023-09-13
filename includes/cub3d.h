@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 12:55:08 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/13 20:08:11 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/13 21:16:56 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -185,8 +185,7 @@ void	move_up(t_game *game);
 void	move_down(t_game *game);
 void	move_right(t_game *game);
 void	move_left(t_game *game);
-void	_dda(t_game *game, int x, int y);
-void	dda(int X0, int Y0, int X1, int Y1, t_game *game);
+void	dda(t_game *game, int x, int y);
 
 // mlx hooks
 void	check_keys(void *game);
