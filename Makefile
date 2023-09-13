@@ -1,6 +1,6 @@
 NAME = cub3D
 CC = cc
-CFLAGS = -Wextra -Wall -Werror
+CFLAGS = -Wextra -Wall -Werror -fsanitize=address -g
 CFILES = sources/cub3d.c \
 		 sources/reader.c \
 		 sources/check_reader.c \

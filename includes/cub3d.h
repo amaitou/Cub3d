@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 12:55:08 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/13 21:16:56 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/13 22:24:52 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,11 +96,8 @@ typedef struct s_player
 
 typedef struct s_dda
 {
-	int		dy;
-	int		dx;
-	int		steps;
-	float	xinc;
-	float	yinc;
+	float		dy;
+	float		dx;
 }	t_dda;
 
 typedef struct s_map

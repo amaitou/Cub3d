@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 18:49:49 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/13 19:49:08 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/13 22:27:09 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,20 @@ void	check_keys(void *game)
 	g = (t_game *)game;
 	if (mlx_is_key_down(g->mlx.mlx, MLX_KEY_W))
 		move_up(g);
-	else if (mlx_is_key_down(g->mlx.mlx, MLX_KEY_S))
+	if (mlx_is_key_down(g->mlx.mlx, MLX_KEY_S))
 		move_down(g);
-	else if (mlx_is_key_down(g->mlx.mlx, MLX_KEY_A))
+	if (mlx_is_key_down(g->mlx.mlx, MLX_KEY_A))
 		move_left(g);
-	else if (mlx_is_key_down(g->mlx.mlx, MLX_KEY_D))
+	if (mlx_is_key_down(g->mlx.mlx, MLX_KEY_D))
 		move_right(g);
+	if (mlx_is_key_down(g->mlx.mlx, MLX_KEY_RIGHT))
+		g->player.rotation_angle += 0.03;
+	if (mlx_is_key_down(g->mlx.mlx, MLX_KEY_LEFT))
+		g->player.rotation_angle -= 0.03;
+	if (g->player.rotation_angle > M_PI * 2)
+		g->player.rotation_angle -= M_PI * 2;
+	if (g->player.rotation_angle < 0)
+		g->player.rotation_angle += M_PI * 2;
 	draw_mini_map(g);
 	return ;
 }
