@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 18:45:11 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/13 23:45:30 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/14 09:10:02 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ void	dda(t_game *game)
 	game->dda.dy = sin(game->player.rotation_angle);
 	_x = game->player.x;
 	_y = game->player.y;
-	while (game->map.map[(int)_y / 30][(int)_x / 30] != '1')
+	while (game->map.map[(int)_y / TILE][(int)_x / TILE] != '1')
 	{
 		mlx_put_pixel(game->mlx.window,
-			round(_x), round(_y), get_rgba(235, 52, 70, 255));
+			_x, _y, get_rgba(235, 52, 70, 255));
 		_x += game->dda.dx;
 		_y += game->dda.dy;
 	}
