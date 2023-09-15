@@ -6,11 +6,25 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 18:45:11 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/15 21:06:56 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/16 00:29:44 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
+
+static int	check_helper(char **_m, int _y, int _x, char c)
+{
+	if ((_m[_y / TILE][(_x - 1) / TILE] == c
+		&& _m[(_y + 1) / TILE][_x / TILE] == c)
+		|| (_m[_y / TILE][(_x + 1) / TILE] == c
+			&& _m[(_y - 1) / TILE][_x / TILE] == c)
+		|| (_m[_y / TILE][(_x - 1) / TILE] == c
+			&& _m[(_y - 1) / TILE][_x / TILE] == c)
+		|| (_m[_y / TILE][(_x + 1) / TILE] == c
+			&& _m[(_y + 1) / TILE][_x / TILE] == c))
+		return (1);
+	return (0);
+}
 
 void	dda(t_game *game, float angle)
 {
@@ -21,15 +35,9 @@ void	dda(t_game *game, float angle)
 	_y = game->player.y;
 	while (game->map.map[(int)_y / TILE][(int)_x / TILE] != '1')
 	{
-		if ((game->map.map[(int)_y / TILE][(int)(_x - 1) / TILE] == '1' && game->map.map[(int)(_y + 1) / TILE][(int)_x / TILE] == '1')
-			|| (game->map.map[(int)_y / TILE][(int)(_x + 1) / TILE] == '1' && game->map.map[(int)(_y - 1) / TILE][(int)_x / TILE] == '1')
-			|| (game->map.map[(int)_y / TILE][(int)(_x - 1) / TILE] == '1' && game->map.map[(int)(_y - 1) / TILE][(int)_x / TILE] == '1')
-			|| (game->map.map[(int)_y / TILE][(int)(_x + 1) / TILE] == '1' && game->map.map[(int)(_y + 1) / TILE][(int)_x / TILE] == '1'))
+		if (check_helper(game->map.map, (int)_y, (int)_x, '1'))
 			break ;
-		if ((game->map.map[(int)_y / TILE][(int)(_x - 1) / TILE] == '1' && game->map.map[(int)(_y + 1) / TILE][(int)_x / TILE] == ' ')
-			|| (game->map.map[(int)_y / TILE][(int)(_x + 1) / TILE] == '1' && game->map.map[(int)(_y - 1) / TILE][(int)_x / TILE] == ' ')
-			|| (game->map.map[(int)_y / TILE][(int)(_x - 1) / TILE] == '1' && game->map.map[(int)(_y - 1) / TILE][(int)_x / TILE] == ' ')
-			|| (game->map.map[(int)_y / TILE][(int)(_x + 1) / TILE] == '1' && game->map.map[(int)(_y + 1) / TILE][(int)_x / TILE] == ' '))
+		if (check_helper(game->map.map, (int)_y, (int)_x, ' '))
 			break ;
 		game->dda.dx = cos(angle);
 		game->dda.dy = sin(angle);
