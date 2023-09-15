@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 18:45:11 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/15 18:57:22 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/15 21:06:56 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,16 @@ void	dda(t_game *game, float angle)
 	_y = game->player.y;
 	while (game->map.map[(int)_y / TILE][(int)_x / TILE] != '1')
 	{
+		if ((game->map.map[(int)_y / TILE][(int)(_x - 1) / TILE] == '1' && game->map.map[(int)(_y + 1) / TILE][(int)_x / TILE] == '1')
+			|| (game->map.map[(int)_y / TILE][(int)(_x + 1) / TILE] == '1' && game->map.map[(int)(_y - 1) / TILE][(int)_x / TILE] == '1')
+			|| (game->map.map[(int)_y / TILE][(int)(_x - 1) / TILE] == '1' && game->map.map[(int)(_y - 1) / TILE][(int)_x / TILE] == '1')
+			|| (game->map.map[(int)_y / TILE][(int)(_x + 1) / TILE] == '1' && game->map.map[(int)(_y + 1) / TILE][(int)_x / TILE] == '1'))
+			break ;
+		if ((game->map.map[(int)_y / TILE][(int)(_x - 1) / TILE] == '1' && game->map.map[(int)(_y + 1) / TILE][(int)_x / TILE] == ' ')
+			|| (game->map.map[(int)_y / TILE][(int)(_x + 1) / TILE] == '1' && game->map.map[(int)(_y - 1) / TILE][(int)_x / TILE] == ' ')
+			|| (game->map.map[(int)_y / TILE][(int)(_x - 1) / TILE] == '1' && game->map.map[(int)(_y - 1) / TILE][(int)_x / TILE] == ' ')
+			|| (game->map.map[(int)_y / TILE][(int)(_x + 1) / TILE] == '1' && game->map.map[(int)(_y + 1) / TILE][(int)_x / TILE] == ' '))
+			break ;
 		game->dda.dx = cos(angle);
 		game->dda.dy = sin(angle);
 		mlx_put_pixel(game->mlx.window,
