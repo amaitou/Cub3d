@@ -1,3 +1,4 @@
+UNAME = $(shell uname)
 NAME = cub3D
 CC = cc
 CFLAGS = -Wextra -Wall -Werror -fsanitize=address -g
@@ -23,8 +24,15 @@ CFILES = sources/cub3d.c \
 SUPERLIB_DIR = ./superlib
 SUPERLIB = ./superlib/superlib.a
 LIBS = ./mlx/build/libmlx42.a
-GLFW = $(shell brew --prefix glfw)
-MLX = $(LIBS) -lmlx -framework Cocoa -framework OpenGL -framework IOKit -lglfw -L"$(GLFW)/lib"
+
+ifeq ($(UNAME), Darwin)
+	GLFW = $(shell brew --prefix glfw)
+	MLX = $(LIBS) -lmlx -framework Cocoa -framework OpenGL -framework IOKit -lglfw -L"$(GLFW)/lib"
+endif
+
+ifeq ($(UNAME), Linux)
+	MLX = $(LIBS) -Iinclude -ldl -lglfw -pthread -lm
+endif
 
 all: $(SUPERLIB) $(NAME)
 
