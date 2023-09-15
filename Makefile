@@ -18,7 +18,7 @@ CFILES = sources/cub3d.c \
 		 sources/init_members.c \
 		 sources/mlx_hooks.c \
 		 sources/player_movements.c \
-		 sources/rays.c
+		 sources/rays_casting.c
 
 SUPERLIB_DIR = ./superlib
 SUPERLIB = ./superlib/superlib.a

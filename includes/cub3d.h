@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 12:55:08 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/13 23:45:55 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/15 18:58:16 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -182,7 +182,8 @@ void	move_up(t_game *game);
 void	move_down(t_game *game);
 void	move_right(t_game *game);
 void	move_left(t_game *game);
-void	dda(t_game *game);
+void	dda(t_game *game, float angle);
+void	draw_rays(t_game *game);
 
 // mlx hooks
 void	check_keys(void *game);
