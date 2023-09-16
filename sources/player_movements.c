@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player_movements.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 17:51:09 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/16 02:29:14 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/16 19:56:02 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ void	move_up(t_game *game)
 
 	player = &game->player;
 	y = (player->y + sin(game->player.rotation_angle)
-			* (game->player.move_speed) * (TILE / 3.5)) / TILE;
-	x = (player->x + cos(game->player.rotation_angle) * (TILE / 3.5)) / TILE;
+			* (game->player.move_speed) + (1)) / TILE;
+	x = (player->x + cos(game->player.rotation_angle) + (1)) / TILE;
 	if (game->map.map[(int)y][(int)x] != '1')
 	{
 		player->x += cos(game->player.rotation_angle) * game->player.move_speed;
@@ -38,8 +38,8 @@ void	move_down(t_game *game)
 
 	player = &game->player;
 	y = (player->y - sin(game->player.rotation_angle)
-			* (game->player.move_speed) * (TILE / 3.5)) / TILE;
-	x = (player->x - cos(game->player.rotation_angle) * (TILE / 3.5)) / TILE;
+			* (game->player.move_speed) + (1)) / TILE;
+	x = (player->x - cos(game->player.rotation_angle) + (1)) / TILE;
 	if (game->map.map[(int)y][(int)x] != '1')
 	{
 		player->x -= cos(game->player.rotation_angle) * game->player.move_speed;
@@ -55,9 +55,9 @@ void	move_left(t_game *game)
 	float		y;
 
 	player = &game->player;
-	y = (player->y + sin(game->player.rotation_angle) * (TILE / 3.5)) / TILE;
+	y = (player->y + sin(game->player.rotation_angle) + (1)) / TILE;
 	x = (game->player.x + cos(game->player.rotation_angle)
-			* (game->player.move_speed) * (TILE / 3.5)) / TILE ;
+			* (game->player.move_speed) + (1)) / TILE ;
 	if (game->map.map[(int)y][(int)x] != '1')
 	{
 		player->x += cos(game->player.rotation_angle - (M_PI / 2))
@@ -75,9 +75,9 @@ void	move_right(t_game *game)
 	float		y;
 
 	player = &game->player;
-	y = (player->y - sin(game->player.rotation_angle) * (TILE / 3.5)) / TILE;
+	y = (player->y - sin(game->player.rotation_angle) + (1)) / TILE;
 	x = (game->player.x - cos(game->player.rotation_angle)
-			* (game->player.move_speed) * (TILE / 3.5)) / TILE;
+			* (game->player.move_speed) + (1)) / TILE;
 	if (game->map.map[(int)y][(int)x] != '1')
 	{
 		player->x -= cos(game->player.rotation_angle - (M_PI / 2))
