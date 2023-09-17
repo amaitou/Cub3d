@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 20:50:39 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/10 17:39:05 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/17 23:32:06 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,6 +116,11 @@ int	check_walls(t_game *game)
 		{
 			ft_putendl_fd("Error: Map Is Not Surrounded By Walls", 2);
 			return (1);
+		}
+		if (check_spaces(game, i))
+		{
+			ft_putendl_fd("Error: Invalid Map Maze", 2);
+			return (2);
 		}
 		++i;
 	}

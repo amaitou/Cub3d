@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 19:27:18 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/15 21:14:08 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/17 23:41:46 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,4 +78,37 @@ int	ends_with_one(char *s)
 	if (b)
 		return (0);
 	return (1);
+}
+
+int	all_ones(char *s, int index)
+{
+	while (s[index])
+	{
+		if (s[index] != '1')
+			return (1);
+		++index;
+	}
+	return (0);
+}
+
+int	check_spaces(t_game *game, int i)
+{
+	char	*line;
+	int		j;
+
+	line = game->map.map[i];
+	j = 0;
+	while (line[j])
+	{
+		if (line[j] == ' ' || line[j] == '\t')
+		{
+			if (game->map.map[i + 1] != NULL)
+			{
+				if (all_ones(game->map.map[i + 1], j))
+					return (1);
+			}
+		}
+		++j;
+	}
+	return (0);
 }
