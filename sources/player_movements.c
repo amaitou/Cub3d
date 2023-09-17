@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/17 17:50:03 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/17 17:50:07 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/17 18:39:55 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,8 @@ void	move_left(t_game *game)
 	float		y;
 
 	player = &game->player;
-	y = (player->y + sin(game->player.rotation_angle));
-	x = (game->player.x + cos(game->player.rotation_angle)
+	y = (player->y + sin(game->player.rotation_angle - (M_PI / 2)));
+	x = (game->player.x + cos(game->player.rotation_angle - (M_PI / 2))
 			* (game->player.move_speed));
 	if (wall_hitting(game, (int)y, (int)x))
 		return ;
@@ -94,8 +94,8 @@ void	move_right(t_game *game)
 	float		y;
 
 	player = &game->player;
-	y = (player->y - sin(game->player.rotation_angle));
-	x = (game->player.x - cos(game->player.rotation_angle)
+	y = (player->y - sin(game->player.rotation_angle - (M_PI / 2)));
+	x = (game->player.x - cos(game->player.rotation_angle - (M_PI / 2))
 			* (game->player.move_speed));
 	if (wall_hitting(game, (int)y, (int)x))
 		return ;
