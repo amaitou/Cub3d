@@ -5,12 +5,25 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/10 17:51:09 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/16 23:44:27 by amait-ou         ###   ########.fr       */
+/*   Created: 2023/09/17 17:50:03 by amait-ou          #+#    #+#             */
+/*   Updated: 2023/09/17 17:50:07 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
+
+int	wall_hitting(t_game *game, int y, int x)
+{
+	if (game->map.map[(y + 3) / TILE][x / TILE] == '1')
+		return (1);
+	if (game->map.map[(y - 3) / TILE][x / TILE] == '1')
+		return (1);
+	if (game->map.map[y / TILE][(x + 3) / TILE] == '1')
+		return (1);
+	if (game->map.map[y / TILE][(x - 3) / TILE] == '1')
+		return (1);
+	return (0);
+}
 
 void	move_up(t_game *game)
 {
@@ -20,12 +33,11 @@ void	move_up(t_game *game)
 
 	player = &game->player;
 	y = (player->y + sin(game->player.rotation_angle)
-			* (game->player.move_speed) + (0.5)) / TILE;
-	x = (player->x + cos(game->player.rotation_angle) + (0.5)) / TILE;
-	if (game->map.map[(int)y][(int)player->x / TILE] == '1'
-		&& game->map.map[(int)player->y / TILE][(int)x] == '1')
+			* (game->player.move_speed));
+	x = (player->x + cos(game->player.rotation_angle));
+	if (wall_hitting(game, (int)y, (int)x))
 		return ;
-	if (game->map.map[(int)y][(int)x] != '1')
+	if (game->map.map[(int)y / TILE][(int)x / TILE] != '1')
 	{
 		player->x += cos(game->player.rotation_angle) * game->player.move_speed;
 		player->y += sin(game->player.rotation_angle) * game->player.move_speed;
@@ -41,12 +53,11 @@ void	move_down(t_game *game)
 
 	player = &game->player;
 	y = (player->y - sin(game->player.rotation_angle)
-			* (game->player.move_speed) + (0.5)) / TILE;
-	x = (player->x - cos(game->player.rotation_angle) + (0.5)) / TILE;
-	if (game->map.map[(int)y][(int)player->x / TILE] == '1'
-		&& game->map.map[(int)player->y / TILE][(int)x] == '1')
+			* (game->player.move_speed));
+	x = (player->x - cos(game->player.rotation_angle));
+	if (wall_hitting(game, (int)y, (int)x))
 		return ;
-	if (game->map.map[(int)y][(int)x] != '1')
+	if (game->map.map[(int)y / TILE][(int)x / TILE] != '1')
 	{
 		player->x -= cos(game->player.rotation_angle) * game->player.move_speed;
 		player->y -= sin(game->player.rotation_angle) * game->player.move_speed;
@@ -61,13 +72,12 @@ void	move_left(t_game *game)
 	float		y;
 
 	player = &game->player;
-	y = (player->y + sin(game->player.rotation_angle) + (0.5)) / TILE;
+	y = (player->y + sin(game->player.rotation_angle));
 	x = (game->player.x + cos(game->player.rotation_angle)
-			* (game->player.move_speed) + (0.5)) / TILE ;
-	if (game->map.map[(int)y][(int)player->x / TILE] == '1'
-		&& game->map.map[(int)player->y / TILE][(int)x] == '1')
+			* (game->player.move_speed));
+	if (wall_hitting(game, (int)y, (int)x))
 		return ;
-	if (game->map.map[(int)y][(int)x] != '1')
+	if (game->map.map[(int)y / TILE][(int)x / TILE] != '1')
 	{
 		player->x += cos(game->player.rotation_angle - (M_PI / 2))
 			* game->player.move_speed;
@@ -84,13 +94,12 @@ void	move_right(t_game *game)
 	float		y;
 
 	player = &game->player;
-	y = (player->y - sin(game->player.rotation_angle) + (0.5)) / TILE;
+	y = (player->y - sin(game->player.rotation_angle));
 	x = (game->player.x - cos(game->player.rotation_angle)
-			* (game->player.move_speed) + (0.5)) / TILE;
-	if (game->map.map[(int)y][(int)player->x / TILE] == '1'
-		&& game->map.map[(int)player->y / TILE][(int)x] == '1')
+			* (game->player.move_speed));
+	if (wall_hitting(game, (int)y, (int)x))
 		return ;
-	if (game->map.map[(int)y][(int)x] != '1')
+	if (game->map.map[(int)y / TILE][(int)x / TILE] != '1')
 	{
 		player->x -= cos(game->player.rotation_angle - (M_PI / 2))
 			* game->player.move_speed;
