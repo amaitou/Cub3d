@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 15:06:11 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/10 19:25:49 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/17 22:57:37 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	main(int ac, char **ag)
 		game->path = ag[1];
 		init_all(game);
 		if (__checker(game))
-			return (0);
+			return (EXIT_FAILURE);
 		mlx(game);
 		mlx_loop(game->mlx.mlx);
 	}
