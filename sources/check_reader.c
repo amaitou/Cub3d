@@ -6,25 +6,25 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 19:40:27 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/04 14:39:23 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/21 20:51:51 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-static int	skip_new_lines(char *s, int *i)
-{
-	while (*(s + (*i)) && *(s + (*i)) != '\n')
-		(*i)++;
-	return (*i);
-}
+// static int	skip_new_lines(char *s, int *i)
+// {
+// 	while (*(s + (*i)) && *(s + (*i)) != '\n')
+// 		(*i)++;
+// 	return (*i);
+// }
 
-static int	skip_chars(char *s, int *i)
-{
-	while (*(s + (*i)) && *(s + (*i)) == '\n')
-		(*i)++;
-	return (*i);
-}
+// static int	skip_chars(char *s, int *i)
+// {
+// 	while (*(s + (*i)) && *(s + (*i)) == '\n')
+// 		(*i)++;
+// 	return (*i);
+// }
 
 static int	consecutive_new_lines(char *s, int i)
 {
@@ -49,15 +49,18 @@ int	check_consecutive_new_lines(char *s)
 	str = ft_strtrim(s, "\n");
 	i = 0;
 	counter = 0;
-	while (s[i])
+	while (str[i])
 	{
-		i = skip_new_lines(s, &i);
-		if (s[i])
+		if (str[i] == '\n' && counter < 7)
+			++i;
+		if (str[i] != '\n' && counter < 7)
 		{
-			counter++;
-			i = skip_chars(s, &i);
+			while (str[i] && str[i] != '\n')
+				++i;
+			if (str[i])
+				counter++;
 		}
-		if (counter == 6)
+		if (counter == 7)
 			break ;
 	}
 	if (consecutive_new_lines(str, i))

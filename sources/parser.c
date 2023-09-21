@@ -3,14 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 17:26:28 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/21 01:32:35 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/21 19:37:40 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
+
+void	alter(char *s)
+{
+	while ((*s == ' ' || *s == '\t') && *s)
+		++s;
+	while (*s)
+	{
+		if (*s == ' ' || *s == '\t')
+		{
+			*s = '\n';
+			return ;
+		}
+		++s;
+	}
+}
 
 static int	parse_elements(t_game *game)
 {
@@ -20,9 +35,10 @@ static int	parse_elements(t_game *game)
 	i = 0;
 	while (game->elements.counter < 6)
 	{
-		element = ft_split(game->all_items[i], ' ');
+		alter(game->all_items[i]);
+		element = ft_split(game->all_items[i], '\n');
 		free(game->all_items[i]);
-		if (ft_array_len(element) == 1)
+		if (ft_array_len(element) == 2)
 		{
 			assign_directions(game, element);
 			game->elements.counter++;
@@ -32,8 +48,7 @@ static int	parse_elements(t_game *game)
 			free_array(element);
 			return (1);
 		}
-		else
-			free_array(element);
+		free_array(element);
 		++i;
 	}
 	return (0);
@@ -48,18 +63,23 @@ static int	parse_map(t_game *game)
 	i = game->elements.counter;
 	game->map.map = (char **)malloc(sizeof(char *) * lines_count(game) + 1);
 	if (!game->map.map)
-		return (2);
-	while (game->all_items[i])
+		return (1);
+	if (game->all_items[i])
 	{
-		game->map.map[j] = ft_strdup(game->all_items[i]);
-		if (ft_strlen(game->all_items[i]) > game->map.width)
-			game->map.width = ft_strlen(game->all_items[i]);
-		free(game->all_items[i]);
-		++i;
-		++j;
+		while (game->all_items[i])
+		{
+			game->map.map[j] = ft_strdup(game->all_items[i]);
+			if (ft_strlen(game->all_items[i]) > game->map.width)
+				game->map.width = ft_strlen(game->all_items[i]);
+			free(game->all_items[i]);
+			++i;
+			++j;
+		}
+		game->map.map[j] = NULL;
+		game->map.height = j;
 	}
-	game->map.map[j] = NULL;
-	game->map.height = j;
+	else
+		return (3);
 	return (0);
 }
 

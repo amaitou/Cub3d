@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 15:06:11 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/21 01:30:22 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/21 18:52:53 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,15 @@ int	main(int ac, char **ag)
 		}
 		game->path = ag[1];
 		init_all(game);
-		__reader(game);
-		if (check_parser(game))
+		if (__checker(game))
+		{
+			system("leaks cub3D");
 			return (EXIT_FAILURE);
+		}
 		__display_elements(game);
+		system("leaks cub3D");
 	}
 	else
 		ft_putendl_fd("Error: Invalid Arguments", 2);
-	return (0);
+	return (EXIT_SUCCESS);
 }
