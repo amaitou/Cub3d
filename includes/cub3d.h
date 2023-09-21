@@ -161,6 +161,7 @@ int		__parser(t_game *game);
 int		check_parser(t_game *game);
 int		check_directions(t_enums direction, char *s);
 int		__rgb(t_game *game);
+int		__map(t_game *s);
 
 // int		check_path(char *path);
 void	skip_spaces(char **s);
