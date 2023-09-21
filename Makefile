@@ -15,7 +15,11 @@ CFILES = sources/cub3d.c \
 		 sources/mlx_hooks.c \
 		 sources/player_movements.c \
 		 sources/rays_casting.c \
-		 sources/checker.c
+		 sources/checker_parser.c \
+		 sources/check_textures.c \
+		 sources/split2.c \
+		 sources/checker.c \
+		 sources/check_rgb.c
 
 SUPERLIB_DIR = ./superlib
 SUPERLIB = ./superlib/superlib.a
@@ -54,7 +58,7 @@ fclean: clean
 	@$(MAKE) fclean -C $(SUPERLIB_DIR)
 
 run:
-	make && ./cub3D ./maps/maze.cub
+	make && ./cub3D ./maps/valid_maps/maze.cub
 
 re: fclean all
 

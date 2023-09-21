@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 12:55:08 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/21 01:31:12 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/21 06:26:46 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <fcntl.h>
 # include <stdbool.h>
 # include <stdio.h>
+# include <errno.h>
 
 # define TILE 30
 
@@ -128,8 +129,13 @@ typedef struct s_game
 	char			**all_items;
 	char			*lines;
 	char			*path;
+	char			*temp;
 	int				fd;
 }	t_game;
+
+// useful functions
+char	**split2(char const *s);
+int		__checker(t_game *game);
 
 // init members
 void	init_directions(t_game *game);
@@ -144,12 +150,22 @@ void	mlx(t_game *game);
 
 // reader
 int		__reader(t_game *game);
+int		check_reader(t_game *game);
+int		check_consecutive_new_lines(char *s);
 
 // parser
 void	assign_color(t_game *game, char **element);
 void	assign_directions(t_game *game, char **element);
 int		lines_count(t_game *game);
 int		__parser(t_game *game);
+int		check_parser(t_game *game);
+int		check_directions(t_enums direction, char *s);
+int		__rgb(t_game *game);
+
+// int		check_path(char *path);
+void	skip_spaces(char **s);
+int		check_map_and_elements(int parser_return_value);
+int		check_textures(t_game *game);
 
 // displayer
 void	__display_items(t_game *game);
@@ -158,11 +174,6 @@ void	__display_map(t_game *game);
 
 // leaks
 void	free_array(char **arr);
-
-// error
-int		check_reader(t_game *game);
-int		check_parser(t_game *game);
-int		check_consecutive_new_lines(char *s);
 
 // mini map
 void	draw_mini_map(t_game *game);
