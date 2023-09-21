@@ -1,0 +1,7 @@
+NO ../texture/north.cub
+SO ../texture/south.cub
+WE ../texture/west.cub
+EA ../texture/east.cub
+
+C 35,19,73
+F 15,6,40
