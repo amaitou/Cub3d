@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 17:26:28 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/06 16:40:00 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/21 01:32:35 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,18 @@ static int	parse_elements(t_game *game)
 	{
 		element = ft_split(game->all_items[i], ' ');
 		free(game->all_items[i]);
-		if (ft_array_len(element) > 1)
+		if (ft_array_len(element) == 1)
 		{
 			assign_directions(game, element);
 			game->elements.counter++;
 		}
-		else
+		else if (ft_array_len(element) < 2 || ft_array_len(element) > 2)
 		{
 			free_array(element);
 			return (1);
 		}
-		free_array(element);
+		else
+			free_array(element);
 		++i;
 	}
 	return (0);
@@ -47,7 +48,7 @@ static int	parse_map(t_game *game)
 	i = game->elements.counter;
 	game->map.map = (char **)malloc(sizeof(char *) * lines_count(game) + 1);
 	if (!game->map.map)
-		return (1);
+		return (2);
 	while (game->all_items[i])
 	{
 		game->map.map[j] = ft_strdup(game->all_items[i]);
@@ -64,11 +65,14 @@ static int	parse_map(t_game *game)
 
 int	__parser(t_game *game)
 {
-	init_elements(game);
-	if (parse_elements(game))
-		return (2);
-	if (parse_map(game))
-		return (3);
-	free(game->all_items);
+	int	_parse_elements;
+	int	_parse_map;
+
+	_parse_elements = parse_elements(game);
+	if (_parse_elements)
+		return (_parse_elements);
+	_parse_map = parse_map(game);
+	if (_parse_map)
+		return (_parse_map);
 	return (0);
 }

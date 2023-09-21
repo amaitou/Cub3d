@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 12:55:08 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/17 23:32:53 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/21 01:31:12 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -161,19 +161,8 @@ void	free_array(char **arr);
 
 // error
 int		check_reader(t_game *game);
-int		check_consecutive_new_lines(char *s);
 int		check_parser(t_game *game);
-int		check_elements(t_game *game);
-int		check_map(t_game *game);
-int		check_map_helper(t_game *game, int i, int j);
-int		starts_with_one(char *s);
-int		ends_with_one(char *s);
-int		check_walls(t_game *game);
-int		check_spaces(t_game *game, int i);
-int		map_closed(t_game *game);
-int		check_rgb(t_game *game);
-int		__checker(t_game *game);
-void	error_helper(t_game *game, char d, int x, int y);
+int		check_consecutive_new_lines(char *s);
 
 // mini map
 void	draw_mini_map(t_game *game);

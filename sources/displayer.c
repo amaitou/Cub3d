@@ -3,26 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   displayer.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 15:08:45 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/06 16:41:29 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/21 00:53:28 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
-
-void	__display_items(t_game *game)
-{
-	int	i;
-
-	i = 0;
-	while (game->all_items[i])
-	{
-		ft_printf("%s\n", game->all_items[i]);
-		++i;
-	}
-}
 
 static void	display_directions(t_enums direction)
 {

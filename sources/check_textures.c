@@ -1,37 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.c                                            :+:      :+:    :+:   */
+/*   check_textures.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/20 15:06:11 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/21 01:30:22 by amait-ou         ###   ########.fr       */
+/*   Created: 2023/09/21 00:54:17 by amait-ou          #+#    #+#             */
+/*   Updated: 2023/09/21 01:15:50 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-int	main(int ac, char **ag)
+int check_path(char *path)
 {
-	t_game	*game;
+    int fd;
 
-	if (ac == 2)
-	{
-		game = (t_game *)malloc(sizeof(t_game));
-		if (!game)
-		{
-			ft_putendl_fd("Error: Failed To Run The Game", 2);
-			return (0);
-		}
-		game->path = ag[1];
-		init_all(game);
-		__reader(game);
-		if (check_parser(game))
-			return (EXIT_FAILURE);
-		__display_elements(game);
-	}
-	else
-		ft_putendl_fd("Error: Invalid Arguments", 2);
-	return (0);
+    fd = open(path, O_RDONLY);
+    if (fd < 0)
+        return (1);
+    close(fd);
+    return (0);
+}
+
+int check_directions(t_enums direction, char *s)
+{
+    if (direction == _NONE || !s)
+        return (1);
+    return (0);
 }
