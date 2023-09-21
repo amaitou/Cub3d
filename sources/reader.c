@@ -3,19 +3,40 @@
 /*                                                        :::      ::::::::   */
 /*   reader.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 15:00:09 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/03 20:00:02 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/21 23:27:37 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
+static int	check_path(char *s)
+{
+	char	**p;
+	int		i;
+
+	p = ft_split(s, '.');
+	i = ft_array_len(p);
+	if (i >= 2)
+	{
+		if (ft_strcmp(p[i - 1], "cub") == 0)
+		{
+			free_array(p);
+			return (0);
+		}
+	}
+	free_array(p);
+	return (1);
+}
+
 int	__reader(t_game *game)
 {
 	char	*line;
 
+	if (check_path(game->path))
+		return (4);
 	game->fd = open(game->path, O_RDONLY);
 	if (game->fd < 0)
 		return (1);

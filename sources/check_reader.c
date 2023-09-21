@@ -3,28 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   check_reader.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 19:40:27 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/21 20:51:51 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/21 23:24:03 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
-
-// static int	skip_new_lines(char *s, int *i)
-// {
-// 	while (*(s + (*i)) && *(s + (*i)) != '\n')
-// 		(*i)++;
-// 	return (*i);
-// }
-
-// static int	skip_chars(char *s, int *i)
-// {
-// 	while (*(s + (*i)) && *(s + (*i)) == '\n')
-// 		(*i)++;
-// 	return (*i);
-// }
 
 static int	consecutive_new_lines(char *s, int i)
 {

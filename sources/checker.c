@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 04:28:00 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/21 19:48:06 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/21 23:24:59 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,11 @@ int	check_reader(t_game *game)
 	{
 		ft_putendl_fd("Error: Map has consecutive new lines", 2);
 		return (3);
+	}
+	if (reader_return_value == 4)
+	{
+		ft_putendl_fd("Error: Invalid path name", 2);
+		return (4);
 	}
 	return (0);
 }
