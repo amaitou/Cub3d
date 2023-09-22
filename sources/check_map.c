@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 23:36:42 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/22 02:47:16 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/22 15:13:52 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ static void	check_for_player(t_game *game, char c, int y, int x)
 		game->west++;
 	else if (c == 'S')
 		game->south++;
-	game->player.y = y;
-	game->player.x = x;
+	game->player.y = y * TILE + (TILE / 2);
+	game->player.x = x * TILE + (TILE / 2);
 }
 
 int	__map(t_game *game)
@@ -47,7 +47,6 @@ int	__map(t_game *game)
 	char	**map;
 
 	map = game->map.map;
-	__display_map(game);
 	i = 0;
 	while (map[i])
 	{

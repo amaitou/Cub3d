@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 15:06:11 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/22 02:40:50 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/22 15:13:23 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,9 @@ int	main(int ac, char **ag)
 		game->path = ag[1];
 		init_all(game);
 		if (__checker(game))
-		{
-			// system("leaks cub3D");
 			return (EXIT_FAILURE);
-		}
-		__display_elements(game);
-		printf("y -> %.2f\n", game->player.y);
-		printf("x -> %.2f", game->player.x);
+		mlx(game);
+		mlx_loop(game->mlx.mlx);
 		// system("leaks cub3D");
 	}
 	else
