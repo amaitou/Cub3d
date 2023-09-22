@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   split2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 03:43:49 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/21 04:16:20 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/22 02:45:51 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,8 @@ static int	letters(const char *s, int position)
 
 	p = (char *)s;
 	i = 0;
-	while (*(p + position) && *(p + position) != ' ' && *(p + position) != '\t')
+	while (*(p + position)
+		&& *(p + position) != ' ' && *(p + position) != '\t')
 	{
 		++i;
 		++position;
