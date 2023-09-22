@@ -19,7 +19,8 @@ CFILES = sources/cub3d.c \
 		 sources/check_textures.c \
 		 sources/split2.c \
 		 sources/checker.c \
-		 sources/check_rgb.c
+		 sources/check_rgb.c \
+		 sources/check_map.c
 
 SUPERLIB_DIR = ./superlib
 SUPERLIB = ./superlib/superlib.a

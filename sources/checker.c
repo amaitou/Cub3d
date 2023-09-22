@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 04:28:00 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/21 23:24:59 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/22 02:30:12 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,24 @@ int	check_rgb(t_game *game)
 	return (0);
 }
 
+int check_map(t_game *game)
+{
+	int	map_return_value;
+
+	map_return_value = __map(game);
+	if (map_return_value == 1)
+	{
+		ft_putendl_fd("Error: Map contains invalid chars", 2);
+		return (1);
+	}
+	if (map_return_value == 2)
+	{
+		ft_putendl_fd("Error: Invalid player position", 2);
+		return (2);
+	}
+	return (0);
+}
+
 int	__checker(t_game *game)
 {
 	if (check_reader(game))
@@ -88,5 +106,7 @@ int	__checker(t_game *game)
 		return (2);
 	if (check_rgb(game))
 		return (3);
+	if (check_map(game))
+		return (4);
 	return (0);
 }
