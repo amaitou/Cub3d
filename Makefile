@@ -15,7 +15,7 @@ CFILES = sources/cub3d.c \
 		 sources/mlx_hooks.c \
 		 sources/player_movements.c \
 		 sources/rays_casting.c \
-		 sources/checker_parser.c \
+		 sources/check_parser.c \
 		 sources/check_textures.c \
 		 sources/split2.c \
 		 sources/checker.c \
