@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_walls.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 21:54:54 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/22 22:43:53 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/23 00:29:41 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,14 @@
 
 static int	wall_up_down(t_game *game)
 {
-	int		len;
 	char	*first;
 	char	*last;
 
-	len = 0;
 	first = game->map.map[0];
 	while (*first)
 	{
 		if (*first != '1')
-			return (0);
+			return (1);
 		++first;
 	}
 	last = game->map.map[ft_array_len(game->map.map) - 1];
@@ -39,29 +37,28 @@ static int	wall_up_down(t_game *game)
 int	wall_start_end(char *s)
 {
 	size_t	i;
-	size_t	j;
+	int		a;
+	int		b;
 
-	j = 0;
-	while (s[j])
+	i = 0;
+	b = 0;
+	a = 0;
+	while (s[i] && !a)
 	{
-		while (s[j] && (s[j] == ' ' || s[j] == '\t'))
-			++j;
-		if (s[j])
-		{
-			if (s[j] != '1')
-				return (1);
-			i = ft_strlen(s) - 1;
-			while (i >= 0)
-			{
-				while (s[i] && (s[i] == ' ' || s[i] == '\t'))
-					--i;
-				if (s[i] != '1')
-					return (1);
-			}
-		}
-		++j;
+		while (s[i] && (s[i] == ' ' || s[i] == '\t'))
+			++i;
+		if (s[i] && s[i] == '1')
+			a = 1;
 	}
-	return (0);
+	while (s[i])
+	{
+		if (s[i] == '1')
+			b = 1;
+		else if (s[i] == '0')
+			b = 0;
+		++i;
+	}
+	return (!a || !b);
 }
 
 static int	wall_middle(t_game *game)
@@ -70,9 +67,7 @@ static int	wall_middle(t_game *game)
 	size_t	end;
 
 	start = 1;
-	printf("[.] %lu, ", start);
 	end = ft_array_len(game->map.map) - 1;
-	printf("[.] %lu, ", end);
 	while (start < end)
 	{
 		if (wall_start_end(game->map.map[start]))
