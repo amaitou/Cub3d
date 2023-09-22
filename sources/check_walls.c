@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 21:54:54 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/22 22:14:12 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/22 22:43:53 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,28 +36,48 @@ static int	wall_up_down(t_game *game)
 	return (0);
 }
 
+int	wall_start_end(char *s)
+{
+	size_t	i;
+	size_t	j;
+
+	j = 0;
+	while (s[j])
+	{
+		while (s[j] && (s[j] == ' ' || s[j] == '\t'))
+			++j;
+		if (s[j])
+		{
+			if (s[j] != '1')
+				return (1);
+			i = ft_strlen(s) - 1;
+			while (i >= 0)
+			{
+				while (s[i] && (s[i] == ' ' || s[i] == '\t'))
+					--i;
+				if (s[i] != '1')
+					return (1);
+			}
+		}
+		++j;
+	}
+	return (0);
+}
+
 static int	wall_middle(t_game *game)
 {
-	int		len;
-	int		i;
-	int		j;
-	size_t	l;
+	size_t	start;
+	size_t	end;
 
-	len = ft_array_len(game->map.map);
-	i = 0;
-	while (game->map.map[0][i] && game->map.map[len - 1][i])
+	start = 1;
+	printf("[.] %lu, ", start);
+	end = ft_array_len(game->map.map) - 1;
+	printf("[.] %lu, ", end);
+	while (start < end)
 	{
-		if (!(game->map.map[0][i] == '1' && game->map.map[len - 1][i] == '1'))
+		if (wall_start_end(game->map.map[start]))
 			return (1);
-		++i;
-	}
-	j = 1;
-	while (j < len - 1)
-	{
-		l = ft_strlen(game->map.map[j]);
-		if (!(game->map.map[j][0] == '1' && game->map.map[j][l - 1] == '1'))
-			return (1);
-		++j;
+		++start;
 	}
 	return (0);
 }
