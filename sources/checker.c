@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 04:28:00 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/22 02:47:29 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/22 22:15:02 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,7 @@ int	check_rgb(t_game *game)
 int	check_map(t_game *game)
 {
 	int	map_return_value;
+	int	wall_return_value;
 
 	map_return_value = __map(game);
 	if (map_return_value == 1)
@@ -94,6 +95,12 @@ int	check_map(t_game *game)
 	{
 		ft_putendl_fd("Error: Invalid player position", 2);
 		return (2);
+	}
+	wall_return_value = __walls(game);
+	if (wall_return_value)
+	{
+		ft_putendl_fd("Error: Map must be surrounded by walls", 2);
+		return (1);
 	}
 	return (0);
 }
