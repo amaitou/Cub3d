@@ -3,74 +3,70 @@
 /*                                                        :::      ::::::::   */
 /*   check_walls.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 21:54:54 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/23 00:29:41 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/23 17:37:53 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-static int	wall_up_down(t_game *game)
+static int	wall_up_down(char *s)
 {
-	char	*first;
-	char	*last;
+	char	*temp;
+	size_t	i;
 
-	first = game->map.map[0];
-	while (*first)
+	temp = ft_strtrim(s, " ");
+	i = 0;
+	while (temp[i])
 	{
-		if (*first != '1')
+		if (temp[i] != '1' && temp[i] != ' ')
+		{
+			free(temp);
 			return (1);
-		++first;
+		}
+		++i;
 	}
-	last = game->map.map[ft_array_len(game->map.map) - 1];
-	while (*last)
-	{
-		if (*last != '1')
-			return (1);
-		++last;
-	}
+	free(temp);
 	return (0);
 }
 
-int	wall_start_end(char *s)
+static int	wall_middle_helper(char *s)
 {
+	char	*temp;
 	size_t	i;
-	int		a;
-	int		b;
+	int		boolean;
 
+	temp = ft_strtrim(s, " ");
 	i = 0;
-	b = 0;
-	a = 0;
-	while (s[i] && !a)
+	boolean = 0;
+	if (temp[i] != '1')
+		return (1);
+	++i;
+	while (temp[i])
 	{
-		while (s[i] && (s[i] == ' ' || s[i] == '\t'))
-			++i;
-		if (s[i] && s[i] == '1')
-			a = 1;
-	}
-	while (s[i])
-	{
-		if (s[i] == '1')
-			b = 1;
-		else if (s[i] == '0')
-			b = 0;
+		if (temp[i] == '1')
+			boolean = 1;
+		if (temp[i] == '0')
+			boolean = 0;
 		++i;
 	}
-	return (!a || !b);
+	if (!boolean)
+		return (1);
+	return (0);
 }
 
-static int	wall_middle(t_game *game)
+static int	wall_middle(char **map)
 {
 	size_t	start;
 	size_t	end;
 
 	start = 1;
-	end = ft_array_len(game->map.map) - 1;
+	end = ft_array_len(map) - 1;
 	while (start < end)
 	{
-		if (wall_start_end(game->map.map[start]))
+		if (wall_middle_helper(map[start]))
 			return (1);
 		++start;
 	}
@@ -79,9 +75,10 @@ static int	wall_middle(t_game *game)
 
 int	__walls(t_game *game)
 {
-	if (wall_up_down(game))
+	if (wall_up_down(game->map.map[0])
+		|| wall_up_down(game->map.map[ft_array_len(game->map.map) - 1]))
 		return (1);
-	if (wall_middle(game))
-		return (2);
+	if (wall_middle(game->map.map))
+		return (1);
 	return (0);
 }
