@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 21:54:54 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/23 17:37:53 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/23 21:38:16 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,5 +80,7 @@ int	__walls(t_game *game)
 		return (1);
 	if (wall_middle(game->map.map))
 		return (1);
+	if (check_spaces(game))
+		return (2);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 12:55:08 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/22 22:14:23 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/23 21:38:45 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -160,6 +160,7 @@ int		lines_count(t_game *game);
 int		__parser(t_game *game);
 int		check_parser(t_game *game);
 int		check_directions(t_enums direction, char *s);
+int		check_spaces(t_game *game);
 int		__rgb(t_game *game);
 int		__map(t_game *game);
 int		__walls(t_game *game);

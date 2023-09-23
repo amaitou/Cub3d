@@ -21,7 +21,8 @@ CFILES = sources/cub3d.c \
 		 sources/checker.c \
 		 sources/check_rgb.c \
 		 sources/check_map.c \
-		 sources/check_walls.c
+		 sources/check_walls.c \
+		 sources/check_spaces.c
 
 SUPERLIB_DIR = ./superlib
 SUPERLIB = ./superlib/superlib.a

@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 04:28:00 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/22 22:15:02 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/23 21:42:19 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,10 @@ int	check_map(t_game *game)
 	wall_return_value = __walls(game);
 	if (wall_return_value)
 	{
-		ft_putendl_fd("Error: Map must be surrounded by walls", 2);
+		if (wall_return_value == 1)
+			ft_putendl_fd("Error: map must be surrounded by walls", 2);
+		if (wall_return_value == 2)
+			ft_putendl_fd("Error: player cannot moves in spaces", 2);
 		return (1);
 	}
 	return (0);
