@@ -61,7 +61,7 @@ fclean: clean
 	@$(MAKE) fclean -C $(SUPERLIB_DIR)
 
 run:
-	make && ./cub3D ./maps/valid_maps/maze.cub
+	make && ./cub3D ./maps/valid_maps/random.cub
 
 re: fclean all
 
