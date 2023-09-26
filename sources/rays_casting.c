@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rays_casting.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 18:45:11 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/16 00:29:44 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/26 02:08:24 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,23 +28,23 @@ static int	check_helper(char **_m, int _y, int _x, char c)
 
 void	dda(t_game *game, float angle)
 {
-	float	_x;
-	float	_y;
-
-	_x = game->player.x;
-	_y = game->player.y;
-	while (game->map.map[(int)_y / TILE][(int)_x / TILE] != '1')
+	game->player.dda_x = game->player.x;
+	game->player.dda_y = game->player.y;
+	while (game->map.map[(int)game->player.dda_y / TILE]
+		[(int)game->player.dda_x / TILE] != '1')
 	{
-		if (check_helper(game->map.map, (int)_y, (int)_x, '1'))
+		if (check_helper(game->map.map, (int)game->player.dda_y,
+				(int)game->player.dda_x, '1'))
 			break ;
-		if (check_helper(game->map.map, (int)_y, (int)_x, ' '))
+		if (check_helper(game->map.map, (int)game->player.dda_y,
+				(int)game->player.dda_x, ' '))
 			break ;
 		game->dda.dx = cos(angle);
 		game->dda.dy = sin(angle);
 		mlx_put_pixel(game->mlx.window,
-			_x, _y, get_rgba(235, 52, 70, 255));
-		_x += game->dda.dx;
-		_y += game->dda.dy;
+			game->player.dda_x, game->player.dda_y, get_rgba(235, 52, 70, 255));
+		game->player.dda_x += game->dda.dx;
+		game->player.dda_y += game->dda.dy;
 	}
 }
 
