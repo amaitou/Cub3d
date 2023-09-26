@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 15:06:11 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/22 15:13:23 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/26 02:11:39 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,9 @@ int	main(int ac, char **ag)
 		// system("leaks cub3D");
 	}
 	else
+	{
 		ft_putendl_fd("Error: Invalid Arguments", 2);
+		return (EXIT_FAILURE);
+	}
 	return (EXIT_SUCCESS);
 }
