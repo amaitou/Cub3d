@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 18:45:11 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/26 02:08:24 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/26 03:06:28 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,9 @@ void	draw_rays(t_game *game)
 	float	step;
 	size_t	i;
 
-	angle = game->player.rotation_angle - (30 * (M_PI / 180));
-	step = (60 * (M_PI / 180)) / (game->map.width * TILE);
+	angle = game->player.rotation_angle - ((game->player.fov / 2)
+			* (M_PI / 180));
+	step = (game->player.fov * (M_PI / 180)) / (game->map.width * TILE);
 	i = 0;
 	while (i < game->map.width * TILE)
 	{

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_members.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 17:26:12 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/16 23:36:04 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/26 03:05:24 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,12 +49,15 @@ void	init_player(t_game *game)
 {
 	game->player.x = 0;
 	game->player.y = 0;
-	game->player.radius = 4;
+	game->player.radius = 3;
 	game->player.rotation_angle = 0;
 	game->player.turn_direction = 0;
 	game->player.walk_direction = 0;
 	game->player.move_speed = 1.5;
 	game->player.rotation_speed = 3 * (M_PI / 180);
+	game->player.dda_x = 0;
+	game->player.dda_y = 0;
+	game->player.fov = 60;
 }
 
 void	init_all(t_game *game)

@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 12:55:08 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/26 02:08:41 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/26 03:04:54 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,7 @@ typedef struct s_player
 	float	y;
 	float	dda_x;
 	float	dda_y;
+	int		fov;
 	float	radius;
 	int		turn_direction;
 	int		walk_direction;
