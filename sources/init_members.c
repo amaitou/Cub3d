@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 17:26:12 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/26 22:35:09 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/27 18:58:39 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,4 +66,5 @@ void	init_all(t_game *game)
 	init_map(game);
 	init_elements(game);
 	init_player(game);
+	game->ray = (t_rays *)malloc(sizeof(t_rays) * WINDOW_WIDTH);
 }

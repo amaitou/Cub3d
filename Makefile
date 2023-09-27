@@ -23,7 +23,8 @@ CFILES = sources/cub3d.c \
 		 sources/check_walls.c \
 		 sources/check_spaces.c \
 		 sources/projection_plan.c \
-		 sources/ray_casting_utils.c
+		 sources/ray_casting_utils.c \
+		 sources/draw_game.c
 
 SUPERLIB_DIR = ./superlib
 SUPERLIB = ./superlib/superlib.a

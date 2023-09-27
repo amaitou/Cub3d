@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   displayer.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 15:08:45 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/21 00:53:28 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/27 19:02:13 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,18 @@ void	__display_map(t_game *game)
 	while (game->map.map[i])
 	{
 		ft_printf("%s\n", game->map.map[i]);
+		++i;
+	}
+}
+
+void	__display_rays(t_game *game)
+{
+	size_t	i;
+
+	i = 0;
+	while (i < WINDOW_WIDTH)
+	{
+		printf("[x] -> %.2f, [y] -> %.2f\n", game->ray[i].x, game->ray[i].y);
 		++i;
 	}
 }

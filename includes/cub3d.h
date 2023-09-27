@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 16:12:48 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/27 18:37:12 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/27 19:10:19 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,6 +128,12 @@ typedef struct s_mlx
 	mlx_image_t	*window;
 }	t_mlx;
 
+typedef struct s_ray
+{
+	float	x;
+	float	y;
+}	t_rays;
+
 typedef struct s_game
 {
 	t_elements		elements;
@@ -135,6 +141,7 @@ typedef struct s_game
 	t_mlx			mlx;
 	t_map			map;
 	t_dda			dda;
+	t_rays			*ray;
 	int				west;
 	int				east;
 	int				south;
@@ -178,7 +185,6 @@ int		__rgb(t_game *game);
 int		__map(t_game *game);
 int		__walls(t_game *game);
 
-// int		check_path(char *path);
 void	skip_spaces(char **s);
 int		check_map_and_elements(int parser_return_value);
 int		check_textures(t_game *game);
@@ -187,17 +193,19 @@ int		check_textures(t_game *game);
 void	__display_items(t_game *game);
 void	__display_elements(t_game *game);
 void	__display_map(t_game *game);
+void	__display_rays(t_game *game);
 
 // leaks
 void	free_array(char **arr);
 
 // ray casting
 void	draw_mini_map(t_game *game);
-void	projection_plan(t_game *game, int i);
+void	projection_plan(t_game *game);
 void	clear_map(t_game *game);
 void	draw_floor(t_game *game);
 void	draw_ceiling(t_game *game);
 int		get_rgba(int r, int g, int b, int a);
+void	draw_game(t_game *game);
 
 // player mouvements
 void	move_up(t_game *game);

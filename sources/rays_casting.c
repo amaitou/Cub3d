@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 18:45:11 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/27 16:47:21 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/27 19:02:59 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,8 @@ void	draw_rays(t_game *game)
 	while (i < WINDOW_WIDTH)
 	{
 		dda(game, angle);
-		projection_plan(game, i);
+		game->ray[i].x = game->player.dda_x;
+		game->ray[i].y = game->player.dda_y;
 		angle += step;
 		++i;
 	}
