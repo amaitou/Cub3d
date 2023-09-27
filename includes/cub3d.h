@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 16:12:48 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/27 19:10:19 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/27 20:57:34 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 # include <stdio.h>
 # include <errno.h>
 
-# define WINDOW_HEIGHT 800
-# define WINDOW_WIDTH 1500
+# define WINDOW_HEIGHT 1080
+# define WINDOW_WIDTH 1920
 # define TILE 12
 # define MOVE_SPEED 2.5
 # define RADIUS 1.75
@@ -94,7 +94,7 @@ typedef struct s_player
 	float	y;
 	float	dda_x;
 	float	dda_y;
-	int		fov;
+	float	fov;
 	float	radius;
 	float	turn_direction;
 	float	walk_direction;
@@ -103,9 +103,8 @@ typedef struct s_player
 	float	projection_plan;
 	float	distance;
 	float	wall_height;
-	int		y_start;
-	int		y_end;
-	float	rotation_speed;
+	float	y_start;
+	float	y_end;
 }	t_player;
 
 typedef struct s_dda
@@ -132,6 +131,7 @@ typedef struct s_ray
 {
 	float	x;
 	float	y;
+	float	angle;
 }	t_rays;
 
 typedef struct s_game

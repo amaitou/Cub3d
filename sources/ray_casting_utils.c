@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 18:24:33 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/27 18:40:16 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/27 20:32:07 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 float	radial(float number)
 {
-	return (number * (M_PI / 180));
+	return (number * (M_PI / 180.0));
 }
 
 int	get_rgba(int r, int g, int b, int a)

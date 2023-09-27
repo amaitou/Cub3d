@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 18:45:11 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/27 19:02:59 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/27 21:02:21 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,11 @@ void	dda(t_game *game, float angle)
 {
 	game->player.dda_x = game->player.x;
 	game->player.dda_y = game->player.y;
-	while (game->map.map[(int)game->player.dda_y / TILE]
-		[(int)game->player.dda_x / TILE] != '1')
+	while (game->map.map[(int)(game->player.dda_y / TILE)]
+		[(int)(game->player.dda_x / TILE)] != '1')
 	{
 		if (check_helper(game->map.map, (int)game->player.dda_y,
 				(int)game->player.dda_x, '1'))
-			break ;
-		if (check_helper(game->map.map, (int)game->player.dda_y,
-				(int)game->player.dda_x, ' '))
 			break ;
 		game->dda.dx = cos(angle);
 		game->dda.dy = sin(angle);
@@ -62,6 +59,7 @@ void	draw_rays(t_game *game)
 		dda(game, angle);
 		game->ray[i].x = game->player.dda_x;
 		game->ray[i].y = game->player.dda_y;
+		game->ray[i].angle = angle;
 		angle += step;
 		++i;
 	}

@@ -6,16 +6,16 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 17:06:00 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/26 22:49:43 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/27 20:15:17 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-static void	draw_player(int color, int y, int x, t_game *game)
+static void	draw_player(int color, float y, float x, t_game *game)
 {
-	int	_x;
-	int	_y;
+	float	_x;
+	float	_y;
 
 	_y = -game->player.radius;
 	while (_y <= game->player.radius)
@@ -32,10 +32,10 @@ static void	draw_player(int color, int y, int x, t_game *game)
 	}
 }
 
-static void	draw_rectangle(int color, int y, int x, t_game *game)
+static void	draw_rectangle(int color, float y, float x, t_game *game)
 {
-	int	_x;
-	int	_y;
+	float	_x;
+	float	_y;
 
 	_y = 0;
 	while (_y < TILE)
@@ -57,21 +57,21 @@ static void	draw_rectangle(int color, int y, int x, t_game *game)
 
 void	draw_mini_map(t_game *game)
 {
-	int		y;
-	int		x;
-	char	*line;
+	float		y;
+	float		x;
+	char		*line;
 
 	y = 0;
-	while (game->map.map[y])
+	while (game->map.map[(int)y])
 	{
 		x = 0;
-		line = game->map.map[y];
-		while (line[x])
+		line = game->map.map[(int)y];
+		while (line[(int)x])
 		{
-			if (line[x] == '1')
+			if (line[(int)x] == '1')
 				draw_rectangle(get_rgba(255, 248, 220, 255),
 					y * TILE, x * TILE, game);
-			else if (line[x] == '0' || ft_strchr("NEWS", line[x]))
+			else if (line[(int)x] == '0' || ft_strchr("NEWS", line[(int)x]))
 				draw_rectangle(get_rgba(0, 118, 107, 255),
 					y * TILE, x * TILE, game);
 			++x;

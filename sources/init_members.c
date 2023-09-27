@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 17:26:12 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/27 18:58:39 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/27 20:57:23 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,16 +47,15 @@ void	init_elements(t_game *game)
 
 void	init_player(t_game *game)
 {
-	game->player.x = 0;
-	game->player.y = 0;
+	game->player.x = 0.00;
+	game->player.y = 0.00;
 	game->player.radius = RADIUS;
-	game->player.rotation_angle = 0;
-	game->player.turn_direction = 0;
-	game->player.walk_direction = 0;
+	game->player.rotation_angle = 0.00;
+	game->player.turn_direction = 0.00;
+	game->player.walk_direction = 0.00;
 	game->player.move_speed = MOVE_SPEED;
-	game->player.rotation_speed = radial(3.00);
-	game->player.dda_x = 0;
-	game->player.dda_y = 0;
+	game->player.dda_x = 0.00;
+	game->player.dda_y = 0.00;
 	game->player.fov = FIELD_OF_VIEW;
 }
 

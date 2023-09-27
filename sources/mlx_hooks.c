@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 18:49:49 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/27 19:09:55 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/27 20:17:57 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,5 @@ void	check_keys(void *game)
 		g->player.rotation_angle -= M_PI * 2;
 	if (g->player.rotation_angle < 0)
 		g->player.rotation_angle += M_PI * 2;
-	draw_game(g);
+	draw_game(game);
 }
