@@ -6,22 +6,22 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 18:45:11 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/27 21:02:21 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/27 21:29:22 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-static int	check_helper(char **_m, int _y, int _x, char c)
+static int	check_helper(char **_m, float _y, float _x, char c)
 {
-	if ((_m[_y / TILE][(_x - 1) / TILE] == c
-		&& _m[(_y + 1) / TILE][_x / TILE] == c)
-		|| (_m[_y / TILE][(_x + 1) / TILE] == c
-			&& _m[(_y - 1) / TILE][_x / TILE] == c)
-		|| (_m[_y / TILE][(_x - 1) / TILE] == c
-			&& _m[(_y - 1) / TILE][_x / TILE] == c)
-		|| (_m[_y / TILE][(_x + 1) / TILE] == c
-			&& _m[(_y + 1) / TILE][_x / TILE] == c))
+	if ((_m[(int)_y / TILE][((int)_x - 1) / TILE] == c
+		&& _m[(int)(_y + 1) / TILE][(int)_x / TILE] == c)
+		|| (_m[(int)_y / TILE][(int)(_x + 1) / TILE] == c
+			&& _m[(int)(_y - 1) / TILE][(int)_x / TILE] == c)
+		|| (_m[(int)_y / TILE][(int)(_x - 1) / TILE] == c
+			&& _m[(int)(_y - 1) / TILE][(int)_x / TILE] == c)
+		|| (_m[(int)_y / TILE][(int)(_x + 1) / TILE] == c
+			&& _m[(int)(_y + 1) / TILE][(int)_x / TILE] == c))
 		return (1);
 	return (0);
 }
@@ -51,7 +51,7 @@ void	draw_rays(t_game *game)
 	float	step;
 	size_t	i;
 
-	angle = game->player.rotation_angle - radial(game->player.fov / 2);
+	angle = game->player.rotation_angle - (radial(game->player.fov) / 2);
 	step = radial(game->player.fov) / WINDOW_WIDTH;
 	i = 0;
 	while (i < WINDOW_WIDTH)
@@ -61,6 +61,6 @@ void	draw_rays(t_game *game)
 		game->ray[i].y = game->player.dda_y;
 		game->ray[i].angle = angle;
 		angle += step;
-		++i;
+		i += 1;
 	}
 }
