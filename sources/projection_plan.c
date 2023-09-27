@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 15:54:57 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/27 21:28:10 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/27 22:36:17 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,13 @@ void	projection_plan(t_game *game)
 		game->player.distance *= cos(game->ray[i].angle
 				- game->player.rotation_angle);
 		game->player.wall_height = (WINDOW_HEIGHT
-				/ game->player.distance) * 15;
+				/ game->player.distance) * 13;
 		if (game->player.wall_height > WINDOW_HEIGHT)
 			game->player.wall_height = WINDOW_HEIGHT;
 		game->player.y_start = (WINDOW_HEIGHT / 2.0)
 			- (game->player.wall_height / 2.0);
 		game->player.y_end = game->player.y_start + game->player.wall_height;
-		while ((int)game->player.y_start < (int)game->player.y_end)
+		while (game->player.y_start < game->player.y_end)
 		{
 			mlx_put_pixel(game->mlx.window, i, game->player.y_start, 
 				get_rgba(158, 118, 171, 255));

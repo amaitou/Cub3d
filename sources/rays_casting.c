@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 18:45:11 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/27 21:29:22 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/27 23:38:10 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	check_helper(char **_m, float _y, float _x, char c)
 {
-	if ((_m[(int)_y / TILE][((int)_x - 1) / TILE] == c
+	if ((_m[(int)_y / TILE][(int)(_x - 1) / TILE] == c
 		&& _m[(int)(_y + 1) / TILE][(int)_x / TILE] == c)
 		|| (_m[(int)_y / TILE][(int)(_x + 1) / TILE] == c
 			&& _m[(int)(_y - 1) / TILE][(int)_x / TILE] == c)
@@ -30,11 +30,11 @@ void	dda(t_game *game, float angle)
 {
 	game->player.dda_x = game->player.x;
 	game->player.dda_y = game->player.y;
-	while (game->map.map[(int)(game->player.dda_y / TILE)]
-		[(int)(game->player.dda_x / TILE)] != '1')
+	while (game->map.map[(int)game->player.dda_y / TILE]
+		[(int)game->player.dda_x / TILE] != '1')
 	{
-		if (check_helper(game->map.map, (int)game->player.dda_y,
-				(int)game->player.dda_x, '1'))
+		if (check_helper(game->map.map, game->player.dda_y,
+				game->player.dda_x, '1'))
 			break ;
 		game->dda.dx = cos(angle);
 		game->dda.dy = sin(angle);
@@ -61,6 +61,6 @@ void	draw_rays(t_game *game)
 		game->ray[i].y = game->player.dda_y;
 		game->ray[i].angle = angle;
 		angle += step;
-		i += 1;
+		i++;
 	}
 }

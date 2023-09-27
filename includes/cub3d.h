@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 16:12:48 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/27 20:57:34 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/27 23:30:45 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@
 # include <stdio.h>
 # include <errno.h>
 
-# define WINDOW_HEIGHT 1080
-# define WINDOW_WIDTH 1920
+# define WINDOW_HEIGHT 800
+# define WINDOW_WIDTH 1500
 # define TILE 12
-# define MOVE_SPEED 2.5
+# define MOVE_SPEED 1.5
 # define RADIUS 1.75
 # define FIELD_OF_VIEW 60
 
@@ -105,6 +105,7 @@ typedef struct s_player
 	float	wall_height;
 	float	y_start;
 	float	y_end;
+	float	rotation_speed;
 }	t_player;
 
 typedef struct s_dda
