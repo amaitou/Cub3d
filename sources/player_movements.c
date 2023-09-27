@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/17 17:50:03 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/17 18:39:55 by amait-ou         ###   ########.fr       */
+/*   Created: 2023/09/27 18:42:11 by amait-ou          #+#    #+#             */
+/*   Updated: 2023/09/27 18:42:14 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 int	wall_hitting(t_game *game, int y, int x)
 {
-	if (game->map.map[(y + 3) / TILE][x / TILE] == '1')
+	if (game->map.map[(y + 2) / TILE][x / TILE] == '1')
 		return (1);
-	if (game->map.map[(y - 3) / TILE][x / TILE] == '1')
+	if (game->map.map[(y - 2) / TILE][x / TILE] == '1')
 		return (1);
-	if (game->map.map[y / TILE][(x + 3) / TILE] == '1')
+	if (game->map.map[y / TILE][(x + 2) / TILE] == '1')
 		return (1);
-	if (game->map.map[y / TILE][(x - 3) / TILE] == '1')
+	if (game->map.map[y / TILE][(x - 2) / TILE] == '1')
 		return (1);
 	return (0);
 }

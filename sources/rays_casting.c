@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rays_casting.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 18:45:11 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/26 03:06:28 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/27 16:47:21 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,13 +54,13 @@ void	draw_rays(t_game *game)
 	float	step;
 	size_t	i;
 
-	angle = game->player.rotation_angle - ((game->player.fov / 2)
-			* (M_PI / 180));
-	step = (game->player.fov * (M_PI / 180)) / (game->map.width * TILE);
+	angle = game->player.rotation_angle - radial(game->player.fov / 2);
+	step = radial(game->player.fov) / WINDOW_WIDTH;
 	i = 0;
-	while (i < game->map.width * TILE)
+	while (i < WINDOW_WIDTH)
 	{
 		dda(game, angle);
+		projection_plan(game, i);
 		angle += step;
 		++i;
 	}

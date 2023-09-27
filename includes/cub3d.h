@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/18 12:55:08 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/26 03:04:54 by amait-ou         ###   ########.fr       */
+/*   Created: 2023/09/27 16:12:48 by amait-ou          #+#    #+#             */
+/*   Updated: 2023/09/27 18:37:12 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,12 @@
 # include <stdio.h>
 # include <errno.h>
 
-# define TILE 30
+# define WINDOW_HEIGHT 800
+# define WINDOW_WIDTH 1500
+# define TILE 12
+# define MOVE_SPEED 2.5
+# define RADIUS 1.75
+# define FIELD_OF_VIEW 60
 
 typedef enum e_enums
 {
@@ -91,10 +96,15 @@ typedef struct s_player
 	float	dda_y;
 	int		fov;
 	float	radius;
-	int		turn_direction;
-	int		walk_direction;
+	float	turn_direction;
+	float	walk_direction;
 	float	rotation_angle;
 	float	move_speed;
+	float	projection_plan;
+	float	distance;
+	float	wall_height;
+	int		y_start;
+	int		y_end;
 	float	rotation_speed;
 }	t_player;
 
@@ -139,6 +149,7 @@ typedef struct s_game
 // useful functions
 char	**split2(char const *s);
 int		__checker(t_game *game);
+float	radial(float number);
 
 // init members
 void	init_directions(t_game *game);
@@ -148,7 +159,6 @@ void	init_player(t_game *game);
 void	init_all(t_game *game);
 
 // cub3d
-int		get_rgba(int r, int g, int b, int a);
 void	mlx(t_game *game);
 
 // reader
@@ -181,8 +191,13 @@ void	__display_map(t_game *game);
 // leaks
 void	free_array(char **arr);
 
-// mini map
+// ray casting
 void	draw_mini_map(t_game *game);
+void	projection_plan(t_game *game, int i);
+void	clear_map(t_game *game);
+void	draw_floor(t_game *game);
+void	draw_ceiling(t_game *game);
+int		get_rgba(int r, int g, int b, int a);
 
 // player mouvements
 void	move_up(t_game *game);

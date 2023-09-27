@@ -9,7 +9,6 @@ CFILES = sources/cub3d.c \
 		 sources/parser_utils.c \
 		 sources/parser.c \
 		 sources/leaks.c \
-		 sources/cub3d_utils.c \
 		 sources/mini_map.c \
 		 sources/init_members.c \
 		 sources/mlx_hooks.c \
@@ -22,7 +21,9 @@ CFILES = sources/cub3d.c \
 		 sources/check_rgb.c \
 		 sources/check_map.c \
 		 sources/check_walls.c \
-		 sources/check_spaces.c
+		 sources/check_spaces.c \
+		 sources/projection_plan.c \
+		 sources/ray_casting_utils.c
 
 SUPERLIB_DIR = ./superlib
 SUPERLIB = ./superlib/superlib.a

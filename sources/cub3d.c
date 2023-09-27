@@ -3,14 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 15:06:11 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/26 02:11:39 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/27 18:43:21 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
+
+void	mlx(t_game *game)
+{
+	game->mlx.mlx = mlx_init(WINDOW_WIDTH, WINDOW_HEIGHT, "Cub3d", true);
+	game->mlx.window = mlx_new_image(game->mlx.mlx,
+			WINDOW_WIDTH, WINDOW_HEIGHT);
+	mlx_image_to_window(game->mlx.mlx, game->mlx.window, 0, 0);
+	mlx_loop_hook(game->mlx.mlx, check_keys, game);
+}
 
 int	main(int ac, char **ag)
 {
@@ -30,7 +39,6 @@ int	main(int ac, char **ag)
 			return (EXIT_FAILURE);
 		mlx(game);
 		mlx_loop(game->mlx.mlx);
-		// system("leaks cub3D");
 	}
 	else
 	{
