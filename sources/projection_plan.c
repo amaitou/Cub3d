@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 15:54:57 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/27 22:36:17 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/28 15:06:16 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ void	projection_plan(t_game *game)
 	while (i < WINDOW_WIDTH)
 	{
 		game->player.distance = sqrt(pow(game->ray[i].y
-					- game->player.y, 2)
-				+ pow(game->ray[i].x - game->player.x, 2));
+					- game->player.y, 2.0)
+				+ pow(game->ray[i].x - game->player.x, 2.0));
 		game->player.distance *= cos(game->ray[i].angle
 				- game->player.rotation_angle);
 		game->player.wall_height = (WINDOW_HEIGHT

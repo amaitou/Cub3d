@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 18:45:11 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/27 23:38:10 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/28 15:56:28 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,10 @@ void	dda(t_game *game, float angle)
 		if (check_helper(game->map.map, game->player.dda_y,
 				game->player.dda_x, '1'))
 			break ;
-		game->dda.dx = cos(angle);
-		game->dda.dy = sin(angle);
 		mlx_put_pixel(game->mlx.window,
 			game->player.dda_x, game->player.dda_y, get_rgba(235, 52, 70, 255));
-		game->player.dda_x += game->dda.dx;
-		game->player.dda_y += game->dda.dy;
+		game->player.dda_x += cos(angle) * .20;
+		game->player.dda_y += sin(angle) * .20;
 	}
 }
 
