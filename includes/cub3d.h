@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 16:12:48 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/29 10:47:30 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/29 11:57:29 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -169,6 +169,7 @@ void	init_all(t_game *game);
 
 // cub3d
 void	mlx(t_game *game);
+int		__run_game(t_game *game, int ac, char **ag);
 
 // reader
 int		__reader(t_game *game);
