@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 18:24:33 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/28 08:01:45 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/29 13:19:50 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,14 +44,17 @@ void	draw_floor(t_game *game)
 {
 	size_t	i;
 	size_t	j;
+	int		*colors;
 
+	colors = game->elements.floor_c.colors;
 	i = 0;
 	while (i < WINDOW_HEIGHT / 2)
 	{
 		j = 0;
 		while (j < WINDOW_WIDTH)
 		{
-			mlx_put_pixel(game->mlx.window, j, i, get_rgba(38, 77, 69, 255));
+			mlx_put_pixel(game->mlx.window, j, i, get_rgba(colors[0],
+					colors[1], colors[2], 255));
 			++j;
 		}
 		++i;
@@ -62,14 +65,17 @@ void	draw_ceiling(t_game *game)
 {
 	size_t	i;
 	size_t	j;
+	int		*colors;
 
+	colors = game->elements.ceiling_c.colors;
 	i = WINDOW_HEIGHT / 2;
 	while (i < WINDOW_HEIGHT)
 	{
 		j = 0;
 		while (j < WINDOW_WIDTH)
 		{
-			mlx_put_pixel(game->mlx.window, j, i, get_rgba(130, 108, 56, 255));
+			mlx_put_pixel(game->mlx.window, j, i, get_rgba(colors[0],
+					colors[1], colors[2], 255));
 			++j;
 		}
 		++i;

@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 16:12:48 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/29 11:57:29 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/29 13:11:33 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ typedef struct s_east
 typedef struct s_color_f
 {
 	char	*surface;
+	int		colors[3];
 	char	*rgb;
 	t_enums	type;
 }	t_color_f;
@@ -73,6 +74,7 @@ typedef struct s_color_f
 typedef struct s_color_c
 {
 	char	*surface;
+	int		colors[3];
 	char	*rgb;
 	t_enums	type;
 }	t_color_c;

@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 15:54:57 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/28 17:42:42 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/29 13:23:20 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	projection_plan(t_game *game)
 		while (game->player.y_start < game->player.y_end)
 		{
 			mlx_put_pixel(game->mlx.window, i, game->player.y_start,
-				get_rgba(158, 118, 171, 255));
+				get_rgba(77, 0, 25, 255));
 			game->player.y_start++;
 		}
 		++i;

@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 11:51:42 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/29 11:58:38 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/29 13:17:58 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,23 @@ void	set_angle(t_game *game)
 		game->player.rotation_angle = 90;
 }
 
+void	set_colors(t_game *game)
+{
+	char	**floor;
+	char	**ceiling;
+	size_t	i;
+
+	i = 0;
+	floor = ft_split(game->elements.floor_c.rgb, ',');
+	ceiling = ft_split(game->elements.ceiling_c.rgb, ',');
+	while (i < 3)
+	{
+		game->elements.ceiling_c.colors[i] = ft_atoi(ceiling[i]);
+		game->elements.floor_c.colors[i] = ft_atoi(floor[i]);
+		++i;
+	}
+}
+
 int	__run_game(t_game *game, int ac, char **ag)
 {
 	(void)ac;
@@ -41,6 +58,7 @@ int	__run_game(t_game *game, int ac, char **ag)
 	if (__checker(game))
 		return (1);
 	set_angle(game);
+	set_colors(game);
 	mlx(game);
 	mlx_loop(game->mlx.mlx);
 	return (0);
