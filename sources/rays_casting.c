@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 18:45:11 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/28 17:42:00 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/29 09:47:42 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ void	dda(t_game *game, float angle)
 			break ;
 		mlx_put_pixel(game->mlx.window,
 			game->player.dda_x, game->player.dda_y, get_rgba(235, 52, 70, 255));
-		game->player.dda_x += cos(angle) * 0.13;
-		game->player.dda_y += sin(angle) * 0.13;
+		game->player.dda_x += cos(angle) * 0.11;
+		game->player.dda_y += sin(angle) * 0.11;
 	}
 }
 
