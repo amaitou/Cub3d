@@ -1,7 +1,7 @@
 UNAME = $(shell uname)
 NAME = cub3D
 CC = cc
-CFLAGS = -Wextra -Wall -Werror 
+CFLAGS = -Wextra -Wall -Werror -O3
 CFILES = sources/cub3d.c \
 		 sources/reader.c \
 		 sources/check_reader.c \
@@ -36,7 +36,7 @@ ifeq ($(UNAME), Darwin)
 endif
 
 ifeq ($(UNAME), Linux)
-	MLX = $(LIBS) -Iinclude -ldl -lglfw -pthread -lm
+	MLX = $(LIBS) -Iinclude -ldl -lglfw -pthread -lm 
 endif
 
 all: $(SUPERLIB) $(NAME)
