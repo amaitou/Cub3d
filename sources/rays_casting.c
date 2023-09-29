@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 18:45:11 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/29 11:28:22 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/29 17:09:54 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 static int	check_helper(char **_m, float _y, float _x, char c)
 {
-	if ((_m[(int)_y / TILE][(int)(_x - 1) / TILE] == c
-		&& _m[(int)(_y + 1) / TILE][(int)_x / TILE] == c)
-		|| (_m[(int)_y / TILE][(int)(_x + 1) / TILE] == c
-			&& _m[(int)(_y - 1) / TILE][(int)_x / TILE] == c)
-		|| (_m[(int)_y / TILE][(int)(_x - 1) / TILE] == c
-			&& _m[(int)(_y - 1) / TILE][(int)_x / TILE] == c)
-		|| (_m[(int)_y / TILE][(int)(_x + 1) / TILE] == c
-			&& _m[(int)(_y + 1) / TILE][(int)_x / TILE] == c))
+	if ((_m[(int)_y / TILE][(int)(_x - 0.1) / TILE] == c
+		&& _m[(int)(_y + 0.1) / TILE][(int)_x / TILE] == c)
+		|| (_m[(int)_y / TILE][(int)(_x + 0.1) / TILE] == c
+			&& _m[(int)(_y - 0.1) / TILE][(int)_x / TILE] == c)
+		|| (_m[(int)_y / TILE][(int)(_x - 0.1) / TILE] == c
+			&& _m[(int)(_y - 0.1) / TILE][(int)_x / TILE] == c)
+		|| (_m[(int)_y / TILE][(int)(_x + 0.1) / TILE] == c
+			&& _m[(int)(_y + 0.1) / TILE][(int)_x / TILE] == c))
 		return (1);
 	return (0);
 }
