@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 23:36:42 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/22 15:13:52 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/29 10:48:07 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,25 @@ static int	check_for_chars(char *s)
 static void	check_for_player(t_game *game, char c, int y, int x)
 {
 	if (c == 'N')
+	{
 		game->north++;
+		game->player.direction = 'N';
+	}
 	else if (c == 'E')
+	{
 		game->east++;
+		game->player.direction = 'E';
+	}
 	else if (c == 'W')
+	{
 		game->west++;
+		game->player.direction = 'W';
+	}
 	else if (c == 'S')
+	{
 		game->south++;
+		game->player.direction = 'S';
+	}
 	game->player.y = y * TILE + (TILE / 2);
 	game->player.x = x * TILE + (TILE / 2);
 }

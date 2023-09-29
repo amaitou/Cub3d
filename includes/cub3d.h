@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 16:12:48 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/28 08:04:39 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/29 10:47:30 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,7 @@ typedef struct s_player
 	float	y_start;
 	float	y_end;
 	float	rotation_speed;
+	char	direction;
 }	t_player;
 
 typedef struct s_dda

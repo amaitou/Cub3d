@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 15:06:11 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/27 20:17:35 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/09/29 10:49:32 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,18 @@ void	mlx(t_game *game)
 			WINDOW_WIDTH, WINDOW_HEIGHT);
 	mlx_image_to_window(game->mlx.mlx, game->mlx.window, 0, 0);
 	mlx_loop_hook(game->mlx.mlx, check_keys, game);
+}
+
+void	set_angle(t_game *game)
+{
+	if (game->player.direction == 'N')
+		game->player.rotation_angle = 270;
+	else if (game->player.direction == 'W')
+		game->player.rotation_angle = 180;
+	else if (game->player.direction == 'E')
+		game->player.rotation_angle = 0;
+	else if (game->player.direction == 'S')
+		game->player.rotation_angle = 90;
 }
 
 int	main(int ac, char **ag)
@@ -37,6 +49,7 @@ int	main(int ac, char **ag)
 		init_all(game);
 		if (__checker(game))
 			return (EXIT_FAILURE);
+		set_angle(game);
 		mlx(game);
 		mlx_loop(game->mlx.mlx);
 	}
