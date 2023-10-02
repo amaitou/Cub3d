@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 19:08:37 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/10/02 20:07:09 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/10/02 23:55:47 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ void	draw_rays(t_game *game)
 void	draw_game(t_game *game)
 {
 	clear_map(game);
+	draw_ceiling(game);
+	draw_floor(game);
 	projection_plan(game);
 	draw_mini_map(game);
 	cast_rays(game);
