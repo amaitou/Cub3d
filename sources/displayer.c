@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 15:08:45 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/27 19:02:13 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/10/01 19:58:53 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,8 @@ void	__display_rays(t_game *game)
 	i = 0;
 	while (i < WINDOW_WIDTH)
 	{
-		printf("[x] -> %.2f, [y] -> %.2f\n", game->ray[i].x, game->ray[i].y);
+		printf("[x] -> %.2f, [y] -> %.2f\n",
+			game->rays[i].h_wall_hit_x, game->rays[i].h_wall_hit_y);
 		++i;
 	}
 }

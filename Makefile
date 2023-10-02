@@ -1,7 +1,7 @@
 UNAME = $(shell uname)
 NAME = cub3D
 CC = cc
-CFLAGS = -Wextra -Wall -Werror -O3
+CFLAGS = -Wextra -Wall -Werror -O3 -fsanitize=address -g
 CFILES = sources/cub3d.c \
 		 sources/reader.c \
 		 sources/check_reader.c \
@@ -25,7 +25,10 @@ CFILES = sources/cub3d.c \
 		 sources/projection_plan.c \
 		 sources/ray_casting_utils.c \
 		 sources/draw_game.c \
-		 sources/run_game.c
+		 sources/run_game.c \
+		 sources/draw_map_utils.c \
+		 sources/h_intersection.c \
+		 sources/v_intersection.c
 
 SUPERLIB_DIR = ./superlib
 SUPERLIB = ./superlib/superlib.a

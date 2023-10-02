@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 17:26:12 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/27 20:57:23 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/10/02 22:39:15 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,13 +50,11 @@ void	init_player(t_game *game)
 	game->player.x = 0.00;
 	game->player.y = 0.00;
 	game->player.radius = RADIUS;
-	game->player.rotation_angle = 0.00;
+	game->player.rotation_angle = 0.00 * (M_PI / 180);
 	game->player.turn_direction = 0.00;
 	game->player.walk_direction = 0.00;
 	game->player.move_speed = MOVE_SPEED;
-	game->player.dda_x = 0.00;
-	game->player.dda_y = 0.00;
-	game->player.fov = FIELD_OF_VIEW;
+	game->player.fov = FIELD_OF_VIEW * (M_PI / 180);
 }
 
 void	init_all(t_game *game)
@@ -65,5 +63,5 @@ void	init_all(t_game *game)
 	init_map(game);
 	init_elements(game);
 	init_player(game);
-	game->ray = (t_rays *)malloc(sizeof(t_rays) * WINDOW_WIDTH);
+	game->rays = (t_rays *)malloc(sizeof(t_rays) * WINDOW_WIDTH);
 }

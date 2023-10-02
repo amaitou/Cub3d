@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 16:12:48 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/29 13:11:33 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/10/02 23:13:30 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,11 @@
 
 # define WINDOW_HEIGHT 800
 # define WINDOW_WIDTH 1500
-# define TILE 12
-# define MOVE_SPEED 1.5
+# define TILE 10
+# define MOVE_SPEED 1
 # define RADIUS 1.75
 # define FIELD_OF_VIEW 60
+# define WALL_STRIP_WIDTH 12
 
 typedef enum e_enums
 {
@@ -94,28 +95,15 @@ typedef struct s_player
 {
 	float	x;
 	float	y;
-	float	dda_x;
-	float	dda_y;
 	float	fov;
 	float	radius;
 	float	turn_direction;
 	float	walk_direction;
 	float	rotation_angle;
 	float	move_speed;
-	float	projection_plan;
-	float	distance;
-	float	wall_height;
-	float	y_start;
-	float	y_end;
 	float	rotation_speed;
 	char	direction;
 }	t_player;
-
-typedef struct s_dda
-{
-	float		dy;
-	float		dx;
-}	t_dda;
 
 typedef struct s_map
 {
@@ -131,12 +119,50 @@ typedef struct s_mlx
 	mlx_image_t	*window;
 }	t_mlx;
 
+typedef struct s_vars
+{
+	float	x_step;
+	float	y_step;
+	float	y_intercept;
+	float	x_intercept;
+	float	next_y;
+	float	next_x;
+	int		ray_facing_down;
+	int		ray_facing_up;
+	int		ray_facing_left;
+	int		ray_facing_right;
+	int		temp_vars;
+	int		found_h_wall;
+	int		found_v_wall;
+}	t_vars;
+
 typedef struct s_ray
 {
-	float	x;
-	float	y;
 	float	angle;
+	float	v_distance;
+	float	h_distance;
+	float	h_wall_hit_x;
+	float	h_wall_hit_y;
+	float	v_wall_hit_x;
+	float	v_wall_hit_y;
+	float	wall_hit_x;
+	float	wall_hit_y;
+	float	distance;
+	int		was_hit_vertical;
+	float	wall_height;
+	float	y_start;
+	float	y_end;
+	float	projection_plan;
 }	t_rays;
+
+typedef struct s_dda
+{
+	int		dx;
+	int		dy;
+	int		steps;
+	float	xinc;
+	float	yinc;
+}	t_dda;
 
 typedef struct s_game
 {
@@ -145,7 +171,8 @@ typedef struct s_game
 	t_mlx			mlx;
 	t_map			map;
 	t_dda			dda;
-	t_rays			*ray;
+	t_vars			vars;
+	t_rays			*rays;
 	int				west;
 	int				east;
 	int				south;
@@ -211,6 +238,12 @@ void	draw_floor(t_game *game);
 void	draw_ceiling(t_game *game);
 int		get_rgba(int r, int g, int b, int a);
 void	draw_game(t_game *game);
+void	draw_line(t_game *game, float x1, float y1);
+void	cast_rays(t_game *game);
+void	h_intersection(t_game *game, float ray_angle, int index);
+void	v_intersection(t_game *game, float ray_angle, int index);
+void	draw_rays(t_game *game);
+void	normalize_angle(float *angle);
 
 // player mouvements
 void	move_up(t_game *game);
@@ -218,7 +251,6 @@ void	move_down(t_game *game);
 void	move_right(t_game *game);
 void	move_left(t_game *game);
 void	dda(t_game *game, float angle);
-void	draw_rays(t_game *game);
 
 // mlx hooks
 void	check_keys(void *game);

@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 11:51:42 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/29 13:17:58 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/10/02 22:34:42 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,13 @@ void	mlx(t_game *game)
 void	set_angle(t_game *game)
 {
 	if (game->player.direction == 'N')
-		game->player.rotation_angle = 270;
+		game->player.rotation_angle = 270 * (M_PI / 180);
 	else if (game->player.direction == 'W')
-		game->player.rotation_angle = 180;
+		game->player.rotation_angle = 180 * (M_PI / 180);
 	else if (game->player.direction == 'E')
-		game->player.rotation_angle = 0;
+		game->player.rotation_angle = 0 * (M_PI / 180);
 	else if (game->player.direction == 'S')
-		game->player.rotation_angle = 90;
+		game->player.rotation_angle = 90 * (M_PI / 180);
 }
 
 void	set_colors(t_game *game)

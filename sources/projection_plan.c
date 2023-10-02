@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 15:54:57 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/29 13:23:20 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/10/02 23:44:56 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,23 +19,20 @@ void	projection_plan(t_game *game)
 	i = 0;
 	while (i < WINDOW_WIDTH)
 	{
-		game->player.distance = sqrt(pow(game->ray[i].y
-					- game->player.y, 2.0)
-				+ pow(game->ray[i].x - game->player.x, 2.0));
-		game->player.distance *= cos(game->ray[i].angle
-				- game->player.rotation_angle);
-		game->player.wall_height = (WINDOW_HEIGHT
-				/ game->player.distance) * 13;
-		if (game->player.wall_height > WINDOW_HEIGHT)
-			game->player.wall_height = WINDOW_HEIGHT;
-		game->player.y_start = (WINDOW_HEIGHT / 2.0)
-			- (game->player.wall_height / 2.0);
-		game->player.y_end = game->player.y_start + game->player.wall_height;
-		while (game->player.y_start < game->player.y_end)
+		game->rays[i].distance *= cos(game->player.rotation_angle
+				- game->rays[i].angle);
+		game->rays[i].wall_height = (WINDOW_HEIGHT
+				/ game->rays[i].distance) * WALL_STRIP_WIDTH;
+		if (game->rays[i].wall_height > WINDOW_HEIGHT)
+			game->rays[i].wall_height = WINDOW_HEIGHT;
+		game->rays[i].y_start = (WINDOW_HEIGHT / 2.0)
+			- (game->rays[i].wall_height / 2.0);
+		game->rays[i].y_end = game->rays[i].y_start + game->rays[i].wall_height;
+		while (game->rays[i].y_start < game->rays[i].y_end)
 		{
-			mlx_put_pixel(game->mlx.window, i, game->player.y_start,
+			mlx_put_pixel(game->mlx.window, i, game->rays[i].y_start,
 				get_rgba(77, 0, 25, 255));
-			game->player.y_start++;
+			game->rays[i].y_start++;
 		}
 		++i;
 	}

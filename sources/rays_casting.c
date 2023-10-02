@@ -6,59 +6,93 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 18:45:11 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/29 17:09:54 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/10/02 23:42:57 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-static int	check_helper(char **_m, float _y, float _x, char c)
+// static int	check_helper(char **_m, float _y, float _x, char c)
+// {
+// 	if ((_m[(int)_y / TILE][(int)(_x - 0.1) / TILE] == c
+// 		&& _m[(int)(_y + 0.1) / TILE][(int)_x / TILE] == c)
+// 		|| (_m[(int)_y / TILE][(int)(_x + 0.1) / TILE] == c
+// 			&& _m[(int)(_y - 0.1) / TILE][(int)_x / TILE] == c)
+// 		|| (_m[(int)_y / TILE][(int)(_x - 0.1) / TILE] == c
+// 			&& _m[(int)(_y - 0.1) / TILE][(int)_x / TILE] == c)
+// 		|| (_m[(int)_y / TILE][(int)(_x + 0.1) / TILE] == c
+// 			&& _m[(int)(_y + 0.1) / TILE][(int)_x / TILE] == c))
+// 		return (1);
+// 	return (0);
+// }
+
+float	distance_of_2_points(float x1, float y1, float x2, float y2)
 {
-	if ((_m[(int)_y / TILE][(int)(_x - 0.1) / TILE] == c
-		&& _m[(int)(_y + 0.1) / TILE][(int)_x / TILE] == c)
-		|| (_m[(int)_y / TILE][(int)(_x + 0.1) / TILE] == c
-			&& _m[(int)(_y - 0.1) / TILE][(int)_x / TILE] == c)
-		|| (_m[(int)_y / TILE][(int)(_x - 0.1) / TILE] == c
-			&& _m[(int)(_y - 0.1) / TILE][(int)_x / TILE] == c)
-		|| (_m[(int)_y / TILE][(int)(_x + 0.1) / TILE] == c
-			&& _m[(int)(_y + 0.1) / TILE][(int)_x / TILE] == c))
-		return (1);
-	return (0);
+	return (sqrt(pow(x2 - x1, 2) + pow(y2 - y1, 2)));
 }
 
-void	dda(t_game *game, float angle)
+void	was_hit_vertical(t_game *game, int i)
 {
-	game->player.dda_x = game->player.x;
-	game->player.dda_y = game->player.y;
-	while (game->map.map[(int)game->player.dda_y / TILE]
-		[(int)game->player.dda_x / TILE] != '1')
+	if (game->rays[i].v_distance < game->rays[i].h_distance)
+		game->rays[i].was_hit_vertical = 1;
+	else
+		game->rays[i].was_hit_vertical = 0;
+}
+
+void	calculate_distances(t_game *game, int i)
+{
+	if (game->vars.found_h_wall)
+		game->rays[i].h_distance = distance_of_2_points(game->player.x,
+				game->player.y, game->rays[i].h_wall_hit_x,
+				game->rays[i].h_wall_hit_y);
+	else
+		game->rays[i].h_distance = INT_MAX;
+	if (game->vars.found_v_wall)
+		game->rays[i].v_distance = distance_of_2_points(game->player.x,
+				game->player.y, game->rays[i].v_wall_hit_x,
+				game->rays[i].v_wall_hit_y);
+	else
+		game->rays[i].v_distance = INT_MAX;
+	if (game->rays[i].h_distance < game->rays[i].v_distance)
 	{
-		if (check_helper(game->map.map, game->player.dda_y,
-				game->player.dda_x, '1'))
-			break ;
-		mlx_put_pixel(game->mlx.window,
-			game->player.dda_x, game->player.dda_y, get_rgba(235, 52, 70, 255));
-		game->player.dda_x += cos(angle) * 0.09;
-		game->player.dda_y += sin(angle) * 0.09;
+		game->rays[i].wall_hit_x = game->rays[i].h_wall_hit_x;
+		game->rays[i].wall_hit_y = game->rays[i].h_wall_hit_y;
+		game->rays[i].distance = game->rays[i].h_distance;
 	}
+	else
+	{
+		game->rays[i].wall_hit_x = game->rays[i].v_wall_hit_x;
+		game->rays[i].wall_hit_y = game->rays[i].v_wall_hit_y;
+		game->rays[i].distance = game->rays[i].v_distance;
+	}
+	was_hit_vertical(game, i);
 }
 
-void	draw_rays(t_game *game)
+void	normalize_angle(float *angle)
 {
-	float	angle;
-	float	step;
-	size_t	i;
+	if (*angle > M_PI * 2)
+		*angle -= M_PI * 2;
+	if (*angle <= 0)
+		*angle += M_PI * 2;
+}
 
-	angle = game->player.rotation_angle - (radial(game->player.fov) / 2);
-	step = radial(game->player.fov) / WINDOW_WIDTH;
+void	cast_rays(t_game *game)
+{
+	float	ray_angle;
+	float	steps;
+	int		i;
+
+	ray_angle = game->player.rotation_angle - (game->player.fov / 2);
+	steps = game->player.fov / WINDOW_WIDTH;
 	i = 0;
 	while (i < WINDOW_WIDTH)
 	{
-		dda(game, angle);
-		game->ray[i].x = game->player.dda_x;
-		game->ray[i].y = game->player.dda_y;
-		game->ray[i].angle = angle;
-		angle += step;
-		i++;
+		normalize_angle(&ray_angle);
+		h_intersection(game, ray_angle, i);
+		v_intersection(game, ray_angle, i);
+		game->rays[i].angle = ray_angle;
+		calculate_distances(game, i);
+		ray_angle += steps;
+		++i;
 	}
 }
