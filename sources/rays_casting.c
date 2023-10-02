@@ -6,25 +6,11 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 18:45:11 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/10/02 23:42:57 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/10/02 23:53:10 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
-
-// static int	check_helper(char **_m, float _y, float _x, char c)
-// {
-// 	if ((_m[(int)_y / TILE][(int)(_x - 0.1) / TILE] == c
-// 		&& _m[(int)(_y + 0.1) / TILE][(int)_x / TILE] == c)
-// 		|| (_m[(int)_y / TILE][(int)(_x + 0.1) / TILE] == c
-// 			&& _m[(int)(_y - 0.1) / TILE][(int)_x / TILE] == c)
-// 		|| (_m[(int)_y / TILE][(int)(_x - 0.1) / TILE] == c
-// 			&& _m[(int)(_y - 0.1) / TILE][(int)_x / TILE] == c)
-// 		|| (_m[(int)_y / TILE][(int)(_x + 0.1) / TILE] == c
-// 			&& _m[(int)(_y + 0.1) / TILE][(int)_x / TILE] == c))
-// 		return (1);
-// 	return (0);
-// }
 
 float	distance_of_2_points(float x1, float y1, float x2, float y2)
 {
