@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_members.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 17:26:12 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/10/02 22:39:15 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/10/03 01:50:49 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,4 +64,5 @@ void	init_all(t_game *game)
 	init_elements(game);
 	init_player(game);
 	game->rays = (t_rays *)malloc(sizeof(t_rays) * WINDOW_WIDTH);
+
 }

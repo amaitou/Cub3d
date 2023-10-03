@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rays_casting.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 18:45:11 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/10/02 23:53:10 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/10/03 01:50:41 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ void	cast_rays(t_game *game)
 	int		i;
 
 	ray_angle = game->player.rotation_angle - (game->player.fov / 2);
+
 	steps = game->player.fov / WINDOW_WIDTH;
 	i = 0;
 	while (i < WINDOW_WIDTH)

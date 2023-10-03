@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_walls.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 21:54:54 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/23 21:38:16 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/10/03 01:55:02 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,10 @@ static int	wall_middle_helper(char *s)
 	i = 0;
 	boolean = 0;
 	if (temp[i] != '1')
+	{
+		free(temp);
 		return (1);
+	}
 	++i;
 	while (temp[i])
 	{
@@ -53,7 +56,11 @@ static int	wall_middle_helper(char *s)
 		++i;
 	}
 	if (!boolean)
+	{
+		free(temp);
 		return (1);
+	}
+	free(temp);
 	return (0);
 }
 

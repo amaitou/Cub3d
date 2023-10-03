@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   run_game.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 11:51:42 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/10/02 22:34:42 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/10/03 01:51:58 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ void	set_colors(t_game *game)
 		game->elements.floor_c.colors[i] = ft_atoi(floor[i]);
 		++i;
 	}
+	free_array(floor);
+	free_array(ceiling);
 }
 
 int	__run_game(t_game *game, int ac, char **ag)
