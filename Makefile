@@ -72,13 +72,7 @@ fclean: clean
 	@$(MAKE) fclean -C $(SUPERLIB_DIR)
 
 run:
-	@if [ -e $(NAME) ]; then \
-		echo "\033[38;5;166m[~] running the game with a default map\033[0m"; \
-		./cub3D ./maps/valid_maps/random.cub; \
-	else \
-		echo "\033[38;5;166m[~] making & running the game with a default map\033[0m"; \
-		make && ./cub3D ./maps/valid_maps/random.cub; \
-	fi
+	@make && ./cub3D ./maps/valid_maps/random.cub
 
 re: fclean all
 

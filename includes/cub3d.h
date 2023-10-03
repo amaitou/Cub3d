@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 16:12:48 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/10/03 16:26:18 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/10/03 19:28:55 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,6 +149,10 @@ typedef struct s_vars
 	int		added_pixel;
 	int		found_h_wall;
 	int		found_v_wall;
+	int		mouse_x;
+	int		old_mouse_x;
+	int		mouse_y;
+	int		old_mouse_y;
 }	t_vars;
 
 /*
@@ -274,5 +278,6 @@ void	move_left(t_game *game);
 
 // mlx hooks
 void	check_keys(void *game);
+void	mouse_hook(double curr_x, void *g);
 
 #endif
