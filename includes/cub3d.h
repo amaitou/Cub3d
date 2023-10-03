@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 16:12:48 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/10/03 19:28:55 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/10/03 22:23:37 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ typedef enum e_enums
 typedef struct s_north
 {
 	char			*texture;
+	mlx_texture_t	*image;
 	t_enums			direction;
 }	t_north;
 
@@ -52,6 +53,7 @@ typedef struct s_north
 typedef struct s_west
 {
 	char			*texture;
+	mlx_texture_t	*image;
 	t_enums			direction;
 }	t_west;
 
@@ -59,6 +61,7 @@ typedef struct s_west
 typedef struct s_south
 {
 	char			*texture;
+	mlx_texture_t	*image;
 	t_enums			direction;
 }	t_south;
 
@@ -66,6 +69,7 @@ typedef struct s_south
 typedef struct s_east
 {
 	char			*texture;
+	mlx_texture_t	*image;
 	t_enums			direction;
 }	t_east;
 
@@ -260,7 +264,8 @@ void	draw_floor(t_game *game);
 void	draw_ceiling(t_game *game);
 void	clear_map(t_game *game);
 void	draw_rays(t_game *game);
-void	draw_line(t_game *game, float x1, float y1);
+void	draw_line(t_game *game, float x1, float y1, int perspective);
+void	draw_line_helper(t_game *game, int perspective, int x, int y);
 
 // ray casting
 void	cast_rays(t_game *game);

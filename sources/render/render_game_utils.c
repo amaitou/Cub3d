@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_game_utils.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 18:24:33 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/10/03 04:24:50 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/10/03 22:24:08 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,13 +79,17 @@ void	draw_rays(t_game *game)
 	i = 0;
 	while (i < WINDOW_WIDTH)
 	{
-		draw_line(game,
-			game->rays[i].wall_hit_x, game->rays[i].wall_hit_y);
+		if (game->rays[i].was_hit_vertical)
+			draw_line(game,
+				game->rays[i].wall_hit_x, game->rays[i].wall_hit_y, 0);
+		else
+			draw_line(game,
+				game->rays[i].wall_hit_x, game->rays[i].wall_hit_y, 1);
 		++i;
 	}
 }
 
-void	draw_line(t_game *game, float x1, float y1)
+void	draw_line(t_game *game, float x1, float y1, int perspective)
 {
 	int		i;
 	float	x;
@@ -104,8 +108,7 @@ void	draw_line(t_game *game, float x1, float y1)
 	i = 0;
 	while (i <= game->dda.steps)
 	{
-		mlx_put_pixel(game->mlx.image, round(x), round(y),
-			get_rgba(255, 0, 0, 255));
+		draw_line_helper(game, perspective, x, y);
 		x += game->dda.xinc;
 		y += game->dda.yinc;
 		++i;

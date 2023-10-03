@@ -1,7 +1,7 @@
-NO ./textures/bernoussi.jpg
-SO ./textures/mdina_9dima.jpg
-WE ./textures/sbata_04.jpg
-EA ./textures/inara.jpg
+NO ./textures/picture.jpg
+SO ./textures/picture.jpg
+WE ./textures/picture.jpg
+EA ./textures/picture.jpg
 F 95,158,160
 C 139,69,19
 11111111111111111111111111111
