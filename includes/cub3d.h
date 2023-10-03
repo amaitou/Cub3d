@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 16:12:48 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/10/03 02:36:49 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/10/03 03:36:35 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -215,6 +215,7 @@ typedef struct s_game
 // useful functions
 char	**split2(char const *s);
 int		__checker(t_game *game);
+void	__banner(void);
 
 // init members
 void	init_all(t_game *game);

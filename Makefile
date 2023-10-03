@@ -27,7 +27,8 @@ CFILES = sources/cub3d.c \
 		 sources/run_game.c \
 		 sources/render/render_game_utils.c \
 		 sources/ray_casting/h_intersection.c \
-		 sources/ray_casting/v_intersection.c
+		 sources/ray_casting/v_intersection.c \
+		 sources/utils/banner.c
 
 OBJECTS = $(patsubst %.c,%.o,$(CFILES))
 

@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 11:51:42 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/10/03 02:03:09 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/10/03 03:36:31 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ int	__run_game(t_game *game, int ac, char **ag)
 	init_all(game);
 	if (__checker(game))
 		return (1);
+	__banner();
 	set_angle(game);
 	set_colors(game);
 	mlx(game);
