@@ -72,6 +72,7 @@ fclean: clean
 	@$(MAKE) fclean -C $(SUPERLIB_DIR)
 
 run:
+	@echo "\033[0;35m[!] running the cub3D\033[0m"
 	@make && ./cub3D ./maps/valid_maps/random.cub
 
 re: fclean all
