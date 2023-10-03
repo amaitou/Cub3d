@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 16:12:48 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/10/03 03:36:35 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/10/03 04:23:56 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,7 +127,7 @@ typedef struct s_map
 typedef struct s_mlx
 {
 	mlx_t		*mlx;
-	mlx_image_t	*window;
+	mlx_image_t	*image;
 }	t_mlx;
 
 /*

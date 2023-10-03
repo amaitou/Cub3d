@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 17:06:00 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/10/03 03:01:34 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/10/03 04:24:29 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	draw_player(int color, float y, float x, t_game *game)
 		while (_x <= game->player.radius)
 		{
 			if (_x * _x + _y * _y <= game->player.radius * game->player.radius)
-				mlx_put_pixel(game->mlx.window,
+				mlx_put_pixel(game->mlx.image,
 					_x + x, _y + y, color);
 			++_x;
 		}
@@ -43,13 +43,13 @@ static void	draw_rectangle(int color, float y, float x, t_game *game)
 		_x = 0;
 		while (_x < TILE)
 		{
-			mlx_put_pixel(game->mlx.window, _x + x,
+			mlx_put_pixel(game->mlx.image, _x + x,
 				_y + y, color);
-			mlx_put_pixel(game->mlx.window, _x + x,
+			mlx_put_pixel(game->mlx.image, _x + x,
 				y, get_rgba(0, 0, 0, 255));
 			_x++;
 		}
-		mlx_put_pixel(game->mlx.window, x,
+		mlx_put_pixel(game->mlx.image, x,
 			_y + y, get_rgba(0, 0, 0, 255));
 		_y++;
 	}

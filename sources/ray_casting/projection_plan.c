@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 15:54:57 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/10/03 03:01:12 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/10/03 04:25:21 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	projection_plan(t_game *game)
 		game->rays[i].y_end = game->rays[i].y_start + game->rays[i].wall_height;
 		while (game->rays[i].y_start < game->rays[i].y_end)
 		{
-			mlx_put_pixel(game->mlx.window, i, game->rays[i].y_start,
+			mlx_put_pixel(game->mlx.image, i, game->rays[i].y_start,
 				get_rgba(77, 0, 25, 255));
 			game->rays[i].y_start++;
 		}
