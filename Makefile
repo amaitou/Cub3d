@@ -1,4 +1,5 @@
 UNAME = $(shell uname)
+HEADER_FILE = ./includes/cub3d.h
 NAME = cub3D
 CC = cc
 CFLAGS = -Wextra -Wall -Werror -O3 -fsanitize=address -g
@@ -53,7 +54,7 @@ $(SUPERLIB):
 	@$(MAKE) -C $(SUPERLIB_DIR)
 
 # generate the executable file "cub3D" (Mandatory part)
-$(NAME): $(OBJECTS)
+$(NAME): $(OBJECTS) $(HEADER_FILE)
 	@echo "\033[95m[.] creating *.c to cub3D\033[0m"
 	@$(CC) $(CFLAGS) $(CFILES) $(SUPERLIB) $(MLX) -o $@
 
