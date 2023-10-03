@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rays_casting.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 18:45:11 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/10/03 03:01:22 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/10/03 23:16:53 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,21 @@ static float	distance_of_2_points(float x1, float y1, float x2, float y2)
 static void	was_hit_vertical(t_game *game, int i)
 {
 	if (game->rays[i].v_distance < game->rays[i].h_distance)
+	{
 		game->rays[i].was_hit_vertical = 1;
+		if (cos(game->rays[i].angle) > 0)
+			game->rays[i].direction = _EAST;
+		else
+			game->rays[i].direction = _WEST;
+	}
 	else
+	{
 		game->rays[i].was_hit_vertical = 0;
+		if (sin(game->rays[i].angle) > 0)
+			game->rays[i].direction = _SOUTH;
+		else
+			game->rays[i].direction = _NORTH;
+	}
 }
 
 static void	calculate_distances(t_game *game, int i)

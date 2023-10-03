@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 16:12:48 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/10/03 22:23:37 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/10/03 23:14:29 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -179,6 +179,7 @@ typedef struct s_ray
 	float	wall_height;
 	float	y_start;
 	float	y_end;
+	t_enums	direction;
 	float	projection_plan;
 }	t_rays;
 
