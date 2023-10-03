@@ -54,7 +54,7 @@ $(SUPERLIB):
 
 # generate the executable file "cub3D" (Mandatory part)
 $(NAME): $(OBJECTS)
-	@echo "\033[95m[.] output *.c to cub3D\033[0m"
+	@echo "\033[95m[.] creating *.c to cub3D\033[0m"
 	@$(CC) $(CFLAGS) $(CFILES) $(SUPERLIB) $(MLX) -o $@
 
 %.o: %.c
@@ -71,7 +71,13 @@ fclean: clean
 	@$(MAKE) fclean -C $(SUPERLIB_DIR)
 
 run:
-	make && ./cub3D ./maps/valid_maps/random.cub
+	@if [ -e $(NAME) ]; then \
+		echo "\033[38;5;166m[~] running the game with a default map\033[0m"; \
+		./cub3D ./maps/valid_maps/random.cub; \
+	else \
+		echo "\033[38;5;166m[~] making & running the game with a default map\033[0m"; \
+		make && ./cub3D ./maps/valid_maps/random.cub; \
+	fi
 
 re: fclean all
 
