@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 18:49:49 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/10/03 03:02:00 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/10/03 03:24:53 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,12 @@ void	check_keys(void *game)
 		g->player.rotation_angle += 0.03;
 	if (mlx_is_key_down(g->mlx.mlx, MLX_KEY_LEFT))
 		g->player.rotation_angle -= 0.03;
+	if (mlx_is_key_down(g->mlx.mlx, MLX_KEY_ESCAPE))
+	{
+		ft_putendl_fd("[+] You have exited the game", 1);
+		free(g->rays);
+		exit(0);
+	}
 	normalize_angle(&g->player.rotation_angle);
 	render_game(game);
 }
