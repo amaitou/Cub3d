@@ -1,10 +1,10 @@
 F 139,99,58
 C 171,154,137
 
-NO ./textures/bernoussi.xpm
-SO ./textures/mdina_9dima.xpm
-WE ./textures/sbata_04.xpm
-EA ./textures/inara.xpm
+NO ./textures/bernoussi.jpg
+SO ./textures/mdina_9dima.jpg
+WE ./textures/sbata_04.jpg
+EA ./textures/inara.jpg
 
 1111111111111111111
 1001001001001001001

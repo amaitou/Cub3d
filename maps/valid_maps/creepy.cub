@@ -1,7 +1,7 @@
-NO ./textures/bernoussi.xpm
-SO ./textures/mdina_9dima.xpm
-WE ./textures/sbata_04.xpm
-EA ./textures/inara.xpm
+NO ./textures/bernoussi.jpg
+SO ./textures/mdina_9dima.jpg
+WE ./textures/sbata_04.jpg
+EA ./textures/inara.jpg
 
 C 35,19,73
 F 15, 6,40
