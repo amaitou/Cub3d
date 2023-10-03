@@ -6,18 +6,10 @@
 
 
 
-NO textures/test/north.xpm
-
-
-
-
-
-
-
-
-SO textures/test/south.xpm
-                        WE textures/test/west.xpm
-        EA textures/test/east.xpm            
+                NO              ./textures/bernoussi.xpm
+  SO                                                             ./textures/mdina_9dima.xpm
+            WE          ./textures/sbata_04.xpm
+EA                 ./textures/inara.xpm         
 
         F 20,           20,             20
 C 200,          200,200

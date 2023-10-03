@@ -1,13 +1,11 @@
-   WE                            textures/wolfenstein/eagle.xpm 
-NO      textures/wolfenstein/grey_stone.xpm
 
-
-
-SO textures/wolfenstein/red_brick.xpm
 
 F   69,222,199
 
-EA textures/wolfenstein/mossy.xpm
+NO                        ./textures/bernoussi.xpm
+SO    ./textures/mdina_9dima.xpm
+WE                                             ./textures/sbata_04.xpm
+EA                                                                               ./textures/inara.xpm
 
 
 

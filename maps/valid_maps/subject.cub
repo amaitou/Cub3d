@@ -1,7 +1,7 @@
-NO textures/wolfenstein/grey_stone.xpm
-SO textures/wolfenstein/purple_stone.xpm
-WE textures/wolfenstein/red_brick.xpm
-EA textures/wolfenstein/wood.xpm
+NO ./textures/bernoussi.xpm
+SO ./textures/mdina_9dima.xpm
+WE ./textures/sbata_04.xpm
+EA ./textures/inara.xpm
 
 F 220,100,0
 C 225,30,0

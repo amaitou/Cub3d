@@ -10,20 +10,10 @@ F 164,+169,201
 
 C	153,204,255
 
-NO textures/simonkraft/wet_sponge.xpm
-
-SO textures/simonkraft/wet_sponge.xpm
-
-
-
-
-
-
-
-
-WE textures/simonkraft/wet_sponge.xpm
-
-EA textures/simonkraft/wet_sponge.xpm
+NO ./textures/bernoussi.xpm
+SO ./textures/mdina_9dima.xpm
+WE ./textures/sbata_04.xpm
+EA ./textures/inara.xpm
 
 111111111111111111111
 101000001000000000001
