@@ -3,28 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   check_spaces.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 21:01:14 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/23 22:28:19 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/10/03 02:08:06 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
-
-// static int	find_index(char *s)
-// {
-// 	size_t	i;
-
-// 	i = 0;
-// 	while (s[i])
-// 	{
-// 		if (s[i] == '0')
-// 			return (i);
-// 		++i;
-// 	}
-// 	return (-1);
-// }
 
 static int	shared_space(char **map, int y, int x)
 {

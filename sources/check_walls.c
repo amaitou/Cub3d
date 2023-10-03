@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 21:54:54 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/10/03 01:55:02 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/10/03 02:41:33 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,14 @@ static int	wall_up_down(char *s)
 	return (0);
 }
 
+static void	wall_helper(char *temp, int i, int *boolean)
+{
+	if (temp[i] == '1')
+		*boolean = 1;
+	if (temp[i] == '0')
+		*boolean = 0;
+}
+
 static int	wall_middle_helper(char *s)
 {
 	char	*temp;
@@ -49,10 +57,7 @@ static int	wall_middle_helper(char *s)
 	++i;
 	while (temp[i])
 	{
-		if (temp[i] == '1')
-			boolean = 1;
-		if (temp[i] == '0')
-			boolean = 0;
+		wall_helper(temp, i, &boolean);
 		++i;
 	}
 	if (!boolean)

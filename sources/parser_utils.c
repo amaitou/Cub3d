@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 15:17:02 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/21 20:10:41 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/10/03 02:38:00 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,4 +69,11 @@ int	lines_count(t_game *game)
 		++i;
 	game->map.map_len = i - j;
 	return (i);
+}
+
+int	check_directions(t_enums direction, char *s)
+{
+	if (direction == _NONE || s == NULL)
+		return (1);
+	return (0);
 }

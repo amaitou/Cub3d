@@ -1,21 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_map_utils.c                                   :+:      :+:    :+:   */
+/*   render_game_utils.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 18:24:33 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/30 17:42:25 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/10/03 02:38:11 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
-
-int	get_rgba(int r, int g, int b, int a)
-{
-	return (r << 24 | g << 16 | b << 8 | a);
-}
 
 void	clear_map(t_game *game)
 {
@@ -73,6 +68,46 @@ void	draw_ceiling(t_game *game)
 					colors[1], colors[2], 255));
 			++j;
 		}
+		++i;
+	}
+}
+
+void	draw_rays(t_game *game)
+{
+	int	i;
+
+	i = 0;
+	while (i < WINDOW_WIDTH)
+	{
+		draw_line(game,
+			game->rays[i].wall_hit_x, game->rays[i].wall_hit_y);
+		++i;
+	}
+}
+
+void	draw_line(t_game *game, float x1, float y1)
+{
+	int		i;
+	float	x;
+	float	y;
+
+	game->dda.dx = x1 - game->player.x;
+	game->dda.dy = y1 - game->player.y;
+	if (abs(game->dda.dx) > abs(game->dda.dy))
+		game->dda.steps = abs(game->dda.dx);
+	else
+		game->dda.steps = abs(game->dda.dy);
+	game->dda.xinc = game->dda.dx / (float)game->dda.steps;
+	game->dda.yinc = game->dda.dy / (float)game->dda.steps;
+	x = game->player.x;
+	y = game->player.y;
+	i = 0;
+	while (i <= game->dda.steps)
+	{
+		mlx_put_pixel(game->mlx.window, round(x), round(y),
+			get_rgba(255, 0, 0, 255));
+		x += game->dda.xinc;
+		y += game->dda.yinc;
 		++i;
 	}
 }

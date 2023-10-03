@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 16:12:48 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/10/02 23:13:30 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/10/03 02:36:49 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@
 # define FIELD_OF_VIEW 60
 # define WALL_STRIP_WIDTH 12
 
+// enum for texture directions
 typedef enum e_enums
 {
 	_NORTH,
@@ -40,30 +41,35 @@ typedef enum e_enums
 	_NONE
 }	t_enums;
 
+// struct for north direction
 typedef struct s_north
 {
 	char			*texture;
 	t_enums			direction;
 }	t_north;
 
+// struct for west direction
 typedef struct s_west
 {
 	char			*texture;
 	t_enums			direction;
 }	t_west;
 
+// struct for south direction
 typedef struct s_south
 {
 	char			*texture;
 	t_enums			direction;
 }	t_south;
 
+// struct for east direction
 typedef struct s_east
 {
 	char			*texture;
 	t_enums			direction;
 }	t_east;
 
+// struct for floor color
 typedef struct s_color_f
 {
 	char	*surface;
@@ -72,6 +78,7 @@ typedef struct s_color_f
 	t_enums	type;
 }	t_color_f;
 
+// struct for ceiling color
 typedef struct s_color_c
 {
 	char	*surface;
@@ -80,6 +87,7 @@ typedef struct s_color_c
 	t_enums	type;
 }	t_color_c;
 
+// struct for the elements before map
 typedef struct s_elements
 {
 	int			counter;
@@ -91,6 +99,7 @@ typedef struct s_elements
 	t_color_c	ceiling_c;
 }	t_elements;
 
+// struct for player
 typedef struct s_player
 {
 	float	x;
@@ -105,6 +114,7 @@ typedef struct s_player
 	char	direction;
 }	t_player;
 
+// struct for map that comes after elements (textures, colors)
 typedef struct s_map
 {
 	char	**map;
@@ -113,12 +123,17 @@ typedef struct s_map
 	int		map_len;
 }	t_map;
 
+// struct for mlx
 typedef struct s_mlx
 {
 	mlx_t		*mlx;
 	mlx_image_t	*window;
 }	t_mlx;
 
+/*
+	this struct used only when i need a variable \
+	that i might use it as a temporary value holder
+*/
 typedef struct s_vars
 {
 	float	x_step;
@@ -131,11 +146,15 @@ typedef struct s_vars
 	int		ray_facing_up;
 	int		ray_facing_left;
 	int		ray_facing_right;
-	int		temp_vars;
+	int		added_pixel;
 	int		found_h_wall;
 	int		found_v_wall;
 }	t_vars;
 
+/*
+	struct for ray casting (each element of the struct \
+	array would hold all of these members)
+*/
 typedef struct s_ray
 {
 	float	angle;
@@ -155,6 +174,10 @@ typedef struct s_ray
 	float	projection_plan;
 }	t_rays;
 
+/*
+	this struct is used for the dda algorithm \
+	that draws a line between to specific points
+*/
 typedef struct s_dda
 {
 	int		dx;
@@ -163,6 +186,11 @@ typedef struct s_dda
 	float	xinc;
 	float	yinc;
 }	t_dda;
+
+/*
+	this struct holds all of the previous defined structs \
+	+ some more vars that i might need in parsing or ray-casting operations
+*/
 
 typedef struct s_game
 {
@@ -187,42 +215,32 @@ typedef struct s_game
 // useful functions
 char	**split2(char const *s);
 int		__checker(t_game *game);
-float	radial(float number);
 
 // init members
-void	init_directions(t_game *game);
-void	init_map(t_game *game);
-void	init_elements(t_game *game);
-void	init_player(t_game *game);
 void	init_all(t_game *game);
 
 // cub3d
-void	mlx(t_game *game);
 int		__run_game(t_game *game, int ac, char **ag);
 
 // reader
 int		__reader(t_game *game);
-int		check_reader(t_game *game);
 int		check_consecutive_new_lines(char *s);
 
 // parser
-void	assign_color(t_game *game, char **element);
-void	assign_directions(t_game *game, char **element);
-int		lines_count(t_game *game);
 int		__parser(t_game *game);
-int		check_parser(t_game *game);
-int		check_directions(t_enums direction, char *s);
-int		check_spaces(t_game *game);
 int		__rgb(t_game *game);
 int		__map(t_game *game);
 int		__walls(t_game *game);
-
+int		check_directions(t_enums direction, char *s);
+int		check_spaces(t_game *game);
 void	skip_spaces(char **s);
-int		check_map_and_elements(int parser_return_value);
 int		check_textures(t_game *game);
+int		check_map_and_elements(int parser_return_value);
+void	assign_color(t_game *game, char **element);
+void	assign_directions(t_game *game, char **element);
+int		lines_count(t_game *game);
 
 // displayer
-void	__display_items(t_game *game);
 void	__display_elements(t_game *game);
 void	__display_map(t_game *game);
 void	__display_rays(t_game *game);
@@ -230,19 +248,21 @@ void	__display_rays(t_game *game);
 // leaks
 void	free_array(char **arr);
 
-// ray casting
+// game rendering
+void	render_game(t_game *game);
 void	draw_mini_map(t_game *game);
-void	projection_plan(t_game *game);
-void	clear_map(t_game *game);
 void	draw_floor(t_game *game);
 void	draw_ceiling(t_game *game);
-int		get_rgba(int r, int g, int b, int a);
-void	draw_game(t_game *game);
+void	clear_map(t_game *game);
+void	draw_rays(t_game *game);
 void	draw_line(t_game *game, float x1, float y1);
+
+// ray casting
 void	cast_rays(t_game *game);
 void	h_intersection(t_game *game, float ray_angle, int index);
 void	v_intersection(t_game *game, float ray_angle, int index);
-void	draw_rays(t_game *game);
+void	projection_plan(t_game *game);
+int		get_rgba(int r, int g, int b, int a);
 void	normalize_angle(float *angle);
 
 // player mouvements
@@ -250,7 +270,6 @@ void	move_up(t_game *game);
 void	move_down(t_game *game);
 void	move_right(t_game *game);
 void	move_left(t_game *game);
-void	dda(t_game *game, float angle);
 
 // mlx hooks
 void	check_keys(void *game);

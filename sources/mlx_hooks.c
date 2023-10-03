@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_hooks.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 18:49:49 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/10/02 21:00:01 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/10/03 02:20:43 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,6 @@ void	check_keys(void *game)
 		g->player.rotation_angle += 0.03;
 	if (mlx_is_key_down(g->mlx.mlx, MLX_KEY_LEFT))
 		g->player.rotation_angle -= 0.03;
-	if (g->player.rotation_angle > M_PI * 2)
-		g->player.rotation_angle -= M_PI * 2;
-	if (g->player.rotation_angle < 0)
-		g->player.rotation_angle += M_PI * 2;
-	draw_game(game);
+	normalize_angle(&g->player.rotation_angle);
+	render_game(game);
 }

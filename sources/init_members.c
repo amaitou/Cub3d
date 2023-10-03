@@ -6,13 +6,13 @@
 /*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 17:26:12 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/10/03 01:50:49 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/10/03 02:37:47 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-void	init_directions(t_game *game)
+static void	init_directions(t_game *game)
 {
 	game->east = 0;
 	game->north = 0;
@@ -20,13 +20,13 @@ void	init_directions(t_game *game)
 	game->south = 0;
 }
 
-void	init_map(t_game *game)
+static void	init_map(t_game *game)
 {
 	game->map.height = 0;
 	game->map.width = 0;
 }
 
-void	init_elements(t_game *game)
+static void	init_elements(t_game *game)
 {
 	game->elements.ceiling_c.type = _NONE;
 	game->elements.ceiling_c.surface = NULL;
@@ -45,7 +45,7 @@ void	init_elements(t_game *game)
 	game->elements.counter = 0;
 }
 
-void	init_player(t_game *game)
+static void	init_player(t_game *game)
 {
 	game->player.x = 0.00;
 	game->player.y = 0.00;
@@ -64,5 +64,4 @@ void	init_all(t_game *game)
 	init_elements(game);
 	init_player(game);
 	game->rays = (t_rays *)malloc(sizeof(t_rays) * WINDOW_WIDTH);
-
 }

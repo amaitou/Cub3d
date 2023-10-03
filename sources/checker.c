@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 04:28:00 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/23 21:42:19 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/10/03 02:08:52 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-int	check_parser(t_game *game)
+static int	check_parser(t_game *game)
 {
 	int	parser_return_value;
 
@@ -24,7 +24,7 @@ int	check_parser(t_game *game)
 	return (0);
 }
 
-int	check_reader(t_game *game)
+static int	check_reader(t_game *game)
 {
 	int	reader_return_value;
 
@@ -52,7 +52,7 @@ int	check_reader(t_game *game)
 	return (0);
 }
 
-int	check_rgb(t_game *game)
+static int	check_rgb(t_game *game)
 {
 	int	rgb_return_value;
 
@@ -80,7 +80,7 @@ int	check_rgb(t_game *game)
 	return (0);
 }
 
-int	check_map(t_game *game)
+static int	check_map(t_game *game)
 {
 	int	map_return_value;
 	int	wall_return_value;

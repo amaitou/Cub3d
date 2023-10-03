@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   player_movements.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1013/09/17 18:41:11 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/29 17:06:31 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/10/03 01:58:37 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-int	wall_hitting(t_game *game, float y, float x)
+static int	wall_hitting(t_game *game, float y, float x)
 {
 	if (game->map.map[(int)(y + 1) / TILE][(int)(x / TILE)] == '1')
 		return (1);

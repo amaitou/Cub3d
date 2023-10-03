@@ -15,7 +15,6 @@ CFILES = sources/cub3d.c \
 		 sources/player_movements.c \
 		 sources/rays_casting.c \
 		 sources/check_parser.c \
-		 sources/check_textures.c \
 		 sources/split2.c \
 		 sources/checker.c \
 		 sources/check_rgb.c \
@@ -24,9 +23,9 @@ CFILES = sources/cub3d.c \
 		 sources/check_spaces.c \
 		 sources/projection_plan.c \
 		 sources/ray_casting_utils.c \
-		 sources/draw_game.c \
+		 sources/render_game.c \
 		 sources/run_game.c \
-		 sources/draw_map_utils.c \
+		 sources/render_game_utils.c \
 		 sources/h_intersection.c \
 		 sources/v_intersection.c
 

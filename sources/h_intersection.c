@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   h_intersection.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/01 13:53:18 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/10/02 22:29:00 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/10/03 02:33:03 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,14 +76,14 @@ void	h_intersection(t_game *game, float ray_angle, int index)
 	calculate_steps(game, ray_angle);
 	game->vars.next_x = game->vars.x_intercept;
 	game->vars.next_y = game->vars.y_intercept;
-	game->vars.temp_vars = 0;
+	game->vars.added_pixel = 0;
 	if (game->vars.ray_facing_up)
-		game->vars.temp_vars = 1;
+		game->vars.added_pixel = 1;
 	while (game->vars.next_x >= 0 && game->vars.next_x <= WINDOW_WIDTH
 		&& game->vars.next_y >= 0 && game->vars.next_y <= WINDOW_HEIGHT)
 	{
 		if (is_wall(game, game->vars.next_x,
-				game->vars.next_y - game->vars.temp_vars))
+				game->vars.next_y - game->vars.added_pixel))
 		{
 			game->rays[index].h_wall_hit_x = game->vars.next_x;
 			game->rays[index].h_wall_hit_y = game->vars.next_y;

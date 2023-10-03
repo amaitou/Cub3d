@@ -6,18 +6,18 @@
 /*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 18:45:11 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/10/03 01:50:41 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/10/03 02:37:15 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-float	distance_of_2_points(float x1, float y1, float x2, float y2)
+static float	distance_of_2_points(float x1, float y1, float x2, float y2)
 {
 	return (sqrt(pow(x2 - x1, 2) + pow(y2 - y1, 2)));
 }
 
-void	was_hit_vertical(t_game *game, int i)
+static void	was_hit_vertical(t_game *game, int i)
 {
 	if (game->rays[i].v_distance < game->rays[i].h_distance)
 		game->rays[i].was_hit_vertical = 1;
@@ -25,7 +25,7 @@ void	was_hit_vertical(t_game *game, int i)
 		game->rays[i].was_hit_vertical = 0;
 }
 
-void	calculate_distances(t_game *game, int i)
+static void	calculate_distances(t_game *game, int i)
 {
 	if (game->vars.found_h_wall)
 		game->rays[i].h_distance = distance_of_2_points(game->player.x,
@@ -54,14 +54,6 @@ void	calculate_distances(t_game *game, int i)
 	was_hit_vertical(game, i);
 }
 
-void	normalize_angle(float *angle)
-{
-	if (*angle > M_PI * 2)
-		*angle -= M_PI * 2;
-	if (*angle <= 0)
-		*angle += M_PI * 2;
-}
-
 void	cast_rays(t_game *game)
 {
 	float	ray_angle;
@@ -69,7 +61,6 @@ void	cast_rays(t_game *game)
 	int		i;
 
 	ray_angle = game->player.rotation_angle - (game->player.fov / 2);
-
 	steps = game->player.fov / WINDOW_WIDTH;
 	i = 0;
 	while (i < WINDOW_WIDTH)

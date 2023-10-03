@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_rgb.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 06:14:23 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/29 13:12:04 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/10/03 02:10:52 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ static int	check_range(char *s)
 	return (0);
 }
 
-int	check_color(char *s, t_enums color)
+static int	check_color(char *s, t_enums color)
 {
 	if (s == NULL || color == _NONE)
 		return (1);
