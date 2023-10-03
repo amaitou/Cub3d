@@ -6,11 +6,11 @@
 /*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 21:01:14 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/10/03 02:08:06 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/10/03 03:00:20 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "../../includes/cub3d.h"
 
 static int	shared_space(char **map, int y, int x)
 {

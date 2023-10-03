@@ -6,11 +6,11 @@
 /*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1013/09/17 18:41:11 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/10/03 01:58:37 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/10/03 03:02:03 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "../../includes/cub3d.h"
 
 static int	wall_hitting(t_game *game, float y, float x)
 {

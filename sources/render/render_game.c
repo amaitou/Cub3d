@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ray_casting_utils.c                                :+:      :+:    :+:   */
+/*   render_game.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/30 17:42:32 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/10/03 02:37:33 by amait-ou         ###   ########.fr       */
+/*   Created: 2023/09/27 19:08:37 by amait-ou          #+#    #+#             */
+/*   Updated: 2023/10/03 03:01:42 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "../../includes/cub3d.h"
 
-int	get_rgba(int r, int g, int b, int a)
+void	render_game(t_game *game)
 {
-	return (r << 24 | g << 16 | b << 8 | a);
-}
-
-void	normalize_angle(float *angle)
-{
-	if (*angle > M_PI * 2)
-		*angle -= M_PI * 2;
-	if (*angle <= 0)
-		*angle += M_PI * 2;
+	clear_map(game);
+	draw_ceiling(game);
+	draw_floor(game);
+	projection_plan(game);
+	draw_mini_map(game);
+	cast_rays(game);
+	draw_rays(game);
 }

@@ -6,11 +6,11 @@
 /*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 17:26:12 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/10/03 02:37:47 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/10/03 03:01:53 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "../../includes/cub3d.h"
 
 static void	init_directions(t_game *game)
 {

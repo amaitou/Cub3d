@@ -6,11 +6,11 @@
 /*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 01:16:56 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/22 02:49:35 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/10/03 03:00:04 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "../../includes/cub3d.h"
 
 int	check_map_and_elements(int parser_return_value)
 {

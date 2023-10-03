@@ -6,11 +6,11 @@
 /*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 03:43:49 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/22 02:45:51 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/10/03 03:02:08 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "../../includes/cub3d.h"
 
 static int	words(const char *s)
 {

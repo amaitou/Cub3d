@@ -6,11 +6,11 @@
 /*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/01 13:53:18 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/10/03 02:33:03 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/10/03 03:01:07 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "../../includes/cub3d.h"
 
 static void	ray_facing(t_game *game, float ray_angle)
 {

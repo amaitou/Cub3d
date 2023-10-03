@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   projection_plan.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 15:54:57 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/10/02 23:44:56 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/10/03 03:01:12 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "../../includes/cub3d.h"
 
 void	projection_plan(t_game *game)
 {

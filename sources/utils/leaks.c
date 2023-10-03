@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render_game.c                                      :+:      :+:    :+:   */
+/*   leaks.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/27 19:08:37 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/10/03 02:20:02 by amait-ou         ###   ########.fr       */
+/*   Created: 2023/08/18 15:52:06 by amait-ou          #+#    #+#             */
+/*   Updated: 2023/10/03 03:01:57 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "../../includes/cub3d.h"
 
-void	render_game(t_game *game)
+void	free_array(char **arr)
 {
-	clear_map(game);
-	draw_ceiling(game);
-	draw_floor(game);
-	projection_plan(game);
-	draw_mini_map(game);
-	cast_rays(game);
-	draw_rays(game);
+	int	i;
+
+	i = 0;
+	while (arr[i])
+	{
+		free(arr[i]);
+		++i;
+	}
+	free(arr);
 }

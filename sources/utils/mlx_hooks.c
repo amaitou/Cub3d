@@ -6,11 +6,11 @@
 /*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 18:49:49 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/10/03 02:20:43 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/10/03 03:02:00 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "../../includes/cub3d.h"
 
 void	check_keys(void *game)
 {

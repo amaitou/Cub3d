@@ -3,31 +3,33 @@ NAME = cub3D
 CC = cc
 CFLAGS = -Wextra -Wall -Werror -O3 -fsanitize=address -g
 CFILES = sources/cub3d.c \
-		 sources/reader.c \
-		 sources/check_reader.c \
-		 sources/displayer.c \
-		 sources/parser_utils.c \
-		 sources/parser.c \
-		 sources/leaks.c \
-		 sources/mini_map.c \
-		 sources/init_members.c \
-		 sources/mlx_hooks.c \
-		 sources/player_movements.c \
-		 sources/rays_casting.c \
-		 sources/check_parser.c \
-		 sources/split2.c \
-		 sources/checker.c \
-		 sources/check_rgb.c \
-		 sources/check_map.c \
-		 sources/check_walls.c \
-		 sources/check_spaces.c \
-		 sources/projection_plan.c \
-		 sources/ray_casting_utils.c \
-		 sources/render_game.c \
+		 sources/parser/reader.c \
+		 sources/checker/check_reader.c \
+		 sources/displayer/displayer.c \
+		 sources/parser/parser_utils.c \
+		 sources/parser/parser.c \
+		 sources/utils/leaks.c \
+		 sources/render/mini_map.c \
+		 sources/utils/init_members.c \
+		 sources/utils/mlx_hooks.c \
+		 sources/utils/player_movements.c \
+		 sources/ray_casting/rays_casting.c \
+		 sources/checker/check_parser.c \
+		 sources/utils/split2.c \
+		 sources/checker/checker.c \
+		 sources/checker/check_rgb.c \
+		 sources/checker/check_map.c \
+		 sources/checker/check_walls.c \
+		 sources/checker/check_spaces.c \
+		 sources/ray_casting/projection_plan.c \
+		 sources/ray_casting/ray_casting_utils.c \
+		 sources/render/render_game.c \
 		 sources/run_game.c \
-		 sources/render_game_utils.c \
-		 sources/h_intersection.c \
-		 sources/v_intersection.c
+		 sources/render/render_game_utils.c \
+		 sources/ray_casting/h_intersection.c \
+		 sources/ray_casting/v_intersection.c
+
+OBJECTS = $(patsubst %.c,%.o,$(CFILES))
 
 SUPERLIB_DIR = ./superlib
 SUPERLIB = ./superlib/superlib.a
@@ -50,19 +52,21 @@ $(SUPERLIB):
 	@$(MAKE) -C $(SUPERLIB_DIR)
 
 # generate the executable file "cub3D" (Mandatory part)
-$(NAME): $(CFILES)
+$(NAME): $(OBJECTS)
 	@echo "\033[95m[.] output *.c to cub3D\033[0m"
 	@$(CC) $(CFLAGS) $(CFILES) $(SUPERLIB) $(MLX) -o $@
 
-bonus: all $(NAME_2)
+%.o: %.c
+	@echo "\033[92m[*] compiling $<\033[0m"
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	@echo "\033[1;31m[!] deleting cub3D\033[0m"
 	@$(MAKE) clean -C $(SUPERLIB_DIR)
-	@rm -f $(NAME) $(NAME_2)
+	@rm -f $(NAME)
 
 fclean: clean
-	@rm -f $(NAME) $(NAME_2)
+	@rm -f $(NAME) $(OBJECTS)
 	@$(MAKE) fclean -C $(SUPERLIB_DIR)
 
 run:

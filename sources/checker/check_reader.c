@@ -6,11 +6,11 @@
 /*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 19:40:27 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/21 23:24:03 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/10/03 03:00:08 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "../../includes/cub3d.h"
 
 static int	consecutive_new_lines(char *s, int i)
 {

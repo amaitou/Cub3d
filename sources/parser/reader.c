@@ -6,11 +6,11 @@
 /*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 15:00:09 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/09/21 23:27:37 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/10/03 03:01:00 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "../../includes/cub3d.h"
 
 static int	check_path(char *s)
 {

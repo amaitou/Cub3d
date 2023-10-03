@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   leaks.c                                            :+:      :+:    :+:   */
+/*   ray_casting_utils.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/18 15:52:06 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/08/18 15:54:08 by amait-ou         ###   ########.fr       */
+/*   Created: 2023/09/30 17:42:32 by amait-ou          #+#    #+#             */
+/*   Updated: 2023/10/03 03:01:16 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "../../includes/cub3d.h"
 
-void	free_array(char **arr)
+int	get_rgba(int r, int g, int b, int a)
 {
-	int	i;
+	return (r << 24 | g << 16 | b << 8 | a);
+}
 
-	i = 0;
-	while (arr[i])
-	{
-		free(arr[i]);
-		++i;
-	}
-	free(arr);
+void	normalize_angle(float *angle)
+{
+	if (*angle > M_PI * 2)
+		*angle -= M_PI * 2;
+	if (*angle <= 0)
+		*angle += M_PI * 2;
 }
