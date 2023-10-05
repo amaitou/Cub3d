@@ -6,15 +6,15 @@
 /*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 16:12:48 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/10/05 04:55:03 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/10/05 16:38:21 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
 
-# include "../superlib/superlib.h"
-# include "../mlx/include/MLX42/MLX42.h"
+# include "../../superlib/superlib.h"
+# include "../../mlx/include/MLX42/MLX42.h"
 # include <math.h>
 # include <fcntl.h>
 # include <stdbool.h>

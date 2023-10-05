@@ -1,40 +1,76 @@
 UNAME = $(shell uname)
-HEADER_FILE = ./includes/cub3d.h
-NAME = cub3D
+HEADER_FILE_MANDATORY = ./mandatory/includes/cub3d.h
+HEADER_FILE_BONUS = ./bonus/includes/cub3d.h
+NAME_BONUS = cub3D_bonus
+NAME = cub3d
 CC = cc
 CFLAGS = -Wextra -Wall -Werror -O3
-CFILES = sources/parser/reader.c \
-		 sources/parser/parser.c \
-		 sources/parser/parser_utils.c \
-		 sources/checker/check_reader.c \
-		 sources/checker/check_parser.c \
-		 sources/checker/checker.c \
-		 sources/checker/check_rgb.c \
-		 sources/checker/check_map.c \
-		 sources/checker/check_walls.c \
-		 sources/checker/check_spaces.c \
-		 sources/ray_casting/rays_casting.c \
-		 sources/ray_casting/ray_casting_utils.c \
-		 sources/ray_casting/h_intersection.c \
-		 sources/ray_casting/v_intersection.c \
-		 sources/render/mini_map.c \
-		 sources/render/projection_plan.c \
-		 sources/render/render_game.c \
-		 sources/render/render_game_utils.c \
-		 sources/render/render_helper.c \
-		 sources/render/textures.c \
-		 sources/render/textures_calculations.c \
-		 sources/utils/init_members.c \
-		 sources/utils/mlx_hooks.c \
-		 sources/utils/player_movements.c \
-		 sources/utils/split2.c \
-		 sources/utils/leaks.c \
-		 sources/utils/banner.c \
-		 sources/displayer/displayer.c \
-		 sources/run_game.c \
-		 sources/cub3d.c
+CFILES_MANDATORY = ./mandatory/sources/parser/reader.c \
+		 ./mandatory/sources/parser/parser.c \
+		 ./mandatory/sources/parser/parser_utils.c \
+		 ./mandatory/sources/checker/check_reader.c \
+		 ./mandatory/sources/checker/check_parser.c \
+		 ./mandatory/sources/checker/checker.c \
+		 ./mandatory/sources/checker/check_rgb.c \
+		 ./mandatory/sources/checker/check_map.c \
+		 ./mandatory/sources/checker/check_walls.c \
+		 ./mandatory/sources/checker/check_spaces.c \
+		 ./mandatory/sources/ray_casting/rays_casting.c \
+		 ./mandatory/sources/ray_casting/ray_casting_utils.c \
+		 ./mandatory/sources/ray_casting/h_intersection.c \
+		 ./mandatory/sources/ray_casting/v_intersection.c \
+		 ./mandatory/sources/render/mini_map.c \
+		 ./mandatory/sources/render/projection_plan.c \
+		 ./mandatory/sources/render/render_game.c \
+		 ./mandatory/sources/render/render_game_utils.c \
+		 ./mandatory/sources/render/render_helper.c \
+		 ./mandatory/sources/render/textures.c \
+		 ./mandatory/sources/render/textures_calculations.c \
+		 ./mandatory/sources/utils/init_members.c \
+		 ./mandatory/sources/utils/mlx_hooks.c \
+		 ./mandatory/sources/utils/player_movements.c \
+		 ./mandatory/sources/utils/split2.c \
+		 ./mandatory/sources/utils/leaks.c \
+		 ./mandatory/sources/utils/banner.c \
+		 ./mandatory/sources/displayer/displayer.c \
+		 ./mandatory/sources/run_game.c \
+		 ./mandatory/sources/cub3d.c
 
-OBJECTS = $(patsubst %.c,%.o,$(CFILES))
+CFILES_BONUS = ./bonus/sources/parser/reader_bonus.c \
+		./bonus/sources/parser/parser_bonus.c \
+		./bonus/sources/parser/parser_utils_bonus.c \
+		./bonus/sources/checker/check_reader_bonus.c \
+		./bonus/sources/checker/check_parser_bonus.c \
+		./bonus/sources/checker/checker_bonus.c \
+		./bonus/sources/checker/check_rgb_bonus.c \
+		./bonus/sources/checker/check_map_bonus.c \
+		./bonus/sources/checker/check_walls_bonus.c \
+		./bonus/sources/checker/check_spaces_bonus.c \
+		./bonus/sources/ray_casting/rays_casting_bonus.c \
+		./bonus/sources/ray_casting/ray_casting_utils_bonus.c \
+		./bonus/sources/ray_casting/h_intersection_bonus.c \
+		./bonus/sources/ray_casting/v_intersection_bonus.c \
+		./bonus/sources/render/mini_map_bonus.c \
+		./bonus/sources/render/projection_plan_bonus.c \
+		./bonus/sources/render/render_game_bonus.c \
+		./bonus/sources/render/render_game_utils_bonus.c \
+		./bonus/sources/render/render_helper_bonus.c \
+		./bonus/sources/render/textures_bonus.c \
+		./bonus/sources/render/textures_calculations_bonus.c \
+		./bonus/sources/utils/init_members_bonus.c \
+		./bonus/sources/utils/mlx_hooks_bonus.c \
+		./bonus/sources/utils/player_movements_bonus.c \
+		./bonus/sources/utils/split2_bonus.c \
+		./bonus/sources/utils/leaks_bonus.c \
+		./bonus/sources/utils/banner_bonus.c \
+		./bonus/sources/displayer/displayer_bonus.c \
+		./bonus/sources/run_game_bonus.c \
+		./bonus/sources/cub3d_bonus.c
+
+
+
+OBJECTS_MANDATORY = $(patsubst %.c,%.o,$(CFILES_MANDATORY))
+OBJECTS_BONUS = $(patsubst %.c,%.o,$(CFILES_BONUS))
 
 SUPERLIB_DIR = ./superlib
 SUPERLIB = ./superlib/superlib.a
@@ -50,6 +86,7 @@ ifeq ($(UNAME), Linux)
 endif
 
 all: $(SUPERLIB) $(NAME)
+bonus: $(SUPERLIB) $(NAME_BONUS)
 
 # compile the super lib
 $(SUPERLIB):
@@ -57,9 +94,14 @@ $(SUPERLIB):
 	@$(MAKE) -C $(SUPERLIB_DIR)
 
 # generate the executable file "cub3D" (Mandatory part)
-$(NAME): $(OBJECTS) $(HEADER_FILE)
-	@echo "\033[95m[.] creating *.c to cub3D\033[0m"
-	@$(CC) $(CFLAGS) $(CFILES) $(SUPERLIB) $(MLX) -o $@
+$(NAME): $(OBJECTS_MANDATORY) $(HEADER_FILE_MANDATORY)
+	@echo "\033[95m[.] creating *.c to cub3D mandatory\033[0m"
+	@$(CC) $(CFLAGS) $(CFILES_MANDATORY) $(SUPERLIB) $(MLX) -o $@
+
+# generate the executable file "cub3D" (Bonus part)
+$(NAME_BONUS): $(OBJECTS_BONUS) $(HEADER_FILE_BONUS)
+	@echo "\033[95m[.] creating *.c to cub3D bonus\033[0m"
+	@$(CC) $(CFLAGS) $(CFILES_BONUS) $(SUPERLIB) $(MLX) -o $@
 
 %.o: %.c
 	@echo "\033[92m[*] compiling $<\033[0m"
@@ -69,10 +111,12 @@ clean:
 	@echo "\033[1;31m[!] deleting cub3D\033[0m"
 	@$(MAKE) clean -C $(SUPERLIB_DIR)
 	@rm -f $(NAME)
+	@rm -rf $(NAME_BONUS)
 	@rm -rf cub3D.dSYM
 
 fclean: clean
-	@rm -f $(NAME) $(OBJECTS)
+	@rm -f $(OBJECTS_MANDATORY)
+	@rm -f $(OBJECTS_BONUS)
 	@$(MAKE) fclean -C $(SUPERLIB_DIR)
 
 run:
