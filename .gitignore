@@ -4,3 +4,4 @@ cub3D
 /cub3D.dSYM
 *.swp
 /.vscode
+.DS_Store
