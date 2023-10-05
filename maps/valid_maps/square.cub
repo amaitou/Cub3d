@@ -2,10 +2,10 @@
 
 F   69,222,199
 
-NO                        ./textures/bernoussi.jpg
-SO    ./textures/mdina_9dima.jpg
-WE                                             ./textures/sbata_04.jpg
-EA                                                                               ./textures/inara.jpg
+NO                        ./textures/bernoussi.png
+SO    ./textures/mdina_9dima.png
+WE                                             ./textures/sbata_04.png
+EA                                                                               ./textures/inara.png
 
 
 

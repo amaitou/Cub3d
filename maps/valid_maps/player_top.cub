@@ -1,7 +1,7 @@
-NO ./textures/bernoussi.jpg
-SO ./textures/mdina_9dima.jpg
-WE ./textures/sbata_04.jpg
-EA ./textures/inara.jpg
+NO ./textures/bernoussi.png
+SO ./textures/mdina_9dima.png
+WE ./textures/sbata_04.png
+EA ./textures/inara.png
 
 F 20,20,20
 C 200,200,200
