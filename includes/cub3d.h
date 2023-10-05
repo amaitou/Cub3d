@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 16:12:48 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/10/03 23:14:29 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/10/04 23:28:33 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -267,6 +267,7 @@ void	clear_map(t_game *game);
 void	draw_rays(t_game *game);
 void	draw_line(t_game *game, float x1, float y1, int perspective);
 void	draw_line_helper(t_game *game, int perspective, int x, int y);
+int		load_textures(t_game *game);
 
 // ray casting
 void	cast_rays(t_game *game);

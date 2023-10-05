@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 11:51:42 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/10/03 19:40:03 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/10/04 23:27:55 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ int	__run_game(t_game *game, int ac, char **ag)
 	__banner();
 	set_angle(game);
 	set_colors(game);
+	load_textures(game);
 	mlx(game);
 	mlx_loop(game->mlx.mlx);
 	return (0);

@@ -1,7 +1,7 @@
-NO ./textures/picture.jpg
-SO ./textures/picture.jpg
-WE ./textures/picture.jpg
-EA ./textures/picture.jpg
+NO ./textures/picture.png
+SO ./textures/picture.png
+WE ./textures/picture.png
+EA ./textures/picture.png
 F 95,158,160
 C 163, 194, 194
 11111111111111111111111111111

@@ -2,7 +2,7 @@ UNAME = $(shell uname)
 HEADER_FILE = ./includes/cub3d.h
 NAME = cub3D
 CC = cc
-CFLAGS = -Wextra -Wall -Werror -O3 -fsanitize=address -g
+CFLAGS = -Wextra -Wall -Werror -O3
 CFILES = sources/cub3d.c \
 		 sources/parser/reader.c \
 		 sources/checker/check_reader.c \
@@ -30,7 +30,8 @@ CFILES = sources/cub3d.c \
 		 sources/ray_casting/h_intersection.c \
 		 sources/ray_casting/v_intersection.c \
 		 sources/utils/banner.c \
-		 sources/render/render_helper.c
+		 sources/render/render_helper.c \
+		 sources/render/textures.c
 
 OBJECTS = $(patsubst %.c,%.o,$(CFILES))
 
