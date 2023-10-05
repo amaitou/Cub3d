@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 18:49:49 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/10/03 19:47:50 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/10/05 07:43:00 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,9 @@ void	mouse_hook(double curr_x, void *g)
 	if (i++ == 1)
 	{
 		if (old_x > curr_x)
-			game->player.rotation_angle -= 0.06;
+			game->player.rotation_angle -= 0.04;
 		if (old_x < curr_x)
-			game->player.rotation_angle += 0.06;
+			game->player.rotation_angle += 0.04;
 		i = 0;
 		old_x = curr_x;
 	}
