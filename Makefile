@@ -1,6 +1,6 @@
 UNAME = $(shell uname)
 HEADER_FILE_MANDATORY = ./mandatory/includes/cub3d.h
-HEADER_FILE_BONUS = ./bonus/includes/cub3d.h
+HEADER_FILE_BONUS = ./bonus/includes/cub3d_bonus.h
 NAME_BONUS = cub3D_bonus
 NAME = cub3D
 CC = cc
@@ -86,17 +86,14 @@ endif
 all: $(SUPERLIB) $(NAME)
 bonus: $(SUPERLIB) $(NAME_BONUS)
 
-# compile the super lib
 $(SUPERLIB):
 	@echo "\033[0;32m[+] making superlib\033[0m"
 	@$(MAKE) -C $(SUPERLIB_DIR)
 
-# generate the executable file "cub3D" (Mandatory part)
 $(NAME): $(OBJECTS_MANDATORY) $(HEADER_FILE_MANDATORY)
 	@echo "\033[95m[.] creating *.c to cub3D mandatory\033[0m"
 	@$(CC) $(CFLAGS) $(CFILES_MANDATORY) $(SUPERLIB) $(MLX) -o $@
 
-# generate the executable file "cub3D" (Bonus part)
 $(NAME_BONUS): $(OBJECTS_BONUS) $(HEADER_FILE_BONUS)
 	@echo "\033[95m[.] creating *.c to cub3D bonus\033[0m"
 	@$(CC) $(CFLAGS) $(CFILES_BONUS) $(SUPERLIB) $(MLX) -o $@

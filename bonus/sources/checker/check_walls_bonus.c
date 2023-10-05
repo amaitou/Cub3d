@@ -6,11 +6,11 @@
 /*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 21:54:54 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/10/05 16:48:34 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/10/05 18:07:50 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3d.h"
+#include "../../includes/cub3d_bonus.h"
 
 static int	wall_up_down(char *s)
 {

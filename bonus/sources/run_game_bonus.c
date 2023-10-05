@@ -6,11 +6,11 @@
 /*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 11:51:42 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/10/05 16:50:47 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/10/05 18:15:57 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "../includes/cub3d_bonus.h"
 
 static void	mlx(t_game *game)
 {
@@ -19,8 +19,8 @@ static void	mlx(t_game *game)
 			WINDOW_WIDTH, WINDOW_HEIGHT);
 	mlx_image_to_window(game->mlx.mlx, game->mlx.image, 0, 0);
 	mlx_loop_hook(game->mlx.mlx, check_keys, game);
-// 	mlx_set_cursor_mode(game->mlx.mlx, MLX_MOUSE_DISABLED);
-// 	mlx_cursor_hook(game->mlx.mlx, (mlx_cursorfunc) mouse_hook, game);
+	mlx_set_cursor_mode(game->mlx.mlx, MLX_MOUSE_DISABLED);
+	mlx_cursor_hook(game->mlx.mlx, (mlx_cursorfunc) mouse_hook, game);
 }
 
 static void	set_angle(t_game *game)

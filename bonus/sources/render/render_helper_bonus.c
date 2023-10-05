@@ -6,11 +6,11 @@
 /*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 22:22:19 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/10/05 16:50:06 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/10/05 18:10:20 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3d.h"
+#include "../../includes/cub3d_bonus.h"
 
 void	draw_line_helper(t_game *game, int perspective, int x, int y)
 {

@@ -6,11 +6,11 @@
 /*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/30 17:42:32 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/10/05 16:49:45 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/10/05 18:08:56 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3d.h"
+#include "../../includes/cub3d_bonus.h"
 
 int	get_rgba(int r, int g, int b, int a)
 {

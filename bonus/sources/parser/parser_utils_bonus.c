@@ -6,11 +6,11 @@
 /*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 15:17:02 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/10/05 16:49:35 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/10/05 18:08:27 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3d.h"
+#include "../../includes/cub3d_bonus.h"
 
 void	assign_color(t_game *game, char **element)
 {

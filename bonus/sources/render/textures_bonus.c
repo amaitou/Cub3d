@@ -6,11 +6,11 @@
 /*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 20:34:15 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/10/05 16:50:14 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/10/05 18:10:29 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3d.h"
+#include "../../includes/cub3d_bonus.h"
 
 int	load_textures(t_game *game)
 {

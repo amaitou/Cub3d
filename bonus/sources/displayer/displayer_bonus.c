@@ -6,11 +6,11 @@
 /*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 15:08:45 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/10/05 16:49:27 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/10/05 18:08:08 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3d.h"
+#include "../../includes/cub3d_bonus.h"
 
 static void	display_directions(t_enums direction)
 {

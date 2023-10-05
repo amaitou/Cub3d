@@ -6,11 +6,11 @@
 /*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 15:52:06 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/10/05 16:50:29 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/10/05 18:12:00 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3d.h"
+#include "../../includes/cub3d_bonus.h"
 
 void	free_array(char **arr)
 {

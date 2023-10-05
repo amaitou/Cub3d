@@ -6,11 +6,11 @@
 /*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 04:28:00 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/10/05 16:48:58 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/10/05 18:07:58 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3d.h"
+#include "../../includes/cub3d_bonus.h"
 
 static int	check_parser(t_game *game)
 {
