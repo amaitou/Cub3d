@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   textures.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 20:34:15 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/10/05 04:10:14 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/10/05 09:49:51 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,23 +34,21 @@ int	get_color_of_texture(int x, int y, mlx_texture_t *image)
 	int	index;
 
 	index = ((y * image->width) + x) * image->bytes_per_pixel;
-	return (get_rgba(image->pixels[index + 0],
-			image->pixels[index + 1], image->pixels[index + 2],
+	return (get_rgba(
+			image->pixels[index + 0],
+			image->pixels[index + 1],
+			image->pixels[index + 2],
 			image->pixels[index + 3]));
 }
 
 void	get_texture_x(t_game *game, int index, mlx_texture_t *image)
 {
 	if (game->rays[index].was_hit_vertical == 1)
-	{
 		game->vars.x_texures = fmod(game->rays[index].wall_hit_y, TILE)
 			* (image->width / TILE);
-	}
 	else
-	{
 		game->vars.x_texures = fmod(game->rays[index].wall_hit_x, TILE)
 			* (image->width / TILE);
-	}
 }
 
 void	get_texture_y(t_game *game, int index, mlx_texture_t *image)
