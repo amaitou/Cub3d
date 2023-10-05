@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 11:51:42 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/10/05 02:23:24 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/10/05 03:33:51 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	mlx(t_game *game)
 {
-	game->mlx.mlx = mlx_init(WINDOW_WIDTH, WINDOW_HEIGHT, "Cub3d", true);
+	game->mlx.mlx = mlx_init(WINDOW_WIDTH, WINDOW_HEIGHT, "Casa Negra", true);
 	game->mlx.image = mlx_new_image(game->mlx.mlx,
 			WINDOW_WIDTH, WINDOW_HEIGHT);
 	mlx_image_to_window(game->mlx.mlx, game->mlx.image, 0, 0);

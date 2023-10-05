@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 16:12:48 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/10/05 02:43:05 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/10/05 04:07:12 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,25 +140,26 @@ typedef struct s_mlx
 */
 typedef struct s_vars
 {
-	float	x_step;
-	float	y_step;
-	float	y_intercept;
-	float	x_intercept;
-	float	next_y;
-	float	next_x;
-	int		ray_facing_down;
-	int		ray_facing_up;
-	int		ray_facing_left;
-	int		ray_facing_right;
-	int		added_pixel;
-	int		found_h_wall;
-	int		found_v_wall;
-	int		mouse_x;
-	int		old_mouse_x;
-	int		mouse_y;
-	int		old_mouse_y;
-	float	x_texures;
-	float	y_textures;
+	float			x_step;
+	float			y_step;
+	float			y_intercept;
+	float			x_intercept;
+	float			next_y;
+	float			next_x;
+	int				ray_facing_down;
+	int				ray_facing_up;
+	int				ray_facing_left;
+	int				ray_facing_right;
+	int				added_pixel;
+	int				found_h_wall;
+	int				found_v_wall;
+	int				mouse_x;
+	int				old_mouse_x;
+	int				mouse_y;
+	int				old_mouse_y;
+	float			x_texures;
+	float			y_textures;
+	mlx_texture_t	*image;
 }	t_vars;
 
 /*
@@ -283,6 +284,11 @@ int		load_textures(t_game *game);
 int		get_color_of_texture(int x, int y, mlx_texture_t *image);
 void	get_texture_x(t_game *game, int index, mlx_texture_t *image);
 void	get_texture_y(t_game *game, int index, mlx_texture_t *image);
+void	fix_fish_eye(t_game *game, int index);
+void	calculate_wall_height(t_game *game, int index);
+void	calculate_starting_point_of_the_wall(t_game *game, int index);
+void	calculate_ending_point_of_the_wall(t_game *game, int index);
+void	detect_texture(t_game *game, int index);
 
 // player mouvements
 void	move_up(t_game *game);

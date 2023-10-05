@@ -31,7 +31,8 @@ CFILES = sources/cub3d.c \
 		 sources/ray_casting/v_intersection.c \
 		 sources/utils/banner.c \
 		 sources/render/render_helper.c \
-		 sources/render/textures.c
+		 sources/render/textures.c \
+		 sources/render/textures_calculations.c
 
 OBJECTS = $(patsubst %.c,%.o,$(CFILES))
 
