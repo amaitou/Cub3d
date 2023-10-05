@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 16:12:48 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/10/04 23:28:33 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/10/05 02:43:05 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -157,6 +157,8 @@ typedef struct s_vars
 	int		old_mouse_x;
 	int		mouse_y;
 	int		old_mouse_y;
+	float	x_texures;
+	float	y_textures;
 }	t_vars;
 
 /*
@@ -267,7 +269,6 @@ void	clear_map(t_game *game);
 void	draw_rays(t_game *game);
 void	draw_line(t_game *game, float x1, float y1, int perspective);
 void	draw_line_helper(t_game *game, int perspective, int x, int y);
-int		load_textures(t_game *game);
 
 // ray casting
 void	cast_rays(t_game *game);
@@ -276,6 +277,12 @@ void	v_intersection(t_game *game, float ray_angle, int index);
 void	projection_plan(t_game *game);
 int		get_rgba(int r, int g, int b, int a);
 void	normalize_angle(float *angle);
+
+// textures
+int		load_textures(t_game *game);
+int		get_color_of_texture(int x, int y, mlx_texture_t *image);
+void	get_texture_x(t_game *game, int index, mlx_texture_t *image);
+void	get_texture_y(t_game *game, int index, mlx_texture_t *image);
 
 // player mouvements
 void	move_up(t_game *game);
