@@ -2,9 +2,9 @@ UNAME = $(shell uname)
 HEADER_FILE_MANDATORY = ./mandatory/includes/cub3d.h
 HEADER_FILE_BONUS = ./bonus/includes/cub3d.h
 NAME_BONUS = cub3D_bonus
-NAME = cub3d
+NAME = cub3D
 CC = cc
-CFLAGS = -Wextra -Wall -Werror -O3
+CFLAGS = -Wextra -Wall -Werror -O3 -fsanitize=address -g
 CFILES_MANDATORY = ./mandatory/sources/parser/reader.c \
 		 ./mandatory/sources/parser/parser.c \
 		 ./mandatory/sources/parser/parser_utils.c \
@@ -19,11 +19,9 @@ CFILES_MANDATORY = ./mandatory/sources/parser/reader.c \
 		 ./mandatory/sources/ray_casting/ray_casting_utils.c \
 		 ./mandatory/sources/ray_casting/h_intersection.c \
 		 ./mandatory/sources/ray_casting/v_intersection.c \
-		 ./mandatory/sources/render/mini_map.c \
 		 ./mandatory/sources/render/projection_plan.c \
 		 ./mandatory/sources/render/render_game.c \
 		 ./mandatory/sources/render/render_game_utils.c \
-		 ./mandatory/sources/render/render_helper.c \
 		 ./mandatory/sources/render/textures.c \
 		 ./mandatory/sources/render/textures_calculations.c \
 		 ./mandatory/sources/utils/init_members.c \

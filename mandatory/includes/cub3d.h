@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 16:12:48 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/10/05 16:38:21 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/10/05 17:24:29 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -264,13 +264,9 @@ void	free_textures(t_game *game);
 
 // game rendering
 void	render_game(t_game *game);
-void	draw_mini_map(t_game *game);
 void	draw_floor(t_game *game);
 void	draw_ceiling(t_game *game);
 void	clear_map(t_game *game);
-void	draw_rays(t_game *game);
-void	draw_line(t_game *game, float x1, float y1, int perspective);
-void	draw_line_helper(t_game *game, int perspective, int x, int y);
 
 // ray casting
 void	cast_rays(t_game *game);

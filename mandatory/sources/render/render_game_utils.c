@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_game_utils.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 18:24:33 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/10/03 22:24:08 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/10/05 17:11:39 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,49 +68,6 @@ void	draw_ceiling(t_game *game)
 					colors[1], colors[2], 255));
 			++j;
 		}
-		++i;
-	}
-}
-
-void	draw_rays(t_game *game)
-{
-	int	i;
-
-	i = 0;
-	while (i < WINDOW_WIDTH)
-	{
-		if (game->rays[i].was_hit_vertical)
-			draw_line(game,
-				game->rays[i].wall_hit_x, game->rays[i].wall_hit_y, 0);
-		else
-			draw_line(game,
-				game->rays[i].wall_hit_x, game->rays[i].wall_hit_y, 1);
-		++i;
-	}
-}
-
-void	draw_line(t_game *game, float x1, float y1, int perspective)
-{
-	int		i;
-	float	x;
-	float	y;
-
-	game->dda.dx = x1 - game->player.x;
-	game->dda.dy = y1 - game->player.y;
-	if (abs(game->dda.dx) > abs(game->dda.dy))
-		game->dda.steps = abs(game->dda.dx);
-	else
-		game->dda.steps = abs(game->dda.dy);
-	game->dda.xinc = game->dda.dx / (float)game->dda.steps;
-	game->dda.yinc = game->dda.dy / (float)game->dda.steps;
-	x = game->player.x;
-	y = game->player.y;
-	i = 0;
-	while (i <= game->dda.steps)
-	{
-		draw_line_helper(game, perspective, x, y);
-		x += game->dda.xinc;
-		y += game->dda.yinc;
 		++i;
 	}
 }
