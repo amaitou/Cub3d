@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 11:51:42 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/10/05 03:33:51 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/10/05 04:57:11 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,12 @@ int	__run_game(t_game *game, int ac, char **ag)
 	__banner();
 	set_angle(game);
 	set_colors(game);
-	load_textures(game);
+	if (load_textures(game))
+	{
+		free_textures(game);
+		ft_putendl_fd("Error\nFailed to load textures\n", 2);
+		return (2);
+	}
 	mlx(game);
 	mlx_loop(game->mlx.mlx);
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 16:12:48 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/10/05 04:07:12 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/10/05 04:55:03 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -260,6 +260,7 @@ void	__display_rays(t_game *game);
 
 // leaks
 void	free_array(char **arr);
+void	free_textures(t_game *game);
 
 // game rendering
 void	render_game(t_game *game);

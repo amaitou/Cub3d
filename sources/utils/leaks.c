@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 15:52:06 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/10/03 03:01:57 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/10/05 04:55:07 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,4 +23,23 @@ void	free_array(char **arr)
 		++i;
 	}
 	free(arr);
+}
+
+void	free_textures(t_game *game)
+{
+	if (!game->elements.north.image)
+		return ;
+	else if (!game->elements.south.image)
+		free(game->elements.north.image);
+	else if (!game->elements.west.image)
+	{
+		free(game->elements.north.image);
+		free(game->elements.south.image);
+	}
+	else if (!game->elements.east.image)
+	{
+		free(game->elements.north.image);
+		free(game->elements.south.image);
+		free(game->elements.west.image);
+	}
 }

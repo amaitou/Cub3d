@@ -3,36 +3,36 @@ HEADER_FILE = ./includes/cub3d.h
 NAME = cub3D
 CC = cc
 CFLAGS = -Wextra -Wall -Werror -O3
-CFILES = sources/cub3d.c \
-		 sources/parser/reader.c \
-		 sources/checker/check_reader.c \
-		 sources/displayer/displayer.c \
-		 sources/parser/parser_utils.c \
+CFILES = sources/parser/reader.c \
 		 sources/parser/parser.c \
-		 sources/utils/leaks.c \
-		 sources/render/mini_map.c \
-		 sources/utils/init_members.c \
-		 sources/utils/mlx_hooks.c \
-		 sources/utils/player_movements.c \
-		 sources/ray_casting/rays_casting.c \
+		 sources/parser/parser_utils.c \
+		 sources/checker/check_reader.c \
 		 sources/checker/check_parser.c \
-		 sources/utils/split2.c \
 		 sources/checker/checker.c \
 		 sources/checker/check_rgb.c \
 		 sources/checker/check_map.c \
 		 sources/checker/check_walls.c \
 		 sources/checker/check_spaces.c \
-		 sources/ray_casting/projection_plan.c \
+		 sources/ray_casting/rays_casting.c \
 		 sources/ray_casting/ray_casting_utils.c \
-		 sources/render/render_game.c \
-		 sources/run_game.c \
-		 sources/render/render_game_utils.c \
 		 sources/ray_casting/h_intersection.c \
 		 sources/ray_casting/v_intersection.c \
-		 sources/utils/banner.c \
+		 sources/render/mini_map.c \
+		 sources/render/projection_plan.c \
+		 sources/render/render_game.c \
+		 sources/render/render_game_utils.c \
 		 sources/render/render_helper.c \
 		 sources/render/textures.c \
-		 sources/render/textures_calculations.c
+		 sources/render/textures_calculations.c \
+		 sources/utils/init_members.c \
+		 sources/utils/mlx_hooks.c \
+		 sources/utils/player_movements.c \
+		 sources/utils/split2.c \
+		 sources/utils/leaks.c \
+		 sources/utils/banner.c \
+		 sources/displayer/displayer.c \
+		 sources/run_game.c \
+		 sources/cub3d.c
 
 OBJECTS = $(patsubst %.c,%.o,$(CFILES))
 
