@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   projection_plan.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 15:54:57 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/10/05 05:04:06 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/10/05 10:46:13 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,10 @@
 
 static void	draw_wall(t_game *game, int index, int x, int y)
 {
-	mlx_put_pixel(game->mlx.image, index, game->rays[index].y_start,
-		get_color_of_texture(x, y, game->vars.image));
+	if (game->rays[index].y_start >= 0
+		&& game->rays[index].y_start < WINDOW_HEIGHT)
+		mlx_put_pixel(game->mlx.image, index, game->rays[index].y_start,
+			get_color_of_texture(x, y, game->vars.image));
 }
 
 static void	render_texture(t_game *game, int index)
