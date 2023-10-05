@@ -69,6 +69,7 @@ clean:
 	@echo "\033[1;31m[!] deleting cub3D\033[0m"
 	@$(MAKE) clean -C $(SUPERLIB_DIR)
 	@rm -f $(NAME)
+	@rm -rf cub3D.dSYM
 
 fclean: clean
 	@rm -f $(NAME) $(OBJECTS)
