@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   textures.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 20:34:15 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/10/05 09:49:51 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/10/05 15:24:09 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,18 +44,26 @@ int	get_color_of_texture(int x, int y, mlx_texture_t *image)
 void	get_texture_x(t_game *game, int index, mlx_texture_t *image)
 {
 	if (game->rays[index].was_hit_vertical == 1)
+	{
 		game->vars.x_texures = fmod(game->rays[index].wall_hit_y, TILE)
 			* (image->width / TILE);
+	}
 	else
-		game->vars.x_texures = fmod(game->rays[index].wall_hit_x, TILE)
-			* (image->width / TILE);
+	{
+		if (game->rays[index].wall_hit_x >= 0
+			&& game->rays[index].wall_hit_x < WINDOW_WIDTH)
+			game->vars.x_texures = fmod(game->rays[index].wall_hit_x, TILE)
+				* (image->width / TILE);
+	}
 }
 
 void	get_texture_y(t_game *game, int index, mlx_texture_t *image)
 {
-	game->vars.y_textures = (1 - (game->rays[index].y_end
-				- game->rays[index].y_start) / game->rays[index].wall_height)
-		* image->height;
+	if (game->rays[index].y_start > 0
+		&& game->rays[index].y_start < WINDOW_HEIGHT)
+		game->vars.y_textures = (1 - (game->rays[index].y_end
+					- game->rays[index].y_start)
+				/ game->rays[index].wall_height) * image->height;
 }
 
 void	detect_texture(t_game *game, int index)
