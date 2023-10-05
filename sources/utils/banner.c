@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 03:30:48 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/10/03 03:40:19 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/10/05 08:56:27 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ void	__banner(void)
 	printf("\x1b[31m");
 	printf("  \\____\\__,_|___/\\__,_| |____/|____/ \n\n");
 	printf("\x1b[90m");
-	printf("Credits: Amine Ait Ouazghour & Youssed Khalil\n\n");
+	printf("Credits: Amine Ait Ouazghour & Youssef Khalil\n\n");
 	printf("\x1b[0m");
 }
