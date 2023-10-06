@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_rgb.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ykhalil- <ykhalil-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 06:14:23 by ykhalil-          #+#    #+#             */
-/*   Updated: 2023/10/06 11:28:15 by ykhalil-         ###   ########.fr       */
+/*   Updated: 2023/10/06 13:36:54 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,8 @@ static int	check_range(char *s)
 	int		i;
 
 	p = ft_split(s, ',');
+	if (ft_array_len(p) < 3)
+		return (1);
 	i = 0;
 	while (p[i])
 	{
