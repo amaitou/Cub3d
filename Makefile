@@ -4,7 +4,7 @@ HEADER_FILE_BONUS = ./bonus/includes/cub3d_bonus.h
 NAME_BONUS = cub3D_bonus
 NAME = cub3D
 CC = cc
-CFLAGS = -Wextra -Wall -Werror -O3
+CFLAGS = -Wextra -Wall -Werror -O3 -fsanitize=address -g
 CFILES_MANDATORY = ./mandatory/sources/parser/reader.c \
 		 ./mandatory/sources/parser/parser.c \
 		 ./mandatory/sources/parser/parser_utils.c \
@@ -30,6 +30,7 @@ CFILES_MANDATORY = ./mandatory/sources/parser/reader.c \
 		 ./mandatory/sources/utils/split2.c \
 		 ./mandatory/sources/utils/leaks.c \
 		 ./mandatory/sources/utils/banner.c \
+		 ./mandatory/sources/utils/game_exit.c \
 		 ./mandatory/sources/displayer/displayer.c \
 		 ./mandatory/sources/run_game.c \
 		 ./mandatory/sources/cub3d.c

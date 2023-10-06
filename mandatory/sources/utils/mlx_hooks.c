@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_hooks.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 18:49:49 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/10/05 07:43:00 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/10/06 15:23:41 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ void	check_keys(void *game)
 	{
 		ft_putendl_fd("\x1b[32m[+] You have exited the game", 1);
 		free(g->rays);
+		mlx_exit(g);
 		exit(0);
 	}
 	normalize_angle(&g->player.rotation_angle);

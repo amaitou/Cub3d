@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 16:12:48 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/10/05 17:24:29 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/10/06 15:23:27 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -296,5 +296,8 @@ void	move_left(t_game *game);
 // mlx hooks
 void	check_keys(void *game);
 void	mouse_hook(double curr_x, void *g);
+
+// mlx exit
+void	mlx_exit(t_game *game);
 
 #endif
