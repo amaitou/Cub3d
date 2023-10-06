@@ -5,3 +5,4 @@ cub3D
 *.swp
 /.vscode
 .DS_Store
+/cub3D_bonus.dSYM
