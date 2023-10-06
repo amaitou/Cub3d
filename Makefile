@@ -108,6 +108,7 @@ clean:
 	@rm -f $(NAME)
 	@rm -rf $(NAME_BONUS)
 	@rm -rf cub3D.dSYM
+	@rm -rf cub3D_bonus.dSYM
 
 fclean: clean
 	@rm -f $(OBJECTS_MANDATORY)
@@ -117,6 +118,10 @@ fclean: clean
 run:
 	@echo "\033[0;35m[!] running the cub3D\033[0m"
 	@make && ./cub3D ./maps/valid_maps/random.cub
+
+run_bonus:
+	@echo "\033[0;35m[!] running the cub3D_bonus\033[0m"
+	@make bonus && ./cub3D_bonus ./maps/valid_maps/random.cub
 
 re: fclean all
 
