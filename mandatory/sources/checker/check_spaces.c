@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_spaces.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ykhalil- <ykhalil-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 21:01:14 by ykhalil-          #+#    #+#             */
-/*   Updated: 2023/10/06 11:28:18 by ykhalil-         ###   ########.fr       */
+/*   Updated: 2023/10/06 13:29:22 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 static int	shared_space(char **map, int y, int x)
 {
-	if (ft_strchr("N0", map[y][x]) && map[y][x - 1]
+	if (ft_strchr("NEWS0", map[y][x]) && map[y][x - 1]
 		&& ft_strchr(" \t", map[y][x - 1]))
 		return (1);
-	if (ft_strchr("N0", map[y][x]) && map[y][x + 1]
+	if (ft_strchr("NEWS0", map[y][x]) && map[y][x + 1]
 		&& ft_strchr(" \t", map[y][x + 1]))
 		return (1);
-	if (ft_strchr("N0", map[y][x]) && map[y - 1][x]
+	if (ft_strchr("NEWS0", map[y][x]) && map[y - 1][x]
 		&& ft_strchr(" \t", map[y - 1][x]))
 		return (1);
-	if (ft_strchr("N0", map[y][x]) && map[y + 1][x]
+	if (ft_strchr("NEWS0", map[y][x]) && map[y + 1][x]
 		&& ft_strchr(" \t", map[y + 1][x]))
 		return (1);
 	return (0);
@@ -42,7 +42,7 @@ int	check_spaces(t_game *game)
 		x = 0;
 		while (map[y][x])
 		{
-			if (ft_strchr("N0", map[y][x]) && shared_space(map, y, x))
+			if (ft_strchr("NEWS0", map[y][x]) && shared_space(map, y, x))
 				return (1);
 			++x;
 		}
