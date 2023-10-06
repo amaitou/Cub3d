@@ -62,6 +62,7 @@ CFILES_BONUS = ./bonus/sources/parser/reader_bonus.c \
 		./bonus/sources/utils/split2_bonus.c \
 		./bonus/sources/utils/leaks_bonus.c \
 		./bonus/sources/utils/banner_bonus.c \
+		./bonus/sources/utils/game_exit_bonus.c \
 		./bonus/sources/displayer/displayer_bonus.c \
 		./bonus/sources/run_game_bonus.c \
 		./bonus/sources/cub3d_bonus.c

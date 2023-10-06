@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 03:30:48 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/10/05 18:11:48 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/10/06 16:01:21 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 void	__banner(void)
 {
-	printf("\x1b[31m");
-	printf("   ____                  _____ ____  \n");
-	printf("\x1b[32m");
-	printf("  / ___|__ _ ___  __ _  |___ /|  _ \\ \n");
-	printf(" | |   / _` / __|/ _` |   |_ \\| | | |\n");
-	printf(" | |__| (_| \\__ \\ (_| |  ___) | |_| |\n");
-	printf("\x1b[0m");
-	printf("\x1b[31m");
-	printf("  \\____\\__,_|___/\\__,_| |____/|____/ \n\n");
-	printf("\x1b[90m");
-	printf("Credits: Amine Ait Ouazghour & Youssef Khalil\n\n");
-	printf("\x1b[0m");
+	ft_printf("\x1b[31m");
+	ft_printf("   ____                  _____ ____  \n");
+	ft_printf("\x1b[32m");
+	ft_printf("  / ___|__ _ ___  __ _  |___ /|  _ \\ \n");
+	ft_printf(" | |   / _` / __|/ _` |   |_ \\| | | |\n");
+	ft_printf(" | |__| (_| \\__ \\ (_| |  ___) | |_| |\n");
+	ft_printf("\x1b[0m");
+	ft_printf("\x1b[31m");
+	ft_printf("  \\____\\__,_|___/\\__,_| |____/|____/ \n\n");
+	ft_printf("\x1b[90m");
+	ft_printf("Credits: Amine Ait Ouazghour & Youssef Khalil\n\n");
+	ft_printf("\x1b[0m");
 }

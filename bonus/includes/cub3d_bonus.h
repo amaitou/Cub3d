@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 16:12:48 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/10/06 15:32:42 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/10/06 16:17:46 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,6 @@
 # include "../../mlx/include/MLX42/MLX42.h"
 # include <math.h>
 # include <fcntl.h>
-# include <stdbool.h>
-# include <stdio.h>
-# include <errno.h>
 
 # define WINDOW_HEIGHT 800
 # define WINDOW_WIDTH 1500
