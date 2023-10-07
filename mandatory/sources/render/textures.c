@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   textures.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ykhalil- <ykhalil-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 20:34:15 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/10/06 11:30:02 by ykhalil-         ###   ########.fr       */
+/*   Updated: 2023/10/07 16:32:15 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,12 @@ int	load_textures(t_game *game)
 int	get_color_of_texture(int x, int y, mlx_texture_t *image)
 {
 	int	index;
+	int	max;
 
+	max = image->height * image->width * image->bytes_per_pixel;
 	index = ((y * image->width) + x) * image->bytes_per_pixel;
+	if (index >= max)
+		return (0);
 	return (get_rgba(
 			image->pixels[index + 0],
 			image->pixels[index + 1],
