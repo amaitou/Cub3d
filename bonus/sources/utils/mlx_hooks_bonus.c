@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_hooks_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 18:49:49 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/10/06 15:32:10 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/10/07 21:57:04 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,9 @@ void	mouse_hook(double curr_x, void *g)
 	if (i++ == 1)
 	{
 		if (old_x > curr_x)
-			game->player.rotation_angle -= 0.04;
+			game->player.rotation_angle -= 0.08;
 		if (old_x < curr_x)
-			game->player.rotation_angle += 0.04;
+			game->player.rotation_angle += 0.08;
 		i = 0;
 		old_x = curr_x;
 	}
