@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 06:14:23 by ykhalil-          #+#    #+#             */
-/*   Updated: 2023/10/06 13:36:54 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/10/07 21:44:12 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,12 +62,15 @@ static int	check_range(char *s)
 
 	p = ft_split(s, ',');
 	if (ft_array_len(p) < 3)
+	{
+		free_array(p);
 		return (1);
+	}
 	i = 0;
 	while (p[i])
 	{
 		if (check_weird_chars(p[i]))
-			return (2);
+			return (free_array(p), 2);
 		n = ft_atoi(p[i]);
 		if (n < 0 || n > 255)
 		{
