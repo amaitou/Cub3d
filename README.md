@@ -38,3 +38,53 @@ Here's a basic overview of how *raycasting* works:
 Raycasting is computationally efficient for certain applications, particularly for 2D rendering and basic collision detection, because it only traces rays in specific directions rather than simulating the entire path of light as in ray tracing. However, it has limitations and may not provide the same level of visual realism as more advanced rendering techniques like ray tracing.
 
 ---
+
+# Installation
+
+Firstly, try to clone the game using the git command:
+
+```sh
+git clone https://github.com/amaitou/Cub3d
+```
+---
+Then `cd` to the folder `Cub3D` and cmake the mlx library (it comes included with the repository)
+
+```sh
+cd Cub3d
+cd mlx
+cmake -B build
+cmake --build build -j4
+cd ../
+```
+---
+Once you have all of these requirements done, start making the game by using each of these two commands according to what you want (mandatory bonus part)
+
+```sh
+# Making mandatory part
+make
+# Making bonus part
+make bonus
+```
+---
+After making the game just type
+
+```sh
+# ./cub3D map_path (you will find them in ./maps/valid_maps/)
+# - ./cub3d -> for mandatory part
+# - ./cub3d_bonus for bonus part
+./cub3D ./maps/valid_maps/chaotic.cub
+# or just type :
+make run # it will run a default map for mandatory part
+make run_bonus # it will run a default map for the bonus part
+```
+---
+> Enjoy playing and discovering raycasting
+---
+
+- # **Contact Me**
+
+* [Twitter][_1]
+* [Instagram][_2]
+
+[_1]: https://twitter.com/amait0u
+[_2]: https://www.instagram.com/amait0u
