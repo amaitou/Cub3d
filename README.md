@@ -2,7 +2,7 @@
 ![aJ489](https://github.com/amaitou/Cub3d/assets/49293816/6056a29c-b59d-469a-9867-2ddaa57ab407)
 
 ---
-# Cub3d
+# Cub3D
 "cub3D" is a popular project that involves creating a simple 3D game engine using the C programming language. This project is often used to teach students various aspects of computer graphics and *raycasting*.
 
 The project consists of two parts, the first one is the `Mandatory Part` where you will build only a 3D game with no further features, whereas the bonus part includes the mandatory part plus a minimap system and the behavior of changing the rotation angle based on the mouse movements additionally to the wall coalition.
