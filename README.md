@@ -1,5 +1,5 @@
 ---
-![sPP2N](https://github.com/amaitou/Cub3d/assets/49293816/04119940-8172-4bd0-b0af-117769653c94)
+![aJ489](https://github.com/amaitou/Cub3d/assets/49293816/6056a29c-b59d-469a-9867-2ddaa57ab407)
 
 ---
 # Cub3d
@@ -18,7 +18,7 @@ The project consists of two parts, the first one is the `Mandatory Part` where y
 	This project must be done by two students so, I would welcome this article by thanking my peer [Youssef Khalil](https://github.com/Referee95) since he was my collaborator throughout this project
 ---
 
-# What is Raycasting ?
+# What is Raycasting?
 
 `Raycasting` is a computer graphics technique used to render two-dimensional or three-dimensional scenes by simulating the path of rays as they interact with objects in a virtual environment. It is commonly used in video games and computer graphics for tasks such as rendering 3D graphics, detecting collisions between objects, and implementing vision or line-of-sight calculations for characters and cameras.
 
