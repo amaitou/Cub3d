@@ -18,7 +18,6 @@ The project consists of two parts, the first one is the `Mandatory Part` where y
 	</h3>
 </p>
 
----
 - ### Project Features
 	- `Mini Map System`
 	- `Wall Coalition`
