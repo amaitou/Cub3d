@@ -16,6 +16,14 @@ The project consists of two parts, the first one is the `Mandatory Part` where y
 	---
 - ### Collaborators
 	This project must be done by two students so, I would welcome this article by thanking my peer [Youssef Khalil](https://github.com/Referee95) since he was my collaborator throughout this project
+<p align="center">
+	<img src="https://github.com/amaitou/1337/blob/master/Cursus/Images/Cub3d_Team.png" height=75>
+	<h3 align="center">
+	<a href="https://www.linkedin.com/in/amaitou/">amait-ou</a>
+	<span> · </span>
+	<a href="https://www.linkedin.com/in/youssef-khalil-21b747269/">ykhalil-</a>
+	</h3>
+</p>
 ---
 
 # What is Raycasting?
