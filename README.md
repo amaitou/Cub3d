@@ -8,6 +8,7 @@
 The project consists of two parts, the first one is the `Mandatory Part` where you will build only a 3D game with no further features, whereas the bonus part includes the mandatory part plus a minimap system and the behavior of changing the rotation angle based on the mouse movements additionally to the wall coalition.
 
 ---
+
 <p align="center">
 	<img src="https://github.com/amaitou/1337/blob/master/Cursus/Images/Cub3d_Team.png" height=80>
 	<h3 align="center">
@@ -16,6 +17,7 @@ The project consists of two parts, the first one is the `Mandatory Part` where y
 	<a href="https://www.linkedin.com/in/youssef-khalil-21b747269/">ykhalil-</a>
 	</h3>
 </p>
+
 ---
 - ### Project Features
 	- `Mini Map System`
