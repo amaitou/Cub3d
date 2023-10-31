@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   run_game_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 11:51:42 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/10/06 13:10:48 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/10/31 23:47:29 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void	mlx(t_game *game)
 	mlx_image_to_window(game->mlx.mlx, game->mlx.image, 0, 0);
 	mlx_loop_hook(game->mlx.mlx, check_keys, game);
 	mlx_set_cursor_mode(game->mlx.mlx, MLX_MOUSE_DISABLED);
-	mlx_cursor_hook(game->mlx.mlx, (mlx_cursorfunc) mouse_hook, game);
+	// mlx_cursor_hook(game->mlx.mlx, (mlx_cursorfunc) mouse_hook, game);
 }
 
 static void	set_angle(t_game *game)
