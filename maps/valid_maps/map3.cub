@@ -1,7 +1,7 @@
-NO ./textures/bernoussi.png
-SO ./textures/mdina_9dima.png
-WE ./textures/sbata_04.png
-EA ./textures/inara.png
+NO ./textures/north.png
+SO ./textures/south.png
+WE ./textures/west.png
+EA ./textures/east.png
 
 C 35,19,73
 F 15, 6,40

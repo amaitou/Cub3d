@@ -1,7 +1,7 @@
-NO ./textures/sbata_04_tag1.png
-EA ./textures/sbata_04_tag2.png
-WE ./textures/sbata_04_tag3.png
-SO ./textures/sbata_04_tag4.png
+NO ./textures/north.png
+EA ./textures/east.png
+WE ./textures/west.png
+SO ./textures/south.png
 F 95,158,160
 C 163, 194, 194
 11111111111111111111111111111

@@ -1,9 +1,9 @@
-NO ./textures/bernoussi.png
+NO ./textures/north.png
 F 75,186,0
-SO ./textures/mdina_9dima.png
+SO ./textures/south.png
 
-WE ./textures/sbata_04.png
-EA ./textures/inara.png
+WE ./textures/west.png
+EA ./textures/east.png
 C 77,159,240
 
 111111111111111111111111111111

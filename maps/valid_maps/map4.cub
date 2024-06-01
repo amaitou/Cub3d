@@ -10,18 +10,18 @@ F 164,+169,201
 
 C	153,204,255
 
-NO ./textures/bernoussi.png
+NO ./textures/north.png
 
 
 
-SO ./textures/mdina_9dima.png
+SO ./textures/south.png
 
 
 
-WE ./textures/sbata_04.png
+WE ./textures/west.png
 
 
-EA ./textures/inara.png
+EA ./textures/east.png
 
 1111111111111111111111111111
 1000000000111111000000000001
