@@ -82,7 +82,7 @@ make run_bonus # it will run a default map for the bonus part
 > Enjoy playing and discovering raycasting
 ---
 
-- # **Contact Me**
+# **Contact Me**
 
 * [Twitter][_1]
 
